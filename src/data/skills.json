@@ -1,0 +1,10 @@
+[
+  { "name": "Python", "category": "Language", "level": 90, "logo": "/svg/python.svg" },
+  { "name": "TensorFlow", "category": "Framework", "level": 75, "logo": "/svg/tensorflow.svg" },
+  { "name": "PyTorch", "category": "Framework", "level": 70, "logo": "/svg/pytorch.svg" },
+  { "name": "Scikit‑Learn", "category": "Library", "level": 85, "logo": "/svg/scikit-learn.svg" },
+  { "name": "MySQL", "category": "Database", "level": 85, "logo": "/svg/mysql.svg" },
+  { "name": "MLFlow", "category": "Library", "level": 95, "logo": "/svg/mlflow.svg" },
+  { "name": "Langchain", "category": "Language Large Model", "level": 100, "logo": "/svg/langchain.svg" },
+  { "name": "Streamlit", "category": "Deployment", "level": 100, "logo": "/svg/streamlit.svg" }
+]

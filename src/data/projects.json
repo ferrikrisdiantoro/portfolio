@@ -1,0 +1,35 @@
+[
+  {
+    "title": "SIRESITA | Destination Recommendation System for North Sumatra",
+    "description": "Capstone project focusing on building a tourism recommendation system for North Sumatra using two core machine learning techniques: Content-Based Filtering (CBF) and Collaborative Filtering (CF). The models were developed from scratch using TensorFlow and Scikit-learn, without relying on pretrained APIs or external services.",
+    "tech": ["Python", "TensorFlow", "Scikit-learn", "Pandas", "NumPy", "Keras", "TF-IDF", "Cosine Similarity", "Matplotlib", "Seaborn"],
+    "type": "Recommender System",
+    "category": "recommender-system",
+    "link": "/projects/siresita-recommender",
+    "thumbnail": "/thumbnails/siresita-home.png",
+    "demoLink": "https://siresita.sean-andrianto.my.id/",
+    "githubLink": "https://github.com/Capstone-Project-CodingCamp2025/machine-learning.git"
+  },
+  {
+    "title": "SIPENDEKAR | AI-Based Road Damage Detection & Prediction",
+    "description": "An award-nominated AI system for detecting and predicting road damage using Multitask Learning with a custom Swin Transformer model. The model outputs multiple predictions including damage type, size, repair time, and material needs from a single image input. I led the machine learning pipeline, including data enrichment, model development, and deployment via Flask API.",
+    "tech": ["Python", "Swin Transformer", "Flask", "Multitask Learning", "Computer Vision", "Transfer Learning"],
+    "type": "Computer Vision",
+    "category": "computer-vision",
+    "link": "/projects/si-pendekar-road-ai",
+    "thumbnail": "/thumbnails/sipendekar-home.png",
+    "demoLink": "https://medical-ai-demo.vercel.app",
+    "githubLink": "https://github.com/Sipendekar/flask-api.git"
+  },
+  {
+    "title": "Fruit & Vegetable Classifier + Nutrition Info WebApp",
+    "description": "An image classification web app built as a final project for a Machine Learning course. It uses an ensemble of ResNet and Swin Transformer models to classify 32 classes of fruits and vegetables, providing nutritional facts such as calories, fiber, and vitamins. The ensemble uses SVM as a meta-learner to improve prediction accuracy.",
+    "tech": ["Python", "PyTorch", "Swin Transformer", "ResNet", "SVM", "Flask", "React", "MySQL"],
+    "type": "Computer Vision",
+    "category": "computer-vision",
+    "link": "/projects/fruit-vegetable-classifier",
+    "thumbnail": "/thumbnails/fruitsvegtables-home.png",
+    "demoLink": "https://ferrikrisdiantoro.pythonanywhere.com",
+    "githubLink": "https://github.com/ferrikrisdiantoro/ml-project-image-classification-fruits-vegetables.git"
+  }
+]
