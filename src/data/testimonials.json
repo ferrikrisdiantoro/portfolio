@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "kcivdhpd",
+        "role": "Verified Client",
+        "content": "The service was incredibly good and responsive. The response time was very fast, friendly, and truly helpful. Ferri is very skillful and his service is definitely worth it for various complex projects.",
+        "rating": 5,
+        "platform": "Fastwork"
+    },
+    {
+        "id": 2,
+        "name": "Business Client",
+        "role": "Verified Client",
+        "content": "Overall excellent experience. Ferri was fast to execute ('gercep') and provided valuable technical advice for our project needs. Great work, we will definitely order again in the future.",
+        "rating": 5,
+        "platform": "Fastwork"
+    },
+    {
+        "id": 3,
+        "name": "Tech Client",
+        "role": "Verified Client",
+        "content": "Excellent quality and very open to feedback. He was willing to make revisions until the result was perfect. Highly satisfying experience.",
+        "rating": 5,
+        "platform": "Fastwork"
+    },
+    {
+        "id": 4,
+        "name": "SME Owner",
+        "role": "Verified Client",
+        "content": "The work was done exceptionally well and very responsive. Highly recommended for anyone looking for fast and accurate results.",
+        "rating": 5,
+        "platform": "Fastwork"
+    },
+    {
+        "id": 5,
+        "name": "l997ru1l",
+        "role": "Verified Client",
+        "content": "Delivered exactly as requested and the execution was very fast. Very good fast response and excellent workmanship.",
+        "rating": 5,
+        "platform": "Fastwork"
+    },
+    {
+        "id": 6,
+        "name": "tdfhshfm",
+        "role": "Verified Client",
+        "content": "Simply the best service. Very friendly and helpful throughout the process.",
+        "rating": 5,
+        "platform": "Fastwork"
+    }
+]

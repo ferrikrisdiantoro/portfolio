@@ -2,12 +2,8 @@
 
 import { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import Layout from '@/components/Layout'
 import { 
-  Code, 
-  Brain, 
-  Target, 
   Award, 
   BookOpen, 
   Users, 
@@ -16,7 +12,6 @@ import {
   Mail,
   Github,
   Linkedin,
-  Calendar,
   MapPin
 } from 'lucide-react'
 
@@ -221,7 +216,7 @@ export default function About() {
                 </div>
 
                 <h1 className="text-4xl lg:text-5xl font-bold text-[#222831]">
-                  Hello, I'm <span className="gradient-text">Ferri Krisdiantoro</span>
+                  Hello, I&apos;m <span className="gradient-text">Ferri Krisdiantoro</span>
                 </h1>
                 
                 <p className="text-xl text-[#393E46] leading-relaxed">

@@ -2,7 +2,18 @@
   {
     "title": "SIRESITA | Destination Recommendation System for North Sumatra",
     "description": "Capstone project focusing on building a tourism recommendation system for North Sumatra using two core machine learning techniques: Content-Based Filtering (CBF) and Collaborative Filtering (CF). The models were developed from scratch using TensorFlow and Scikit-learn, without relying on pretrained APIs or external services.",
-    "tech": ["Python", "TensorFlow", "Scikit-learn", "Pandas", "NumPy", "Keras", "TF-IDF", "Cosine Similarity", "Matplotlib", "Seaborn"],
+    "tech": [
+      "Python",
+      "TensorFlow",
+      "Scikit-learn",
+      "Pandas",
+      "NumPy",
+      "Keras",
+      "TF-IDF",
+      "Cosine Similarity",
+      "Matplotlib",
+      "Seaborn"
+    ],
     "type": "Recommender System",
     "category": "recommender-system",
     "link": "/projects/siresita-recommender",
@@ -12,24 +23,303 @@
   },
   {
     "title": "SIPENDEKAR | AI-Based Road Damage Detection & Prediction",
-    "description": "An award-nominated AI system for detecting and predicting road damage using Multitask Learning with a custom Swin Transformer model. The model outputs multiple predictions including damage type, size, repair time, and material needs from a single image input. I led the machine learning pipeline, including data enrichment, model development, and deployment via Flask API.",
-    "tech": ["Python", "Swin Transformer", "Flask", "Multitask Learning", "Computer Vision", "Transfer Learning"],
+    "description": "An award-nominated AI system for detecting and predicting road damage using multitask learning with a custom Swin Transformer model. The model outputs multiple predictions including damage type, size, repair time, and material needs from a single image input. I led the machine learning pipeline, including data enrichment, model development, and deployment via Flask API.",
+    "tech": [
+      "Python",
+      "Swin Transformer",
+      "Flask",
+      "Multitask Learning",
+      "Computer Vision",
+      "Transfer Learning"
+    ],
     "type": "Computer Vision",
     "category": "computer-vision",
     "link": "/projects/si-pendekar-road-ai",
     "thumbnail": "/thumbnails/sipendekar-home.png",
-    "demoLink": "https://medical-ai-demo.vercel.app",
+    "demoLink": "https://ferrikrisdiantoro.com",
     "githubLink": "https://github.com/Sipendekar/flask-api.git"
   },
   {
     "title": "Fruit & Vegetable Classifier + Nutrition Info WebApp",
-    "description": "An image classification web app built as a final project for a Machine Learning course. It uses an ensemble of ResNet and Swin Transformer models to classify 32 classes of fruits and vegetables, providing nutritional facts such as calories, fiber, and vitamins. The ensemble uses SVM as a meta-learner to improve prediction accuracy.",
-    "tech": ["Python", "PyTorch", "Swin Transformer", "ResNet", "SVM", "Flask", "React", "MySQL"],
+    "description": "An image classification web app built as a final project for a machine learning course. It uses an ensemble of ResNet and Swin Transformer models to classify 32 classes of fruits and vegetables, providing nutritional facts such as calories, fiber, and vitamins. The ensemble uses SVM as a meta-learner to improve prediction accuracy.",
+    "tech": [
+      "Python",
+      "PyTorch",
+      "Swin Transformer",
+      "ResNet",
+      "SVM",
+      "Flask",
+      "React",
+      "MySQL"
+    ],
     "type": "Computer Vision",
     "category": "computer-vision",
     "link": "/projects/fruit-vegetable-classifier",
     "thumbnail": "/thumbnails/fruitsvegtables-home.png",
     "demoLink": "https://ferrikrisdiantoro.pythonanywhere.com",
     "githubLink": "https://github.com/ferrikrisdiantoro/ml-project-image-classification-fruits-vegetables.git"
+  },
+  {
+    "title": "Manggrow.id | AI Plant Assistant & Monitoring",
+    "description": "A comprehensive plant monitoring web application integrated with an intelligent AI assistant. The AI uses a RAG system to answer specific gardening questions based on a curated knowledge base. The backend leverages n8n for orchestration, connecting Google Drive, LlamaIndex, Gemini API, and Pinecone vector database.",
+    "tech": [
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "n8n",
+      "Gemini API",
+      "Pinecone",
+      "LlamaIndex"
+    ],
+    "type": "AI Agent & RAG",
+    "category": "ai-automation",
+    "link": "/projects/manggrow-id",
+    "thumbnail": "/thumbnails/manggrow.png",
+    "demoLink": "https://manggrow.id",
+    "githubLink": "https://github.com/yourusername/manggrow-backend"
+  },
+  {
+    "title": "Enterprise Asset Classification | Power Platform + AI",
+    "description": "An end-to-end asset management solution for corporate environments. It combines Microsoft Power Apps for the user interface and Power Automate for approval workflows. The core intelligence is powered by n8n and LLMs to automatically classify asset categories based on descriptions, storing data securely in SharePoint.",
+    "tech": [
+      "Power Apps",
+      "Power Automate",
+      "SharePoint",
+      "n8n",
+      "LLM",
+      "Microsoft 365"
+    ],
+    "type": "Business Automation",
+    "category": "automation",
+    "link": "/projects/asset-classification-powerapps",
+    "thumbnail": "/thumbnails/powerapps.png",
+    "demoLink": "#",
+    "githubLink": "#"
+  },
+  {
+    "title": "Real-Time Vehicle Speed Estimation",
+    "description": "A computer vision system designed to detect, track, and estimate the speed of moving vehicles (cars, motorcycles, and trucks) from video feeds. Built on PyTorch, it utilizes YOLOv8 for detection, DeepSORT for object tracking, and pixel displacement logic for speed calculation.",
+    "tech": [
+      "Python",
+      "PyTorch",
+      "YOLOv8",
+      "DeepSORT",
+      "OpenCV",
+      "NumPy"
+    ],
+    "type": "Computer Vision",
+    "category": "computer-vision",
+    "link": "/projects/vehicle-speed-estimation",
+    "thumbnail": "/thumbnails/speed.png",
+    "demoLink": "#",
+    "githubLink": "https://github.com/yourusername/vehicle-speed-estimation"
+  },
+  {
+    "title": "Finance AI Agent | RAG for Enterprise Data",
+    "description": "An advanced financial analysis tool capable of answering queries about internal company finance documents and global market insights. It implements a RAG system using LangChain and Pinecone, powered by the Groq LLaMA API for ultra-fast inference.",
+    "tech": [
+      "Next.js",
+      "LangChain",
+      "Pinecone",
+      "Groq API",
+      "LlamaIndex",
+      "Python"
+    ],
+    "type": "GenAI & LLM",
+    "category": "generative-ai",
+    "link": "/projects/finance-ai-agent",
+    "thumbnail": "/thumbnails/finance.png",
+    "demoLink": "#",
+    "githubLink": "https://github.com/yourusername/finance-rag-agent"
+  },
+  {
+    "title": "Derma-DFU | Diabetic Wound Analysis System",
+    "description": "A medical AI application for analyzing diabetic foot ulcers. It combines image classification to grade infection levels and image segmentation to measure the wound area diameter automatically. The model runs efficiently on the web using ONNX Runtime.",
+    "tech": [
+      "TensorFlow",
+      "ONNX Runtime",
+      "Supabase",
+      "React",
+      "Computer Vision"
+    ],
+    "type": "Healthcare AI",
+    "category": "computer-vision",
+    "link": "/projects/derma-dfu",
+    "thumbnail": "/thumbnails/derma.png",
+    "demoLink": "https://derma-dfu.id",
+    "githubLink": "https://github.com/yourusername/derma-dfu"
+  },
+  {
+    "title": "Water Scale Monitoring System",
+    "description": "An IoT and AI solution for monitoring water levels in rivers or dams using staff gauge readings. It employs a fine-tuned YOLO model to detect water surface levels relative to the scale, served via a high-performance FastAPI backend.",
+    "tech": [
+      "YOLO",
+      "FastAPI",
+      "Next.js",
+      "Python",
+      "Object Detection"
+    ],
+    "type": "Computer Vision",
+    "category": "computer-vision",
+    "link": "/projects/water-scale-monitor",
+    "thumbnail": "/thumbnails/water.png",
+    "demoLink": "#",
+    "githubLink": "https://github.com/yourusername/water-level-detection"
+  },
+  {
+    "title": "Product Demand Forecasting",
+    "description": "A predictive analytics project using time series forecasting to predict future product sales. The model utilizes LSTM (Long Short-Term Memory) networks built with TensorFlow to analyze historical data and forecast trends.",
+    "tech": [
+      "Python",
+      "TensorFlow",
+      "LSTM",
+      "Pandas",
+      "Matplotlib",
+      "Time Series"
+    ],
+    "type": "Predictive Analytics",
+    "category": "time-series",
+    "link": "/projects/demand-forecasting",
+    "thumbnail": "/thumbnails/demand.png",
+    "demoLink": "#",
+    "githubLink": "https://github.com/yourusername/sales-forecasting-lstm"
+  },
+  {
+    "title": "End-to-End MLOps Workflow",
+    "description": "A demonstration of a complete Machine Learning Operations (MLOps) pipeline. It integrates MLflow for experiment tracking, DagsHub for collaboration, Docker for containerization, and Grafana/Prometheus for system monitoring.",
+    "tech": [
+      "MLflow",
+      "Docker",
+      "Grafana",
+      "Prometheus",
+      "DagsHub",
+      "CI/CD"
+    ],
+    "type": "MLOps",
+    "category": "mlops",
+    "link": "/projects/mlops-workflow",
+    "thumbnail": "/thumbnails/mlflow.png",
+    "demoLink": "#",
+    "githubLink": "https://github.com/yourusername/mlops-pipeline"
+  },
+  {
+    "title": "Student Attendance System | Face Recognition",
+    "description": "A web-based attendance system that uses face recognition for automatic check-in. The model is built with YOLOv11 for face detection and InsightFace for face embeddings. The frontend uses ReactJS + TailwindCSS, while the backend is powered by Flask and MySQL.",
+    "tech": [
+      "YOLOv11",
+      "InsightFace",
+      "ReactJS",
+      "TailwindCSS",
+      "Flask",
+      "MySQL"
+    ],
+    "type": "Computer Vision",
+    "category": "computer-vision",
+    "link": "/projects/face-recognition-attendance",
+    "thumbnail": "/thumbnails/face.png",
+    "demoLink": "#",
+    "githubLink": "#"
+  },
+  {
+    "title": "Static QnA Chatbot",
+    "description": "An NLP-based chatbot that answers user questions from a predefined QnA document. It uses text preprocessing, TF-IDF, and cosine similarity to retrieve the most relevant answers. The frontend is built with ReactJS + TailwindCSS and the backend uses NodeJS.",
+    "tech": [
+      "TensorFlow",
+      "ReactJS",
+      "TailwindCSS",
+      "NodeJS",
+      "Cosine Similarity",
+      "NLP"
+    ],
+    "type": "NLP",
+    "category": "nlp",
+    "link": "/projects/qna-chatbot-static",
+    "thumbnail": "/thumbnails/qna.png",
+    "demoLink": "#",
+    "githubLink": "#"
+  },
+  {
+    "title": "Chat With Your Documents | RAG System",
+    "description": "A Retrieval-Augmented Generation (RAG) application that allows users to upload documents and chat with their content. It uses LangChain, Pinecone, and Groq LLaMA API for semantic retrieval, with a Streamlit UI and FastAPI backend.",
+    "tech": [
+      "LangChain",
+      "Pinecone",
+      "Groq API",
+      "LLaMA",
+      "FastAPI",
+      "Streamlit"
+    ],
+    "type": "RAG System",
+    "category": "generative-ai",
+    "link": "/projects/chat-with-documents",
+    "thumbnail": "/thumbnails/cwyd.png",
+    "demoLink": "#",
+    "githubLink": "#"
+  },
+  {
+    "title": "Virtual Try On | Nail Polish Segmentation",
+    "description": "A virtual try-on web app for nail polish that uses image segmentation to detect nail regions and apply color effects in real time. The model is built with TensorFlow and Keras, and the UI is implemented with Streamlit.",
+    "tech": [
+      "TensorFlow",
+      "Keras",
+      "Image Segmentation",
+      "Streamlit"
+    ],
+    "type": "Computer Vision",
+    "category": "computer-vision",
+    "link": "/projects/virtual-tryon-nail",
+    "thumbnail": "/thumbnails/nails.png",
+    "demoLink": "#",
+    "githubLink": "#"
+  },
+  {
+    "title": "Waste Classification | Organic vs Recycle",
+    "description": "An image classification project that classifies waste into Organic or Recycle categories. The model is built using TensorFlow and Keras, while Streamlit is used to display predictions and probability charts.",
+    "tech": [
+      "TensorFlow",
+      "Keras",
+      "Streamlit",
+      "Image Classification"
+    ],
+    "type": "Computer Vision",
+    "category": "computer-vision",
+    "link": "/projects/waste-classification",
+    "thumbnail": "/thumbnails/waste.png",
+    "demoLink": "#",
+    "githubLink": "#"
+  },
+  {
+    "title": "Playstore App Comment Sentiment Analysis",
+    "description": "A text classification model for categorizing Playstore app reviews into Positive, Negative, and Neutral sentiments. The project is developed in Google Colab using TensorFlow and an LSTM-based architecture.",
+    "tech": [
+      "TensorFlow",
+      "Keras",
+      "LSTM",
+      "NLP",
+      "Colab"
+    ],
+    "type": "NLP",
+    "category": "nlp",
+    "link": "/projects/playstore-sentiment",
+    "thumbnail": "/thumbnails/sentiment.png",
+    "demoLink": "#",
+    "githubLink": "#"
+  },
+  {
+    "title": "Customer Service AI Chatbot | RAG Automation",
+    "description": "A customer service chatbot built using a RAG system orchestrated in n8n automation workflows. It answers user questions based on a curated internal knowledge base, combining LLMs with deterministic retrieval.",
+    "tech": [
+      "n8n",
+      "RAG System",
+      "NodeJS",
+      "LangChain",
+      "LLM"
+    ],
+    "type": "AI Automation",
+    "category": "ai-automation",
+    "link": "/projects/customer-service-chatbot",
+    "thumbnail": "/thumbnails/chatbot.png",
+    "demoLink": "#",
+    "githubLink": "#"
   }
 ]
