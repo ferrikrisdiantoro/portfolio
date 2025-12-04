@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import ParticleBackground from "@/components/ParticleBackground";
 import projectsData from "@/data/projects.json";
 
@@ -35,31 +36,31 @@ export default function ProjectsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <a href="/" className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
+              <Link href="/" className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
                 Ferri Krisdiantoro
-              </a>
+              </Link>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <a
+                <Link
                   href="/"
                   className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition"
                 >
                   Home
-                </a>
+                </Link>
 
-                <a
+                <Link
                   href="/projects"
                   className="text-white bg-slate-800/50 px-3 py-2 rounded-md text-sm font-medium transition"
                 >
                   Portfolio
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/#contact"
                   className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition"
                 >
                   Hire Me
-                </a>
+                </Link>
               </div>
             </div>
           </div>

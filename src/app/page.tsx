@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ParticleBackground from "@/components/ParticleBackground";
 import projects from "@/data/projects.json";
 import testimonials from "@/data/testimonials.json";
@@ -26,12 +27,12 @@ export default function Home() {
                   Home
                 </a>
 
-                <a
+                <Link
                   href="/projects"
                   className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition"
                 >
                   Portfolio
-                </a>
+                </Link>
                 <a
                   href="#contact"
                   className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition"
@@ -71,12 +72,12 @@ export default function Home() {
             >
               <i className="fa-solid fa-calendar-check"></i> Book Consultation
             </a>
-            <a
+            <Link
               href="/projects"
               className="px-8 py-4 glass-card hover:bg-slate-700/50 text-white rounded-lg font-semibold transition flex items-center justify-center gap-2"
             >
               <i className="fa-solid fa-code-branch"></i> View Case Studies
-            </a>
+            </Link>
           </div>
 
           {/* Tech Stack Icons */}
@@ -338,12 +339,12 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <a
+            <Link
               href="/projects"
               className="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold"
             >
               View All Projects <i className="fa-solid fa-arrow-right ml-2"></i>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

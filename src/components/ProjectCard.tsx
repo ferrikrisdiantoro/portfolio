@@ -11,18 +11,18 @@ interface ProjectCardProps {
   demoLink?: string
 }
 
-export default function ProjectCard({ 
-  title, 
-  description, 
-  link, 
-  image, 
+export default function ProjectCard({
+  title,
+  description,
+  link,
+  image,
   technologies = [],
-  demoLink 
+  demoLink
 }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <div 
+    <div
       className="group relative bg-white rounded-lg border border-gray-100 hover:border-[#30E3CA]/30 transition-all duration-300 overflow-hidden hover:shadow-lg"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -30,10 +30,11 @@ export default function ProjectCard({
       {/* Image section */}
       <div className="relative h-44 bg-[#E4F9F5] overflow-hidden">
         {image ? (
-          <img 
-            src={image} 
+          <Image
+            src={image}
             alt={title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
@@ -42,11 +43,10 @@ export default function ProjectCard({
             </div>
           </div>
         )}
-        
+
         {/* Hover overlay */}
-        <div className={`absolute inset-0 bg-[#40514E]/80 flex items-center justify-center transition-opacity duration-300 ${
-          isHovered ? 'opacity-100' : 'opacity-0'
-        }`}>
+        <div className={`absolute inset-0 bg-[#40514E]/80 flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'
+          }`}>
           <div className="flex space-x-3">
             <a
               href={link}
@@ -80,18 +80,20 @@ export default function ProjectCard({
         </p>
 
         {/* Technologies */}
-        {technologies.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-4">
-            {technologies.map((tech, index) => (
-              <span
-                key={index}
-                className="px-2 py-1 bg-[#E4F9F5] text-[#11999E] text-xs rounded font-medium"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        )}
+        {
+          technologies.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-4">
+              {technologies.map((tech, index) => (
+                <span
+                  key={index}
+                  className="px-2 py-1 bg-[#E4F9F5] text-[#11999E] text-xs rounded font-medium"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          )
+        }
 
         {/* Action buttons */}
         <div className="flex space-x-2">
