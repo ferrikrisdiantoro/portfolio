@@ -295,46 +295,81 @@ export default function Home() {
               return recentProjects.map((project, index) => (
                 <div
                   key={index}
-                  className="group relative rounded-xl overflow-hidden border border-slate-700 glass-card hover:-translate-y-2 transition-all duration-300"
+                  className="group relative rounded-xl overflow-hidden border border-slate-700 glass-card hover:border-blue-500/30 transition-all duration-300 flex flex-col"
                 >
-                  {/* Top: Image Thumbnail */}
+                  {/* Thumbnail */}
                   <div className="aspect-video bg-slate-800 relative overflow-hidden">
-                    {/* Replace with actual project screenshot */}
-                    <Image
-                      src={project.thumbnail || `https://placehold.co/600x400/1e293b/FFF?text=${encodeURIComponent(project.title)}`}
-                      alt={project.title}
-                      fill
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                      <span className="text-white font-semibold">View Case Study</span>
+                    {project.thumbnail ? (
+                      <Image
+                        src={project.thumbnail}
+                        alt={project.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="flex items-center justify-center h-full text-slate-600">
+                        <i className="fa-solid fa-code text-4xl"></i>
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                      {project.demoLink && (
+                        <a
+                          href={project.demoLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition transform hover:scale-110"
+                          title="View Live Demo"
+                        >
+                          <i className="fa-solid fa-external-link-alt"></i>
+                        </a>
+                      )}
+                      {project.githubLink && (
+                        <a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-slate-700 hover:bg-slate-600 text-white p-3 rounded-full transition transform hover:scale-110"
+                          title="View Code"
+                        >
+                          <i className="fa-brands fa-github"></i>
+                        </a>
+                      )}
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      <span className="text-xs font-medium px-2 py-1 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                        {project.category || "Development"}
-                      </span>
-                      {project.tech.slice(0, 2).map((t, i) => (
-                        <span key={i} className="text-xs font-medium px-2 py-1 rounded bg-slate-700 text-slate-300">
-                          {t}
-                        </span>
-                      ))}
+                  <div className="p-6 flex flex-col flex-grow">
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <h3 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-xs text-blue-400 mt-1 uppercase tracking-wide">
+                          {project.type}
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2 line-clamp-1">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+
+                    <p className="text-gray-400 text-sm mb-6 flex-grow">
                       {project.description}
                     </p>
-                    <a
-                      href={project.link}
-                      className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium text-sm transition"
-                    >
-                      View Case Study <i className="fa-solid fa-arrow-right ml-1"></i>
-                    </a>
+
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-2 mt-auto">
+                      {project.tech.slice(0, 4).map((tech, i) => (
+                        <span
+                          key={i}
+                          className="px-2 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.tech.length > 4 && (
+                        <span className="px-2 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">
+                          +{project.tech.length - 4}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               ));
