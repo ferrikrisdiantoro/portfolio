@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import ParticleBackground from "@/components/ParticleBackground";
 import projects from "@/data/projects.json";
 import testimonials from "@/data/testimonials.json";
@@ -235,9 +236,10 @@ export default function Home() {
             <div className="flex justify-center">
               <div className="relative w-64 h-64 md:w-80 md:h-80">
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-2xl rotate-6 opacity-50 blur-lg"></div>
-                <img
+                <Image
                   src="https://placehold.co/400x400/1e293b/FFF?text=Ferri+Krisdiantoro"
                   alt="Ferri Krisdiantoro"
+                  fill
                   className="relative w-full h-full object-cover rounded-2xl shadow-2xl border border-slate-700"
                 />
               </div>
@@ -298,9 +300,10 @@ export default function Home() {
                   {/* Top: Image Thumbnail */}
                   <div className="aspect-video bg-slate-800 relative overflow-hidden">
                     {/* Replace with actual project screenshot */}
-                    <img
+                    <Image
                       src={project.thumbnail || `https://placehold.co/600x400/1e293b/FFF?text=${encodeURIComponent(project.title)}`}
                       alt={project.title}
+                      fill
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">

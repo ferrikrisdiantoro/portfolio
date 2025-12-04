@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Layout from '@/components/Layout'
-import { Mail, Phone, MessageCircle, Send, Clock, CheckCircle, Globe } from 'lucide-react'
+import { Mail, MessageCircle, Send, Clock, CheckCircle, Globe } from 'lucide-react'
 
 export default function ContactPage() {
   const [isVisible, setIsVisible] = useState(false)
@@ -32,12 +32,12 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
+
     try {
       await new Promise(resolve => setTimeout(resolve, 2000))
       setSubmitStatus('success')
       setFormData({ name: '', email: '', subject: '', message: '' })
-    } catch (error) {
+    } catch {
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -156,18 +156,16 @@ export default function ContactPage() {
           <div className="absolute bottom-20 right-20 w-24 h-24 bg-[#393E46] opacity-10 rounded-full blur-lg"></div>
           <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-[#00ADB5] opacity-5 rounded-full"></div>
 
-          <div className={`max-w-5xl mx-auto px-6 text-center transform transition-all duration-1000 ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-          }`}>
-            <div className={`transition-all duration-800 ${
-              isVisible ? 'fade-in-up' : 'opacity-0'
+          <div className={`max-w-5xl mx-auto px-6 text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}>
+            <div className={`transition-all duration-800 ${isVisible ? 'fade-in-up' : 'opacity-0'
+              }`}>
               <h1 className="text-5xl md:text-6xl font-bold mb-6 text-[#222831]">
                 Let's Build
                 <br />
                 <span className="gradient-text">Intelligence Together</span>
               </h1>
-              
+
               <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed text-[#393E46]">
                 Ready to transform your data into actionable insights? Let's discuss how machine learning can solve your business challenges.
               </p>
@@ -181,10 +179,9 @@ export default function ContactPage() {
                   href={method.action}
                   target={method.action.startsWith('http') ? '_blank' : undefined}
                   rel={method.action.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className={`group bg-white rounded-2xl p-8 shadow-md hover:shadow-xl hover-lift border border-gray-100 ${
-                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                  }`}
-                  style={{ 
+                  className={`group bg-white rounded-2xl p-8 shadow-md hover:shadow-xl hover-lift border border-gray-100 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                    }`}
+                  style={{
                     transitionDelay: `${0.2 + index * 0.1}s`,
                     transition: 'all 0.8s ease-out'
                   }}
@@ -209,15 +206,14 @@ export default function ContactPage() {
         <section className="py-20 bg-[#222831]">
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              
+
               {/* Form */}
-              <div className={`transition-all duration-800 ${
-                isVisible ? 'slide-in-left' : 'opacity-0 -translate-x-8'
-              }`}>
+              <div className={`transition-all duration-800 ${isVisible ? 'slide-in-left' : 'opacity-0 -translate-x-8'
+                }`}>
                 <div className="bg-[#EEEEEE] rounded-2xl p-8 shadow-xl">
                   <h2 className="text-3xl font-bold mb-2 text-[#222831]">Start Your ML Project</h2>
                   <p className="text-[#393E46] mb-8">Tell me about your data challenges and goals</p>
-                  
+
                   {submitStatus === 'success' && (
                     <div className="mb-6 p-4 rounded-lg bg-green-50 border border-green-200">
                       <div className="flex items-center">
@@ -247,7 +243,7 @@ export default function ContactPage() {
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-[#00ADB5] focus:ring-2 focus:ring-[#00ADB5]/20 focus:outline-none transition-all duration-200"
                         />
                       </div>
-                      
+
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium mb-2 text-[#222831]">
                           Email Address *
@@ -321,14 +317,13 @@ export default function ContactPage() {
               </div>
 
               {/* Info Side */}
-              <div className={`space-y-8 transition-all duration-800 ${
-                isVisible ? 'slide-in-right' : 'opacity-0 translate-x-8'
-              }`}>
+              <div className={`space-y-8 transition-all duration-800 ${isVisible ? 'slide-in-right' : 'opacity-0 translate-x-8'
+                }`}>
                 <div>
                   <h3 className="text-3xl font-bold text-[#EEEEEE] mb-6">
                     Why Work With Me?
                   </h3>
-                  
+
                   <div className="space-y-6">
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0 w-12 h-12 bg-[#00ADB5]/20 rounded-full flex items-center justify-center">
@@ -339,7 +334,7 @@ export default function ContactPage() {
                         <p className="text-[#EEEEEE]/70">I respond to all inquiries within 24 hours</p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0 w-12 h-12 bg-[#00ADB5]/20 rounded-full flex items-center justify-center">
                         <CheckCircle className="w-6 h-6 text-[#00ADB5]" />
@@ -349,7 +344,7 @@ export default function ContactPage() {
                         <p className="text-[#EEEEEE]/70">4+ ML models deployed in production</p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0 w-12 h-12 bg-[#00ADB5]/20 rounded-full flex items-center justify-center">
                         <Globe className="w-6 h-6 text-[#00ADB5]" />
@@ -386,9 +381,8 @@ export default function ContactPage() {
 
         {/* CTA Section */}
         <section className="py-20 bg-[#EEEEEE]">{
-          <div className={`max-w-4xl mx-auto px-6 text-center transition-all duration-800 ${
-            isVisible ? 'fade-in-up' : 'opacity-0 translate-y-8'
-          }`}>
+          <div className={`max-w-4xl mx-auto px-6 text-center transition-all duration-800 ${isVisible ? 'fade-in-up' : 'opacity-0 translate-y-8'
+            }`}>
             <h2 className="text-4xl font-bold mb-6 text-[#222831]">
               Ready to Transform Your Data?
             </h2>
@@ -411,7 +405,7 @@ export default function ContactPage() {
               </a>
             </div>
           </div>
-          }
+        }
         </section>
       </Layout>
     </>
