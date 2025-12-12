@@ -350,7 +350,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <p className="text-gray-400 text-sm mb-6 flex-grow">
+                    <p className="text-gray-400 text-sm mb-6 flex-grow line-clamp-3">
                       {project.description}
                     </p>
 

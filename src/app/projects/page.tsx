@@ -5,10 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import ParticleBackground from "@/components/ParticleBackground";
 import projectsData from "@/data/projects.json";
+import ProjectModal from "@/components/ProjectModal";
 
 export default function ProjectsPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedProject, setSelectedProject] = useState<any>(null);
 
   const filteredProjects =
     selectedCategory === "All"
@@ -108,7 +110,8 @@ export default function ProjectsPage() {
             {filteredProjects.map((project, index) => (
               <div
                 key={index}
-                className="group relative rounded-xl overflow-hidden border border-slate-700 glass-card hover:border-blue-500/30 transition-all duration-300 flex flex-col"
+                onClick={() => setSelectedProject(project)}
+                className="group relative rounded-xl overflow-hidden border border-slate-700 glass-card hover:border-blue-500/30 transition-all duration-300 flex flex-col cursor-pointer hover:shadow-2xl hover:shadow-blue-900/20 hover:-translate-y-2"
               >
                 {/* Thumbnail */}
                 <div className="aspect-video bg-slate-800 relative overflow-hidden">
@@ -124,29 +127,11 @@ export default function ProjectsPage() {
                       <i className="fa-solid fa-code text-4xl"></i>
                     </div>
                   )}
+                  {/* Overlay Icon */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                    {project.demoLink && (
-                      <a
-                        href={project.demoLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition transform hover:scale-110"
-                        title="View Live Demo"
-                      >
-                        <i className="fa-solid fa-external-link-alt"></i>
-                      </a>
-                    )}
-                    {project.githubLink && (
-                      <a
-                        href={project.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-slate-700 hover:bg-slate-600 text-white p-3 rounded-full transition transform hover:scale-110"
-                        title="View Code"
-                      >
-                        <i className="fa-brands fa-github"></i>
-                      </a>
-                    )}
+                    <span className="text-white font-semibold flex items-center gap-2 bg-blue-600/80 backdrop-blur px-4 py-2 rounded-full">
+                      <i className="fa-solid fa-eye"></i> View Details
+                    </span>
                   </div>
                 </div>
 
@@ -163,7 +148,7 @@ export default function ProjectsPage() {
                     </div>
                   </div>
 
-                  <p className="text-gray-400 text-sm mb-6 flex-grow">
+                  <p className="text-gray-400 text-sm mb-6 flex-grow line-clamp-3">
                     {project.description}
                   </p>
 
@@ -189,6 +174,14 @@ export default function ProjectsPage() {
           </div>
         </div>
       </section>
+
+      {/* Project Modal */}
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
 
       {/* Footer */}
       <footer className="py-8 border-t border-slate-800 text-center text-sm text-gray-500 bg-slate-900/50">

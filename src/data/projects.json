@@ -2,6 +2,7 @@
   {
     "title": "SIRESITA | Destination Recommendation System for North Sumatra",
     "description": "Capstone project focusing on building a tourism recommendation system for North Sumatra using two core machine learning techniques: Content-Based Filtering (CBF) and Collaborative Filtering (CF). The models were developed from scratch using TensorFlow and Scikit-learn, without relying on pretrained APIs or external services.",
+    "longDescription": "SIRESITA is a comprehensive tourism recommendation platform designed to promote tourism in North Sumatra. It solves the problem of 'choice overload' for tourists by providing personalized destination suggestions. \n\nThe system utilizes a hybrid approach: \n1. **Content-Based Filtering**: Recommends places similar to what a user has liked before based on metadata (tags, categories, location). \n2. **Collaborative Filtering**: Suggests places popular among users with similar taste profiles.\n\nThe application is fully responsive and features a map-based exploration mode, detailed destination pages, and user reviews.",
     "tech": [
       "Python",
       "TensorFlow",
@@ -14,10 +15,21 @@
       "Matplotlib",
       "Seaborn"
     ],
+    "features": [
+      "Hybrid Recommendation Engine (CBF + CF)",
+      "Interactive Map of North Sumatra Tourism",
+      "Real-time Itinerary Planner",
+      "User Rating & Review System",
+      "Admin Dashboard for Tourism Data Management"
+    ],
     "type": "Recommender System",
     "category": "recommender-system",
     "link": "/projects/siresita-recommender",
-    "thumbnail": "/thumbnails/siresita-home.png",
+    "thumbnail": "/projects/siresita-recommender/siresita-home.png",
+    "gallery": [
+      "/projects/siresita-recommender/siresita-home.png"
+    ],
+    "youtubeUrl": "dQw4w9WgXcQ",
     "demoLink": "https://siresita.sean-andrianto.my.id/",
     "githubLink": "https://github.com/Capstone-Project-CodingCamp2025/machine-learning.git"
   },
@@ -35,7 +47,7 @@
     "type": "Computer Vision",
     "category": "computer-vision",
     "link": "/projects/si-pendekar-road-ai",
-    "thumbnail": "/thumbnails/sipendekar-home.png",
+    "thumbnail": "/projects/si-pendekar-road-ai/sipendekar-home.png",
     "demoLink": "https://ferrikrisdiantoro.com",
     "githubLink": "https://github.com/Sipendekar/flask-api.git"
   },
@@ -55,7 +67,7 @@
     "type": "Computer Vision",
     "category": "computer-vision",
     "link": "/projects/fruit-vegetable-classifier",
-    "thumbnail": "/thumbnails/fruitsvegtables-home.png",
+    "thumbnail": "/projects/fruit-vegetable-classifier/fruitsvegtables-home.png",
     "demoLink": "https://ferrikrisdiantoro.pythonanywhere.com",
     "githubLink": "https://github.com/ferrikrisdiantoro/ml-project-image-classification-fruits-vegetables.git"
   },
@@ -74,7 +86,7 @@
     "type": "AI Agent & RAG",
     "category": "ai-automation",
     "link": "/projects/manggrow-id",
-    "thumbnail": "/thumbnails/manggrow.png",
+    "thumbnail": "/projects/manggrow-id/manggrow.png",
     "demoLink": "https://manggrow.id",
     "githubLink": "https://github.com/yourusername/manggrow-backend"
   },
@@ -92,7 +104,7 @@
     "type": "Business Automation",
     "category": "automation",
     "link": "/projects/asset-classification-powerapps",
-    "thumbnail": "/thumbnails/powerapps.png",
+    "thumbnail": "/projects/asset-classification-powerapps/powerapps.png",
     "demoLink": "#",
     "githubLink": "#"
   },
@@ -110,7 +122,7 @@
     "type": "Computer Vision",
     "category": "computer-vision",
     "link": "/projects/vehicle-speed-estimation",
-    "thumbnail": "/thumbnails/speed.png",
+    "thumbnail": "/projects/vehicle-speed-estimation/speed.png",
     "demoLink": "#",
     "githubLink": "https://github.com/yourusername/vehicle-speed-estimation"
   },
@@ -128,7 +140,7 @@
     "type": "GenAI & LLM",
     "category": "generative-ai",
     "link": "/projects/finance-ai-agent",
-    "thumbnail": "/thumbnails/finance.png",
+    "thumbnail": "/projects/finance-ai-agent/finance.png",
     "demoLink": "#",
     "githubLink": "https://github.com/yourusername/finance-rag-agent"
   },
@@ -145,7 +157,7 @@
     "type": "Healthcare AI",
     "category": "computer-vision",
     "link": "/projects/derma-dfu",
-    "thumbnail": "/thumbnails/derma.png",
+    "thumbnail": "/projects/derma-dfu/derma.png",
     "demoLink": "https://derma-dfu.id",
     "githubLink": "https://github.com/yourusername/derma-dfu"
   },
@@ -162,7 +174,7 @@
     "type": "Computer Vision",
     "category": "computer-vision",
     "link": "/projects/water-scale-monitor",
-    "thumbnail": "/thumbnails/water.png",
+    "thumbnail": "/projects/water-scale-monitor/water.png",
     "demoLink": "#",
     "githubLink": "https://github.com/yourusername/water-level-detection"
   },
@@ -180,7 +192,7 @@
     "type": "Predictive Analytics",
     "category": "time-series",
     "link": "/projects/demand-forecasting",
-    "thumbnail": "/thumbnails/demand.png",
+    "thumbnail": "/projects/demand-forecasting/demand.png",
     "demoLink": "#",
     "githubLink": "https://github.com/yourusername/sales-forecasting-lstm"
   },
@@ -198,7 +210,7 @@
     "type": "MLOps",
     "category": "mlops",
     "link": "/projects/mlops-workflow",
-    "thumbnail": "/thumbnails/mlflow.png",
+    "thumbnail": "/projects/mlops-workflow/mlflow.png",
     "demoLink": "#",
     "githubLink": "https://github.com/yourusername/mlops-pipeline"
   },
@@ -216,7 +228,7 @@
     "type": "Computer Vision",
     "category": "computer-vision",
     "link": "/projects/face-recognition-attendance",
-    "thumbnail": "/thumbnails/face.png",
+    "thumbnail": "/projects/face-recognition-attendance/face.png",
     "demoLink": "#",
     "githubLink": "#"
   },
@@ -234,7 +246,7 @@
     "type": "NLP",
     "category": "nlp",
     "link": "/projects/qna-chatbot-static",
-    "thumbnail": "/thumbnails/qna.png",
+    "thumbnail": "/projects/qna-chatbot-static/qna.png",
     "demoLink": "#",
     "githubLink": "#"
   },
@@ -252,7 +264,7 @@
     "type": "RAG System",
     "category": "generative-ai",
     "link": "/projects/chat-with-documents",
-    "thumbnail": "/thumbnails/cwyd.png",
+    "thumbnail": "/projects/chat-with-documents/cwyd.png",
     "demoLink": "#",
     "githubLink": "#"
   },
@@ -268,7 +280,7 @@
     "type": "Computer Vision",
     "category": "computer-vision",
     "link": "/projects/virtual-tryon-nail",
-    "thumbnail": "/thumbnails/nails.png",
+    "thumbnail": "/projects/virtual-tryon-nail/nails.png",
     "demoLink": "#",
     "githubLink": "#"
   },
@@ -284,7 +296,7 @@
     "type": "Computer Vision",
     "category": "computer-vision",
     "link": "/projects/waste-classification",
-    "thumbnail": "/thumbnails/waste.png",
+    "thumbnail": "/projects/waste-classification/waste.png",
     "demoLink": "#",
     "githubLink": "#"
   },
@@ -301,7 +313,7 @@
     "type": "NLP",
     "category": "nlp",
     "link": "/projects/playstore-sentiment",
-    "thumbnail": "/thumbnails/sentiment.png",
+    "thumbnail": "/projects/playstore-sentiment/sentiment.png",
     "demoLink": "#",
     "githubLink": "#"
   },
@@ -318,7 +330,7 @@
     "type": "AI Automation",
     "category": "ai-automation",
     "link": "/projects/customer-service-chatbot",
-    "thumbnail": "/thumbnails/chatbot.png",
+    "thumbnail": "/projects/customer-service-chatbot/chatbot.png",
     "demoLink": "#",
     "githubLink": "#"
   }

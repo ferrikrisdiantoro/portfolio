@@ -48,3 +48,12 @@ body {
   overflow: hidden;
   background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
 }
+
+/* Utility for Line Clamp */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Fallback */
+}
