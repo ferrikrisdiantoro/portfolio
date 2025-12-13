@@ -49,7 +49,10 @@
     "link": "/projects/si-pendekar-road-ai",
     "thumbnail": "/projects/si-pendekar-road-ai/sipendekar-home.png",
     "demoLink": "https://ferrikrisdiantoro.com",
-    "githubLink": "https://github.com/Sipendekar/flask-api.git"
+    "githubLink": "https://github.com/Sipendekar/flask-api.git",
+    "gallery": [
+      "/projects/si-pendekar-road-ai/sipendekar-home.png"
+    ]
   },
   {
     "title": "Fruit & Vegetable Classifier + Nutrition Info WebApp",
@@ -69,7 +72,10 @@
     "link": "/projects/fruit-vegetable-classifier",
     "thumbnail": "/projects/fruit-vegetable-classifier/fruitsvegtables-home.png",
     "demoLink": "https://ferrikrisdiantoro.pythonanywhere.com",
-    "githubLink": "https://github.com/ferrikrisdiantoro/ml-project-image-classification-fruits-vegetables.git"
+    "githubLink": "https://github.com/ferrikrisdiantoro/ml-project-image-classification-fruits-vegetables.git",
+    "gallery": [
+      "/projects/fruit-vegetable-classifier/fruitsvegtables-home.png"
+    ]
   },
   {
     "title": "Manggrow.id | AI Plant Assistant & Monitoring",
@@ -86,9 +92,20 @@
     "type": "AI Agent & RAG",
     "category": "ai-automation",
     "link": "/projects/manggrow-id",
-    "thumbnail": "/projects/manggrow-id/manggrow.png",
+    "thumbnail": "/projects/manggrow-id/1.png",
     "demoLink": "https://manggrow.id",
-    "githubLink": "https://github.com/yourusername/manggrow-backend"
+    "githubLink": "https://github.com/yourusername/manggrow-backend",
+    "gallery": [
+      "/projects/manggrow-id/1.png",
+      "/projects/manggrow-id/2.png",
+      "/projects/manggrow-id/3.png",
+      "/projects/manggrow-id/4.png",
+      "/projects/manggrow-id/5.png",
+      "/projects/manggrow-id/6.png",
+      "/projects/manggrow-id/7.png",
+      "/projects/manggrow-id/8.png",
+      "/projects/manggrow-id/9.png"
+    ]
   },
   {
     "title": "Enterprise Asset Classification | Power Platform + AI",
@@ -106,7 +123,10 @@
     "link": "/projects/asset-classification-powerapps",
     "thumbnail": "/projects/asset-classification-powerapps/powerapps.png",
     "demoLink": "#",
-    "githubLink": "#"
+    "githubLink": "#",
+    "gallery": [
+      "/projects/asset-classification-powerapps/powerapps.png"
+    ]
   },
   {
     "title": "Real-Time Vehicle Speed Estimation",
@@ -122,9 +142,14 @@
     "type": "Computer Vision",
     "category": "computer-vision",
     "link": "/projects/vehicle-speed-estimation",
-    "thumbnail": "/projects/vehicle-speed-estimation/speed.png",
+    "thumbnail": "/projects/vehicle-speed-estimation/1.png",
     "demoLink": "#",
-    "githubLink": "https://github.com/yourusername/vehicle-speed-estimation"
+    "githubLink": "https://github.com/yourusername/vehicle-speed-estimation",
+    "gallery": [
+      "/projects/vehicle-speed-estimation/1.png",
+      "/projects/vehicle-speed-estimation/2.png",
+      "/projects/vehicle-speed-estimation/3.png"
+    ]
   },
   {
     "title": "Finance AI Agent | RAG for Enterprise Data",
@@ -140,9 +165,14 @@
     "type": "GenAI & LLM",
     "category": "generative-ai",
     "link": "/projects/finance-ai-agent",
-    "thumbnail": "/projects/finance-ai-agent/finance.png",
+    "thumbnail": "/projects/finance-ai-agent/1.png",
     "demoLink": "#",
-    "githubLink": "https://github.com/yourusername/finance-rag-agent"
+    "githubLink": "https://github.com/yourusername/finance-rag-agent",
+    "gallery": [
+      "/projects/finance-ai-agent/1.png",
+      "/projects/finance-ai-agent/2.png",
+      "/projects/finance-ai-agent/3.png"
+    ]
   },
   {
     "title": "Derma-DFU | Diabetic Wound Analysis System",
@@ -159,7 +189,10 @@
     "link": "/projects/derma-dfu",
     "thumbnail": "/projects/derma-dfu/derma.png",
     "demoLink": "https://derma-dfu.id",
-    "githubLink": "https://github.com/yourusername/derma-dfu"
+    "githubLink": "https://github.com/yourusername/derma-dfu",
+    "gallery": [
+      "/projects/derma-dfu/derma.png"
+    ]
   },
   {
     "title": "Water Scale Monitoring System",
@@ -174,9 +207,14 @@
     "type": "Computer Vision",
     "category": "computer-vision",
     "link": "/projects/water-scale-monitor",
-    "thumbnail": "/projects/water-scale-monitor/water.png",
+    "thumbnail": "/projects/water-scale-monitor/1.png",
     "demoLink": "#",
-    "githubLink": "https://github.com/yourusername/water-level-detection"
+    "githubLink": "https://github.com/yourusername/water-level-detection",
+    "gallery": [
+      "/projects/water-scale-monitor/1.png",
+      "/projects/water-scale-monitor/2.png",
+      "/projects/water-scale-monitor/3.png"
+    ]
   },
   {
     "title": "Product Demand Forecasting",
@@ -194,7 +232,10 @@
     "link": "/projects/demand-forecasting",
     "thumbnail": "/projects/demand-forecasting/demand.png",
     "demoLink": "#",
-    "githubLink": "https://github.com/yourusername/sales-forecasting-lstm"
+    "githubLink": "https://github.com/yourusername/sales-forecasting-lstm",
+    "gallery": [
+      "/projects/demand-forecasting/demand.png"
+    ]
   },
   {
     "title": "End-to-End MLOps Workflow",
@@ -212,7 +253,10 @@
     "link": "/projects/mlops-workflow",
     "thumbnail": "/projects/mlops-workflow/mlflow.png",
     "demoLink": "#",
-    "githubLink": "https://github.com/yourusername/mlops-pipeline"
+    "githubLink": "https://github.com/yourusername/mlops-pipeline",
+    "gallery": [
+      "/projects/mlops-workflow/mlflow.png"
+    ]
   },
   {
     "title": "Student Attendance System | Face Recognition",
@@ -228,9 +272,20 @@
     "type": "Computer Vision",
     "category": "computer-vision",
     "link": "/projects/face-recognition-attendance",
-    "thumbnail": "/projects/face-recognition-attendance/face.png",
+    "thumbnail": "/projects/face-recognition-attendance/1.png",
     "demoLink": "#",
-    "githubLink": "#"
+    "githubLink": "#",
+    "gallery": [
+      "/projects/face-recognition-attendance/1.png",
+      "/projects/face-recognition-attendance/2.png",
+      "/projects/face-recognition-attendance/3.png",
+      "/projects/face-recognition-attendance/4.png",
+      "/projects/face-recognition-attendance/5.png",
+      "/projects/face-recognition-attendance/6.png",
+      "/projects/face-recognition-attendance/7.png",
+      "/projects/face-recognition-attendance/8.png",
+      "/projects/face-recognition-attendance/9.png"
+    ]
   },
   {
     "title": "Static QnA Chatbot",
@@ -248,7 +303,10 @@
     "link": "/projects/qna-chatbot-static",
     "thumbnail": "/projects/qna-chatbot-static/qna.png",
     "demoLink": "#",
-    "githubLink": "#"
+    "githubLink": "#",
+    "gallery": [
+      "/projects/qna-chatbot-static/qna.png"
+    ]
   },
   {
     "title": "Chat With Your Documents | RAG System",
@@ -266,7 +324,10 @@
     "link": "/projects/chat-with-documents",
     "thumbnail": "/projects/chat-with-documents/cwyd.png",
     "demoLink": "#",
-    "githubLink": "#"
+    "githubLink": "#",
+    "gallery": [
+      "/projects/chat-with-documents/cwyd.png"
+    ]
   },
   {
     "title": "Virtual Try On | Nail Polish Segmentation",
@@ -282,7 +343,10 @@
     "link": "/projects/virtual-tryon-nail",
     "thumbnail": "/projects/virtual-tryon-nail/nails.png",
     "demoLink": "#",
-    "githubLink": "#"
+    "githubLink": "#",
+    "gallery": [
+      "/projects/virtual-tryon-nail/nails.png"
+    ]
   },
   {
     "title": "Waste Classification | Organic vs Recycle",
@@ -298,7 +362,10 @@
     "link": "/projects/waste-classification",
     "thumbnail": "/projects/waste-classification/waste.png",
     "demoLink": "#",
-    "githubLink": "#"
+    "githubLink": "#",
+    "gallery": [
+      "/projects/waste-classification/waste.png"
+    ]
   },
   {
     "title": "Playstore App Comment Sentiment Analysis",
@@ -315,7 +382,10 @@
     "link": "/projects/playstore-sentiment",
     "thumbnail": "/projects/playstore-sentiment/sentiment.png",
     "demoLink": "#",
-    "githubLink": "#"
+    "githubLink": "#",
+    "gallery": [
+      "/projects/playstore-sentiment/sentiment.png"
+    ]
   },
   {
     "title": "Customer Service AI Chatbot | RAG Automation",
@@ -332,6 +402,9 @@
     "link": "/projects/customer-service-chatbot",
     "thumbnail": "/projects/customer-service-chatbot/chatbot.png",
     "demoLink": "#",
-    "githubLink": "#"
+    "githubLink": "#",
+    "gallery": [
+      "/projects/customer-service-chatbot/chatbot.png"
+    ]
   }
 ]

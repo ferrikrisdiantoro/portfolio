@@ -67,7 +67,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         >
             {/* Backdrop */}
             <div
-                className="fixed inset-0 bg-black/90 backdrop-blur-sm transition-opacity"
+                className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
                 onClick={onClose}
             ></div>
 
@@ -77,7 +77,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 md:p-6 border-b border-slate-800 bg-[#0f172a] z-10 shrink-0">
                     <div>
-                        <h2 className="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400 truncate pr-4">
+                        <h2 className="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400 pr-4 leading-tight">
                             {project.title}
                         </h2>
                         <p className="text-sm text-slate-400 mt-1">{project.type}</p>
@@ -137,8 +137,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                                         <button
                                             onClick={() => setActiveMedia("video")}
                                             className={`relative w-28 h-20 flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-300 group ${activeMedia === "video"
-                                                    ? "border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105 z-10"
-                                                    : "border-slate-700 opacity-60 hover:opacity-100 hover:border-slate-500"
+                                                ? "border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105 z-10"
+                                                : "border-slate-700 opacity-60 hover:opacity-100 hover:border-slate-500"
                                                 }`}
                                         >
                                             <div className="absolute inset-0 bg-slate-900 flex items-center justify-center">
@@ -164,8 +164,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                                             key={idx}
                                             onClick={() => setActiveMedia(idx)}
                                             className={`relative w-28 h-20 flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-300 ${activeMedia === idx
-                                                    ? "border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)] scale-105 z-10"
-                                                    : "border-slate-700 opacity-60 hover:opacity-100 hover:border-slate-500"
+                                                ? "border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)] scale-105 z-10"
+                                                : "border-slate-700 opacity-60 hover:opacity-100 hover:border-slate-500"
                                                 }`}
                                         >
                                             <Image src={img} alt="thumb" fill className="object-cover" />
