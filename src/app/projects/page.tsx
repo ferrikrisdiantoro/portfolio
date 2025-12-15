@@ -12,11 +12,21 @@ export default function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredProjects =
-    selectedCategory === "All"
-      ? projectsData
-      : projectsData.filter((project) => project.category === selectedCategory);
+  const filteredProjects = projectsData
+    .filter((project) =>
+      selectedCategory === "All" || project.category === selectedCategory
+    )
+    .filter((project) => {
+      if (searchQuery === "") return true;
+      const query = searchQuery.toLowerCase();
+      return (
+        project.title.toLowerCase().includes(query) ||
+        project.description.toLowerCase().includes(query) ||
+        project.tech.some(tech => tech.toLowerCase().includes(query))
+      );
+    });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -130,7 +140,33 @@ export default function ProjectsPage() {
 
       {/* Filter Section */}
       <section className="px-4 mb-12">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto space-y-6">
+
+          {/* Search Bar */}
+          <div className="flex justify-center">
+            <div className="relative w-full max-w-md">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i className="fa-solid fa-search text-slate-400"></i>
+              </div>
+              <input
+                type="text"
+                placeholder="Search by tech, keyword, or project name..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-11 pr-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none transition-all"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-white transition-colors"
+                >
+                  <i className="fa-solid fa-times"></i>
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Category Pills */}
           <div className="flex flex-wrap justify-center gap-4">
             {["All", ...Array.from(new Set(projectsData.map((p) => p.category)))].map((category) => (
               <button
@@ -148,6 +184,16 @@ export default function ProjectsPage() {
               </button>
             ))}
           </div>
+
+          {/* Results Count */}
+          {(searchQuery || selectedCategory !== "All") && (
+            <div className="text-center">
+              <p className="text-sm text-slate-400">
+                Showing <span className="text-white font-semibold">{filteredProjects.length}</span> {filteredProjects.length === 1 ? 'project' : 'projects'}
+                {searchQuery && <span> matching "<span className="text-blue-400">{searchQuery}</span>"</span>}
+              </p>
+            </div>
+          )}
         </div>
       </section>
 

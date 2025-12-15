@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 interface Project {
     title: string;
@@ -91,11 +93,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </div>
 
                 {/* Scrollable Body */}
-                <div className="flex-1 overflow-y-auto overflow-x-hidden custom-scrollbar bg-[#020617]">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 min-h-full">
+                <div className="flex-1 overflow-y-auto lg:overflow-hidden bg-[#020617]">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 lg:h-full">
 
-                        {/* Left Column: Media (Video + Gallery) - Spans 7 cols */}
-                        <div className="lg:col-span-8 bg-black flex flex-col border-r border-slate-800">
+                        {/* Left Column: Media (Video + Gallery) - Sticky on Desktop */}
+                        <div className="lg:col-span-8 bg-black flex flex-col border-b lg:border-b-0 lg:border-r border-slate-800 lg:sticky lg:top-0 lg:h-[calc(90vh-80px)] lg:overflow-hidden">
 
                             {/* Main Media Viewport */}
                             <div className="aspect-video w-full bg-black relative flex items-center justify-center overflow-hidden group">
@@ -175,8 +177,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                             </div>
                         </div>
 
-                        {/* Right Column: Details - Spans 5 cols */}
-                        <div className="lg:col-span-4 p-6 md:p-8 bg-[#0f172a] flex flex-col gap-8 h-full">
+                        {/* Right Column: Details - Scrollable */}
+                        <div className="lg:col-span-4 p-6 md:p-8 bg-[#0f172a] flex flex-col gap-8 lg:overflow-y-auto lg:h-[calc(90vh-80px)] custom-scrollbar">
 
                             {/* Description */}
                             <div className="prose prose-invert max-w-none">
@@ -186,9 +188,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                                     </span>
                                     About Project
                                 </h3>
-                                <p className="text-slate-300 leading-relaxed text-sm whitespace-pre-line">
-                                    {project.longDescription || project.description}
-                                </p>
+                                <div className="text-slate-300 leading-relaxed text-sm prose-sm prose-invert prose-headings:text-white prose-strong:text-white prose-strong:font-bold prose-em:text-blue-300 prose-code:text-emerald-400 prose-code:bg-slate-800 prose-code:px-1 prose-code:rounded prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline max-w-none">
+                                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                        {project.longDescription || project.description}
+                                    </ReactMarkdown>
+                                </div>
                             </div>
 
                             {/* Key Features */}
