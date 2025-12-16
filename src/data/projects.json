@@ -443,6 +443,54 @@
     ]
   },
   {
+    "title": "Customer Segmentation using RFM Analysis | K-Means Clustering for Retail Marketing",
+    "description": "An advanced customer segmentation project utilizing RFM (Recency, Frequency, Monetary) analysis combined with K-Means clustering to identify distinct customer groups for targeted retail marketing strategies. Built entirely with Python, Pandas, and Scikit-learn, this analysis processes over 1M transactions to segment 5,000+ customers into actionable marketing personas.",
+    "longDescription": "This comprehensive data science project demonstrates end-to-end customer segmentation using RFM analysis, a powerful technique in retail analytics for understanding customer behavior and value.\n\n**The system implements a complete analytical pipeline:**\n1. **Data Cleaning & Preprocessing**: Handles 1M+ transaction records, removes anomalies, filters out negative quantities and prices, and validates customer data\n2. **RFM Feature Engineering**: Constructs Recency (days since last purchase), Frequency (total transactions), and Monetary (total spending) metrics for each customer\n3. **Outlier Detection**: Applies IQR (Interquartile Range) method to remove statistical outliers and ensure robust clustering\n4. **Log Transformation**: Normalizes skewed Frequency and Monetary distributions for better clustering performance\n5. **K-Means Clustering**: Uses elbow method and silhouette analysis to determine optimal number of customer segments\n6. **Customer Profiling**: Creates actionable marketing personas based on cluster characteristics\n\n**Key Insights Generated:**\n- Identifies high-value customers (Champions) for VIP treatment and loyalty programs\n- Detects at-risk customers (Need Attention) for retention campaigns\n- Segments new customers for onboarding strategies\n- Finds dormant customers for re-engagement campaigns\n\nThe analysis reduces the customer base from 5,878 to 5,001 customers after outlier removal, with clustering performed on standardized RFM features. All visualizations use Matplotlib and Seaborn for professional data presentation.",
+    "tech": [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "K-Means Clustering",
+      "StandardScaler",
+      "Matplotlib",
+      "Seaborn",
+      "Google Colab",
+      "Yellowbrick"
+    ],
+    "features": [
+      "Comprehensive Data Cleaning (1M+ transactions processed)",
+      "RFM Metric Calculation (Recency, Frequency, Monetary)",
+      "IQR-based Outlier Detection and Removal",
+      "Log Transformation for Feature Engineering",
+      "K-Means Clustering with Elbow Method Optimization",
+      "Silhouette Score Analysis for Cluster Validation",
+      "Multiple Clustering Algorithm Comparison (K-Means, Agglomerative, DBSCAN, GMM)",
+      "Customer Segment Profiling and Interpretation",
+      "Statistical Distribution Visualization",
+      "Standardized Feature Scaling"
+    ],
+    "type": "Data Science",
+    "category": "data-science",
+    "link": "/projects/rfm-customer-segmentation",
+    "thumbnail": "/projects/rfm-customer-segmentation/1.png",
+    "demoLink": "#",
+    "githubLink": "#",
+    "gallery": [
+      "/projects/rfm-customer-segmentation/1.png",
+      "/projects/rfm-customer-segmentation/2.png",
+      "/projects/rfm-customer-segmentation/3.png",
+      "/projects/rfm-customer-segmentation/4.png",
+      "/projects/rfm-customer-segmentation/5.png",
+      "/projects/rfm-customer-segmentation/6.png",
+      "/projects/rfm-customer-segmentation/7.png",
+      "/projects/rfm-customer-segmentation/8.png",
+      "/projects/rfm-customer-segmentation/9.png",
+      "/projects/rfm-customer-segmentation/10.png",
+      "/projects/rfm-customer-segmentation/11.png"
+    ]
+  },
+  {
     "title": "Face Recognition Attendance System | Anti-Spoofing Security",
     "description": "An enterprise-grade automated attendance platform designed for universities and corporations. Leverages AI-powered face recognition with advanced anti-spoofing technology to provide secure, contactless, and instant verification. The system combines YOLOv11 for face detection and InsightFace for recognition, featuring active liveness detection to prevent photo and video replay attacks.",
     "longDescription": "**Face Recognition Attendance System** is a comprehensive platform that modernizes classroom and organizational attendance through state-of-the-art AI technology.\n\nAt its core is a powerful **Anti-Spoofing Engine** that analyzes texture patterns (LBP), motion, color distribution, and moire artifacts to differentiate real faces from photos or digital screens. This ensures the highest integrity of attendance records.\n\n**The system features a dual-stage AI pipeline:**\n1. **Detection & Liveness Verification**: YOLOv11-Face detects faces and custom CV algorithms verify liveness through micro-movement analysis (blinking, breathing) and texture analysis before processing.\n2. **Face Recognition**: InsightFace (ArcFace) extracts 512-dimensional vector embeddings and matches them against the database using cosine similarity for high-confidence identification.\n\n**Key capabilities include:**\n- **For Lecturers**: Live attendance feed with real-time visual feedback, class scheduling, student enrollment management, and automated attendance reports.\n- **For Administrators**: Centralized user management, system analytics, performance monitoring, and secure biometric data management.\n- **Security Features**: Multi-layer anti-spoofing (texture, motion, depth analysis), encrypted face embeddings, and audit logging.\n\nThe application features a modern, responsive React UI with premium design, real-time WebSocket updates, and comprehensive admin dashboards. The backend uses Flask with SQLAlchemy for robust data persistence.",
