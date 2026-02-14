@@ -146,8 +146,8 @@
     "category": "mlops-automation",
     "link": "/projects/asset-classification-powerapps",
     "thumbnail": "/projects/asset-classification-powerapps/powerapps.png",
-    "demoLink": "#",
-    "githubLink": "#",
+    "demoLink": "",
+    "githubLink": "",
     "gallery": [
       "/projects/asset-classification-powerapps/powerapps.png"
     ]
@@ -199,7 +199,7 @@
       "/projects/vehicle-speed-estimation/2.png",
       "/projects/vehicle-speed-estimation/3.png"
     ],
-    "demoLink": "#",
+    "demoLink": "",
     "githubLink": "https://github.com/ferrikrisdiantoro/yolov11-deepsort-speed-estimation"
   },
   {
@@ -250,7 +250,7 @@
       "/projects/finance-ai-agent/1.png",
       "/projects/finance-ai-agent/2.png"
     ],
-    "demoLink": "#",
+    "demoLink": "",
     "githubLink": "https://github.com/ferrikrisdiantoro/enterprise-finance-ai"
   },
   {
@@ -369,7 +369,7 @@
       "/projects/water-scale-monitor/2.png",
       "/projects/water-scale-monitor/3.png"
     ],
-    "demoLink": "#",
+    "demoLink": "",
     "githubLink": "https://github.com/ferrikrisdiantoro/river-gauge-vision"
   },
   {
@@ -409,8 +409,8 @@
     "category": "data-science",
     "link": "/projects/demand-forecasting-lstm",
     "thumbnail": "/projects/demand-forecasting-lstm/1.png",
-    "demoLink": "#",
-    "githubLink": "#",
+    "demoLink": "",
+    "githubLink": "",
     "gallery": [
       "/projects/demand-forecasting-lstm/1.png",
       "/projects/demand-forecasting-lstm/2.png",
@@ -436,7 +436,7 @@
     "category": "mlops-automation",
     "link": "/projects/mlops-workflow",
     "thumbnail": "/projects/mlops-workflow/mlflow.png",
-    "demoLink": "#",
+    "demoLink": "",
     "githubLink": "https://github.com/yourusername/mlops-pipeline",
     "gallery": [
       "/projects/mlops-workflow/mlflow.png"
@@ -474,8 +474,8 @@
     "category": "data-science",
     "link": "/projects/rfm-customer-segmentation",
     "thumbnail": "/projects/rfm-customer-segmentation/1.png",
-    "demoLink": "#",
-    "githubLink": "#",
+    "demoLink": "",
+    "githubLink": "",
     "gallery": [
       "/projects/rfm-customer-segmentation/1.png",
       "/projects/rfm-customer-segmentation/2.png",
@@ -530,7 +530,7 @@
     "category": "computer-vision",
     "link": "/projects/face-recognition-attendance",
     "thumbnail": "/projects/face-recognition-attendance/1.png",
-    "demoLink": "#",
+    "demoLink": "",
     "githubLink": "https://github.com/ferrikrisdiantoro/face-recognition-attendance-app",
     "gallery": [
       "/projects/face-recognition-attendance/1.png",
@@ -559,8 +559,8 @@
     "category": "nlp-genai",
     "link": "/projects/qna-chatbot-static",
     "thumbnail": "/projects/qna-chatbot-static/qna.png",
-    "demoLink": "#",
-    "githubLink": "#",
+    "demoLink": "",
+    "githubLink": "",
     "gallery": [
       "/projects/qna-chatbot-static/qna.png"
     ]
@@ -580,8 +580,8 @@
     "category": "nlp-genai",
     "link": "/projects/chat-with-documents",
     "thumbnail": "/projects/chat-with-documents/cwyd.png",
-    "demoLink": "#",
-    "githubLink": "#",
+    "demoLink": "",
+    "githubLink": "",
     "gallery": [
       "/projects/chat-with-documents/cwyd.png"
     ]
@@ -665,8 +665,8 @@
     "category": "computer-vision",
     "link": "/projects/waste-classification",
     "thumbnail": "/projects/waste-classification/waste.png",
-    "demoLink": "#",
-    "githubLink": "#",
+    "demoLink": "",
+    "githubLink": "",
     "gallery": [
       "/projects/waste-classification/waste.png"
     ]
@@ -685,8 +685,8 @@
     "category": "nlp-genai",
     "link": "/projects/playstore-sentiment",
     "thumbnail": "/projects/playstore-sentiment/sentiment.png",
-    "demoLink": "#",
-    "githubLink": "#",
+    "demoLink": "",
+    "githubLink": "",
     "gallery": [
       "/projects/playstore-sentiment/sentiment.png"
     ]
@@ -731,7 +731,7 @@
     "link": "/projects/web.derma-dfu",
     "thumbnail": "/projects/web.derma-dfu/1.png",
     "demoLink": "https://web.derma-dfu.id",
-    "githubLink": "#",
+    "githubLink": "",
     "gallery": [
       "/projects/web.derma-dfu/1.png",
       "/projects/web.derma-dfu/2.png",
@@ -795,7 +795,7 @@
       "/projects/multimodal-emotion-classification/7.png",
       "/projects/multimodal-emotion-classification/8.png"
     ],
-    "demoLink": "#",
+    "demoLink": "",
     "githubLink": "https://github.com/ferrikrisdiantoro/multimodal-emotion-classification"
   },
   {

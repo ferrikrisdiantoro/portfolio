@@ -1,110 +1,91 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { useState, useEffect } from 'react'
-import { usePathname } from 'next/navigation'
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const pathname = usePathname()
+  const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const navItems = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/contact', label: 'Contact' }
-  ]
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-[#EEEEEE] backdrop-blur-sm shadow-sm border-b border-gray-100' 
-        : 'bg-[#393E46]'
-    }`}>
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/" className="group flex items-center space-x-2">
-            <span className={`text-2xl font-semibold transition-colors duration-200 ${
-              isScrolled ? 'text-[#393E46]' : 'text-[#EEEEEE]'
-            }`}>
-              Ferri Krisdiantoro
-            </span>
+    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100'
+        : 'bg-white/50 backdrop-blur-sm'
+      }`}>
+      <div className="container-main flex justify-between items-center h-16 md:h-20">
+        {/* Logo */}
+        <Link href="/" className="font-jakarta font-bold text-xl text-gray-900 hover:text-primary transition-colors tracking-tight">
+          Ferri<span className="text-primary">.</span>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-1">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 font-jakarta ${pathname === item.href
+                  ? 'text-primary bg-primary-50'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+            >
+              {item.label}
+            </Link>
+          ))}
+          <Link href="/contact" className="ml-4 btn-primary text-sm py-2 px-5">
+            Let&apos;s Talk
           </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-                  pathname === item.href
-                    ? isScrolled
-                      ? 'bg-[#EEEEEE] text-[#00ADB5]'
-                      : 'bg-[#00ADB5] text-[#EEEEEE]'
-                    : isScrolled 
-                      ? 'text-[#393E46] hover:bg-[#222831] hover:text-[#EEEEEE]' 
-                      : 'text-[#EEEEEE] hover:text-[#222831] hover:bg-[#EEEEEE]'
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className={`md:hidden p-2 rounded-md transition-colors duration-200 ${
-              isScrolled ? 'text-[#393E46] hover:bg-[#E4F9F5]' : 'text-white hover:bg-white/10'
-            }`}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <div className="w-5 h-5 flex flex-col justify-center space-y-1">
-              <span className={`w-full h-0.5 bg-current transform transition-all duration-200 ${
-                isMobileMenuOpen ? 'rotate-45 translate-y-1' : ''
-              }`}></span>
-              <span className={`w-full h-0.5 bg-current transition-all duration-200 ${
-                isMobileMenuOpen ? 'opacity-0' : ''
-              }`}></span>
-              <span className={`w-full h-0.5 bg-current transform transition-all duration-200 ${
-                isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''
-              }`}></span>
-            </div>
-          </button>
         </div>
 
-        {/* Mobile Menu */}
-        <div className={`md:hidden overflow-hidden transition-all duration-300 ${
-          isMobileMenuOpen ? 'max-h-64 pb-4' : 'max-h-0'
-        }`}>
-          <div className="mt-2 space-y-1 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg border border-gray-100 p-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`block px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200 ${
-                  pathname === item.href
-                    ? 'bg-[#E4F9F5] text-[#11999E]'
-                    : 'text-[#393E46] hover:bg-[#E4F9F5] hover:text-[#11999E]'
-                }`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </div>
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <i className={`fa-solid ${isMobileMenuOpen ? "fa-times" : "fa-bars"} text-xl`}></i>
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-100 px-6 py-6 space-y-2 shadow-lg">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`block px-4 py-3 rounded-xl text-base font-semibold font-jakarta transition-colors ${pathname === item.href
+                  ? 'text-primary bg-orange-50'
+                  : 'text-gray-700 hover:bg-gray-50'
+                }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
+          <Link
+            href="/contact"
+            className="block mt-4 btn-primary w-full text-center"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Let&apos;s Talk
+          </Link>
+        </div>
+      )}
     </nav>
-  )
+  );
 }

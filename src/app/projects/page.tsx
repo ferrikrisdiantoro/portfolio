@@ -1,214 +1,104 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import ParticleBackground from "@/components/ParticleBackground";
 import projectsData from "@/data/projects.json";
 import ProjectModal from "@/components/ProjectModal";
+import Footer from "@/components/Footer";
+import {
+  ArrowRight01Icon,
+  SourceCodeIcon,
+  FilterIcon,
+} from "hugeicons-react";
+
+/* prettier category labels */
+const categoryLabels: Record<string, string> = {
+  All: "All",
+  "computer-vision": "Computer Vision",
+  "data-science": "Data Science",
+  "mlops-automation": "MLOps & Automation",
+  "nlp-genai": "NLP & GenAI",
+  "recommender-system": "Recommender System",
+  "web-application": "Web Application",
+};
 
 export default function ProjectsPage() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<any>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredProjects = projectsData
-    .filter((project) =>
+  const categories = [
+    "All",
+    ...Array.from(new Set(projectsData.map((p) => p.category))),
+  ];
+
+  const filteredProjects = projectsData.filter(
+    (project) =>
       selectedCategory === "All" || project.category === selectedCategory
-    )
-    .filter((project) => {
-      if (searchQuery === "") return true;
-      const query = searchQuery.toLowerCase();
-      return (
-        project.title.toLowerCase().includes(query) ||
-        project.description.toLowerCase().includes(query) ||
-        project.tech.some(tech => tech.toLowerCase().includes(query))
-      );
-    });
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  );
 
   return (
-    <main className="relative min-h-screen bg-[#0f172a] text-[#e2e8f0] font-sans">
-      {/* Interactive Network Background */}
-      <ParticleBackground />
+    <>
+      {/* ─── Header ─── */}
+      <section className="pt-28 pb-0 md:pt-36">
+        <div className="container-main">
+          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2 font-jakarta">
+            Portfolio
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold font-jakarta leading-tight mb-4">
+            All Projects<span className="text-primary">.</span>
+          </h1>
+          <p className="text-text-muted text-base md:text-lg max-w-2xl leading-relaxed mb-10">
+            A collection of my work spanning AI, automation, full-stack
+            development, and more.
+          </p>
 
-      {/* Navbar */}
-      <nav
-        className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? "glass-card border-b border-slate-700/50" : "bg-transparent border-b-0"
-          }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <Link href="/" className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
-                Ferri Krisdiantoro
-              </Link>
-            </div>
-
-            {/* Desktop Menu */}
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link
-                  href="/"
-                  className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition"
-                >
-                  Home
-                </Link>
-
-                <Link
-                  href="/projects"
-                  className="text-white bg-slate-800/50 px-3 py-2 rounded-md text-sm font-medium transition"
-                >
-                  Portfolio
-                </Link>
-                <Link
-                  href="/#contact"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition"
-                >
-                  Hire Me
-                </Link>
-              </div>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
+          {/* ── Filter Tabs ── */}
+          <div className="flex flex-wrap gap-2 pb-8 border-b border-gray-200">
+            {categories.map((cat) => (
               <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-slate-800 focus:outline-none transition-colors"
-                aria-expanded="false"
-              >
-                <span className="sr-only">Open main menu</span>
-                {!isMobileMenuOpen ? (
-                  <i className="fa-solid fa-bars text-xl"></i>
-                ) : (
-                  <i className="fa-solid fa-times text-xl"></i>
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Menu Dropdown */}
-        <div className={`md:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}>
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-slate-900/90 backdrop-blur-md border-b border-slate-700 shadow-xl">
-            <Link
-              href="/"
-              className="text-gray-300 hover:text-white hover:bg-slate-800 block px-3 py-2 rounded-md text-base font-medium transition"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Home
-            </Link>
-
-            <Link
-              href="/projects"
-              className="text-white bg-slate-800/50 block px-3 py-2 rounded-md text-base font-medium transition"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Portfolio
-            </Link>
-
-            <Link
-              href="/#contact"
-              className="text-gray-300 hover:text-white hover:bg-slate-800 block px-3 py-2 rounded-md text-base font-medium transition"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Hire Me
-            </Link>
-          </div>
-        </div>
-      </nav>
-
-      {/* Header Section */}
-      <section className="pt-32 pb-12 px-4 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          My <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">Portfolio</span>
-        </h1>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-          A collection of my work in Automation, AI, and Software Development.
-          Explore how I solve real-world problems with code.
-        </p>
-      </section>
-
-      {/* Filter Section */}
-      <section className="px-4 mb-12">
-        <div className="max-w-7xl mx-auto space-y-6">
-
-          {/* Search Bar */}
-          <div className="flex justify-center">
-            <div className="relative w-full max-w-md">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <i className="fa-solid fa-search text-slate-400"></i>
-              </div>
-              <input
-                type="text"
-                placeholder="Search by tech, keyword, or project name..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none transition-all"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery("")}
-                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-white transition-colors"
-                >
-                  <i className="fa-solid fa-times"></i>
-                </button>
-              )}
-            </div>
-          </div>
-
-          {/* Category Pills */}
-          <div className="flex flex-wrap justify-center gap-4">
-            {["All", ...Array.from(new Set(projectsData.map((p) => p.category)))].map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedCategory === category
-                  ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30 scale-105"
-                  : "bg-slate-800/50 text-gray-400 hover:bg-slate-700 hover:text-white border border-slate-700"
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-5 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200 font-jakarta ${selectedCategory === cat
+                    ? "bg-primary text-white shadow-md shadow-primary/25"
+                    : "bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
                   }`}
               >
-                {category === "All"
-                  ? "All Projects"
-                  : category.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
-                }
+                {categoryLabels[cat] || cat}
               </button>
             ))}
           </div>
-
-          {/* Results Count */}
-          {(searchQuery || selectedCategory !== "All") && (
-            <div className="text-center">
-              <p className="text-sm text-slate-400">
-                Showing <span className="text-white font-semibold">{filteredProjects.length}</span> {filteredProjects.length === 1 ? 'project' : 'projects'}
-                {searchQuery && <span> matching "<span className="text-blue-400">{searchQuery}</span>"</span>}
-              </p>
-            </div>
-          )}
         </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="py-12 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* ─── Project Grid ─── */}
+      <section className="section-warm py-14 md:py-20 border-b border-warm-border">
+        <div className="container-main">
+          {/* Results count */}
+          <p className="text-sm text-text-muted mb-8 font-jakarta">
+            Showing{" "}
+            <span className="font-bold text-gray-900">
+              {filteredProjects.length}
+            </span>{" "}
+            project{filteredProjects.length !== 1 && "s"}
+            {selectedCategory !== "All" && (
+              <>
+                {" "}in{" "}
+                <span className="font-bold text-primary">
+                  {categoryLabels[selectedCategory] || selectedCategory}
+                </span>
+              </>
+            )}
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((project, index) => (
               <div
                 key={index}
                 onClick={() => setSelectedProject(project)}
-                className="group relative rounded-xl overflow-hidden border border-slate-700 glass-card hover:border-blue-500/30 transition-all duration-300 flex flex-col cursor-pointer hover:shadow-2xl hover:shadow-blue-900/20 hover:-translate-y-2"
+                className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 cursor-pointer group"
               >
-                {/* Thumbnail */}
-                <div className="aspect-video bg-slate-800 relative overflow-hidden">
+                {/* Image — matches home h-56 */}
+                <div className="relative w-full h-56 overflow-hidden">
                   {project.thumbnail ? (
                     <Image
                       src={project.thumbnail}
@@ -217,59 +107,57 @@ export default function ProjectsPage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
-                    <div className="flex items-center justify-center h-full text-slate-600">
-                      <i className="fa-solid fa-code text-4xl"></i>
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                      <SourceCodeIcon size={40} className="text-gray-300" />
                     </div>
                   )}
-                  {/* Overlay Icon */}
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                    <span className="text-white font-semibold flex items-center gap-2 bg-blue-600/80 backdrop-blur px-4 py-2 rounded-full">
-                      <i className="fa-solid fa-eye"></i> View Details
+                  {/* Type badge — exactly like home */}
+                  <div className="absolute top-3 left-3">
+                    <span className="bg-white/90 backdrop-blur-sm text-gray-700 text-xs font-bold px-3 py-1 rounded-full font-jakarta shadow-sm">
+                      {project.type}
                     </span>
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="p-6 flex flex-col flex-grow">
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <h3 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-xs text-blue-400 mt-1 uppercase tracking-wide">
-                        {project.type}
-                      </p>
-                    </div>
-                  </div>
-
-                  <p className="text-gray-400 text-sm mb-6 flex-grow line-clamp-3">
+                {/* Content — exactly like home */}
+                <div className="p-5">
+                  <h3 className="text-base font-bold font-jakarta mb-2 text-gray-900 group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-text-muted mb-4 line-clamp-2 leading-relaxed">
                     {project.description}
                   </p>
-
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {project.tech.slice(0, 4).map((tech, i) => (
-                      <span
-                        key={i}
-                        className="px-2 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.tech.length > 4 && (
-                      <span className="px-2 py-1 text-xs font-medium bg-slate-800 text-slate-300 rounded border border-slate-700">
-                        +{project.tech.length - 4}
-                      </span>
-                    )}
+                  <div className="flex items-center justify-between">
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.tech.slice(0, 3).map((t, i) => (
+                        <span
+                          key={i}
+                          className="text-xs font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md font-jakarta"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-gray-100 group-hover:bg-primary group-hover:text-white flex items-center justify-center text-gray-400 transition-all flex-shrink-0 ml-3">
+                      <ArrowRight01Icon size={14} />
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
+          {filteredProjects.length === 0 && (
+            <div className="text-center py-20">
+              <FilterIcon size={48} className="text-gray-300 mx-auto mb-4" />
+              <p className="text-text-muted font-jakarta">
+                No projects found for this category.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Project Modal */}
       {selectedProject && (
         <ProjectModal
           project={selectedProject}
@@ -277,10 +165,7 @@ export default function ProjectsPage() {
         />
       )}
 
-      {/* Footer */}
-      <footer className="py-8 border-t border-slate-800 text-center text-sm text-gray-500 bg-slate-900/50">
-        <p>&copy; 2024 Ferri Krisdiantoro. All rights reserved.</p>
-      </footer>
-    </main>
+      <Footer />
+    </>
   );
 }
