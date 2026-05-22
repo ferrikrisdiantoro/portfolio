@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Chat Mockup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .mobile-container {
+            width: 390px;
+            height: 844px;
+            background-color: #000000;
+            border: 1px solid #262626;
+            border-radius: 40px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        /* Hide scrollbar */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="mobile-container overflow-y-auto">
+    
+    <!-- Top Bar -->
+    <div class="flex items-center justify-between px-4 py-3 sticky top-0 bg-black z-10">
+        <div class="flex items-center gap-4">
+            <i class="fas fa-arrow-left text-xl"></i>
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center overflow-hidden">
+                    <img src="icon.png" alt="Profile" class="w-full h-full object-cover">
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-sm font-semibold flex items-center gap-1">
+                        cempaka resident
+                        <i class="fas fa-chevron-right text-[10px] text-gray-400"></i>
+                    </span>
+                    <span class="text-xs text-gray-400">Business chat</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex items-center gap-5 text-xl">
+            <i class="fas fa-phone"></i>
+            <i class="fas fa-video"></i>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 flex flex-col pt-6 pb-20 px-4">
+        
+        <!-- Profile Header -->
+        <div class="flex flex-col items-center text-center mt-4">
+            <div class="w-24 h-24 rounded-full bg-gray-700 flex items-center justify-center mb-4 overflow-hidden">
+                <img src="icon.png" alt="Profile" class="w-full h-full object-cover">
+            </div>
+            <h2 class="text-xl font-bold mb-1">cempaka resident</h2>
+            <p class="text-sm text-gray-400 mb-1">360 followers • 47 posts</p>
+            <p class="text-sm text-gray-400 mb-1">You don't follow each other on Instagram</p>
+            <p class="text-sm text-gray-400 mb-2 flex items-center gap-1 justify-center">
+                <i class="fas fa-bolt text-gray-500 text-xs"></i>
+                Typically replies instantly
+            </p>
+            <a href="#" class="text-sm text-blue-500 mb-4">Learn about business chats</a>
+            <button class="bg-[#262626] hover:bg-[#363636] font-semibold text-sm px-4 py-1.5 rounded-lg">
+                View Profile
+            </button>
+        </div>
+
+        <!-- Chat Time -->
+        <div class="text-center text-xs text-gray-500 mt-10 mb-6 relative">
+            <span>Today 6:37 AM</span>
+        </div>
+
+        <!-- Chat Bubbles -->
+        <div class="flex flex-col gap-4 w-full">
+            
+            <!-- My Message -->
+            <div class="flex justify-end w-full">
+                <div class="bg-[#6648ff] text-white px-4 py-2.5 rounded-2xl rounded-br-sm max-w-[75%] text-[15px]">
+                    Halo
+                </div>
+            </div>
+
+            <!-- Client Message -->
+            <div class="flex justify-start w-full gap-2 items-end mt-2">
+                <div class="w-7 h-7 rounded-full bg-gray-700 flex-shrink-0 flex items-center justify-center overflow-hidden mb-1">
+                    <img src="icon.png" alt="Profile" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-[#262626] text-white px-4 py-2.5 rounded-2xl rounded-bl-sm max-w-[75%] text-[15px]">
+                    Halo Kak! Lagi cari kos buat kapan nih? Sendiri atau berdua?
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bottom Action Bar -->
+    <div class="absolute bottom-0 left-0 right-0 bg-black pb-6 pt-2 px-4 flex gap-3 items-center">
+        <div class="w-10 h-10 rounded-full bg-[#6648ff] flex items-center justify-center flex-shrink-0">
+            <i class="fas fa-camera text-white"></i>
+        </div>
+        <div class="flex-1 bg-[#262626] rounded-full flex items-center px-4 py-2.5 outline-none border border-transparent focus-within:border-gray-600 transition-colors">
+            <input type="text" placeholder="Message..." class="bg-transparent flex-1 text-white placeholder-gray-500 outline-none text-[15px]" disabled>
+            <div class="flex items-center gap-4 text-gray-400 ml-2">
+                <i class="fas fa-microphone"></i>
+                <i class="far fa-image"></i>
+                <i class="far fa-sticky-note"></i>
+                <i class="fas fa-plus-circle"></i>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

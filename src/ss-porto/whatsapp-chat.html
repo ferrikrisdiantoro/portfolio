@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok DM Mockup</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #111;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .phone {
+            width: 390px;
+            height: 844px;
+            background-color: #FFFFFF;
+            border-radius: 40px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #333;
+            position: relative;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            background: #fff;
+            color: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px 4px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .status-bar .right {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #fff;
+            color: #000;
+            display: flex;
+            align-items: center;
+            padding: 8px 14px 12px;
+            gap: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .top-bar .back-arrow {
+            font-size: 20px;
+            color: #000;
+        }
+        .top-bar .profile-pic {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #eee;
+        }
+        .top-bar .contact-name {
+            font-size: 16px;
+            font-weight: 700;
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #000;
+        }
+        .top-bar .more-btn {
+            font-size: 18px;
+            color: #000;
+        }
+
+        /* Chat Area */
+        .chat-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #fff;
+        }
+        .chat-area::-webkit-scrollbar { display: none; }
+
+        /* Bubbles */
+        .bubble {
+            max-width: 75%;
+            padding: 10px 14px;
+            border-radius: 18px;
+            font-size: 15px;
+            line-height: 1.45;
+            word-wrap: break-word;
+        }
+        .bubble.sent {
+            background: #D6F0FF;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+            color: #000;
+        }
+        .bubble.received {
+            background: #F1F1F2;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            color: #000;
+        }
+        .bubble .link {
+            color: #2B7CD0;
+            word-break: break-all;
+            text-decoration: none;
+        }
+
+        /* Received row with avatar */
+        .received-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+        }
+        .received-row .avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            background: #eee;
+        }
+
+        /* Input Bar */
+        .input-bar {
+            background: #fff;
+            padding: 10px 12px 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-top: 1px solid #f0f0f0;
+        }
+        .input-bar .msg-input-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: #F1F1F2;
+            border-radius: 24px;
+            padding: 10px 16px;
+            gap: 8px;
+        }
+        .input-bar .msg-input-wrapper input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 15px;
+            outline: none;
+            color: #000;
+        }
+        .input-bar .msg-input-wrapper input::placeholder { color: #a0a0a0; }
+        .input-bar .emoji-btn {
+            color: #a0a0a0;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        .input-bar .send-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF6B8A, #FF3B5C);
+            border: none;
+            color: white;
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        /* Nav Bar */
+        .nav-bar {
+            background: #FAFAFA;
+            border-top: 1px solid #e8e8e8;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0 8px;
+        }
+        .nav-bar i { font-size: 20px; color: #222; }
+    </style>
+</head>
+<body>
+
+<div class="phone">
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <span>6:38 AM</span>
+        <div class="right">
+            <i class="fas fa-signal" style="font-size:11px;"></i>
+            <span>4G</span>
+            <i class="fas fa-battery-full" style="font-size:13px;"></i>
+            <span>100</span>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <i class="fas fa-arrow-left back-arrow"></i>
+        <img src="icon.png" alt="Profile" class="profile-pic">
+        <span class="contact-name">Cempaka Resident</span>
+        <i class="fas fa-ellipsis more-btn"></i>
+    </div>
+
+    <!-- Chat Area -->
+    <div class="chat-area">
+
+        <!-- User: halo -->
+        <div class="bubble sent">halo</div>
+
+        <!-- Bot -->
+        <div class="received-row">
+            <img src="icon.png" alt="Avatar" class="avatar">
+            <div class="bubble received">Halo! Ada yang bisa kami bantu?</div>
+        </div>
+
+        <!-- User -->
+        <div class="bubble sent">lokasi kos dimana?</div>
+
+        <!-- Bot: Lokasi -->
+        <div class="received-row">
+            <img src="icon.png" alt="Avatar" class="avatar">
+            <div class="bubble received">
+                Lokasinya di Jl. Cempaka Raya No. 12, Kota Depok, Jawa Barat.
+                Bisa lihat di peta:<br>
+                <span class="link">https://maps.app.goo.gl/xYz123AbCdEf</span>
+            </div>
+        </div>
+
+        <!-- Bot -->
+        <div class="received-row">
+            <img src="icon.png" alt="Avatar" class="avatar">
+            <div class="bubble received">Boleh minta nomor telepon Anda? Kami bisa berbagi info lebih lengkap.</div>
+        </div>
+
+        <!-- User -->
+        <div class="bubble sent">apakah boleh bawa anak?</div>
+
+    </div>
+
+    <!-- Input Bar -->
+    <div class="input-bar">
+        <div class="msg-input-wrapper">
+            <input type="text" placeholder="Send a message..." disabled>
+            <span class="emoji-btn"><i class="far fa-smile"></i></span>
+        </div>
+        <button class="send-btn"><i class="fas fa-paper-plane" style="transform: rotate(-25deg) translateX(1px);"></i></button>
+    </div>
+
+    <!-- Nav Bar -->
+    <div class="nav-bar">
+        <i class="fas fa-bars"></i>
+        <i class="far fa-circle"></i>
+        <i class="fas fa-caret-left" style="font-size:24px;"></i>
+    </div>
+
+</div>
+
+</body>
+</html>

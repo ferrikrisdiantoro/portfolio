@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WA Flight Mockup 1</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background:#111; font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; }
+        .phone { width:390px; height:844px; background:#0B141A; border-radius:40px; overflow:hidden; display:flex; flex-direction:column; border:1px solid #333; }
+        .sbar { background:#1F2C34; color:#ccc; display:flex; justify-content:space-between; align-items:center; padding:10px 20px 4px; font-size:12px; }
+        .sbar .r { display:flex; align-items:center; gap:5px; font-size:11px; }
+        .tbar { background:#1F2C34; color:#E9EDEF; display:flex; align-items:center; padding:8px 10px 12px; gap:10px; }
+        .tbar .bk { font-size:18px; color:#aaa; }
+        .tbar .pp { width:36px; height:36px; border-radius:50%; background:#2A3942; overflow:hidden; }
+        .tbar .pp img { width:100%; height:100%; object-fit:cover; }
+        .tbar .nfo { flex:1; }
+        .tbar .nfo .nm { font-size:16px; font-weight:600; }
+        .tbar .nfo .st { font-size:12px; color:#8696A0; }
+        .tbar .act { display:flex; gap:18px; font-size:18px; color:#aaa; }
+        .chat { flex:1; overflow-y:auto; padding:12px 14px; display:flex; flex-direction:column; gap:6px; background:#0B141A; }
+        .chat::-webkit-scrollbar { display:none; }
+        .b { max-width:82%; padding:6px 10px 4px; border-radius:8px; font-size:14.5px; line-height:1.5; word-wrap:break-word; }
+        .b .t { font-size:11px; color:#8696A0; float:right; margin-left:8px; margin-top:4px; }
+        .b .ck { color:#53BDEB; font-size:11px; }
+        .s { background:#005C4B; color:#E9EDEF; align-self:flex-end; border-top-right-radius:0; }
+        .rc { background:#1F2C34; color:#E9EDEF; align-self:flex-start; border-top-left-radius:0; }
+        .sd { position:sticky; bottom:4px; align-self:flex-end; width:30px; height:30px; background:#1F2C34; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#8696A0; font-size:12px; box-shadow:0 2px 6px rgba(0,0,0,0.4); }
+        .ibar { background:#0B141A; padding:8px 10px 24px; display:flex; align-items:center; gap:8px; }
+        .ibar .wr { flex:1; display:flex; align-items:center; background:#1F2C34; border-radius:24px; padding:10px 14px; gap:12px; }
+        .ibar .wr .ic { font-size:22px; color:#8696A0; }
+        .ibar .wr input { flex:1; border:none; background:transparent; font-size:15px; outline:none; color:#E9EDEF; }
+        .ibar .wr input::placeholder { color:#8696A0; }
+        .ibar .wr .at { display:flex; gap:14px; color:#8696A0; font-size:19px; }
+        .ibar .mc { width:44px; height:44px; border-radius:50%; background:#00A884; border:none; color:white; font-size:18px; display:flex; align-items:center; justify-content:center; }
+        .nav { background:#0B141A; border-top:1px solid #1F2C34; display:flex; justify-content:space-around; align-items:center; padding:10px 0 8px; }
+        .nav i { font-size:20px; color:#8696A0; }
+    </style>
+</head>
+<body>
+<div class="phone">
+    <div class="sbar">
+        <span>8:36 AM ✈</span>
+        <div class="r"><i class="fas fa-signal" style="font-size:11px;"></i><i class="fas fa-wifi" style="font-size:11px;"></i><span>4G</span><i class="fas fa-battery-three-quarters" style="font-size:13px;"></i><span>78</span></div>
+    </div>
+    <div class="tbar">
+        <i class="fas fa-arrow-left bk"></i>
+        <div class="pp"><img src="icon.png" alt="P"></div>
+        <div class="nfo">
+            <div class="nm">Cempaka Resi...</div>
+            <div class="st">2:47 PM</div>
+        </div>
+        <div class="act"><i class="fas fa-video"></i><i class="fas fa-phone"></i><i class="fas fa-ellipsis-vertical"></i></div>
+    </div>
+    <div class="chat">
+
+        <div class="b s">
+            halo
+            <span class="t">7:01 PM <span class="ck">✓✓</span></span>
+        </div>
+
+        <div class="b rc">
+            Halo Kak, selamat datang di Cempaka Travel. Ada yang bisa dibantu?
+            <span class="t">7:01 PM</span>
+        </div>
+
+        <div class="b s">
+            saya mau pesan tiket penerbangan
+            <span class="t">7:02 PM <span class="ck">✓✓</span></span>
+        </div>
+
+        <div class="b rc">
+            Baik Kak. Mau ke mana dan kapan?
+            <span class="t">7:02 PM</span>
+        </div>
+
+        <div class="b s">
+            mau ke bandung dari jakarta pada tanggal 13 maret
+            <span class="t">7:10 PM <span class="ck">✓✓</span></span>
+        </div>
+
+        <div class="b rc">
+            Oke, berangkat dari Jakarta ke Bandung tanggal 13 Maret. Pulangnya kapan dan berapa orang Kak?
+            <span class="t">7:10 PM</span>
+        </div>
+
+        <div class="b s">
+            pulangnya tangal 16 maret dan saya dua orang
+            <span class="t">7:12 PM <span class="ck">✓✓</span></span>
+        </div>
+
+        <div class="b rc">
+            Oke, jadi dari Jakarta ke Bandung, berangkat 13 Maret pulang 16 Maret, untuk 2 orang. Sudah benar Kak?
+            <span class="t">7:12 PM</span>
+        </div>
+
+        <div class="b s">
+            iya
+            <span class="t">7:13 PM <span class="ck">✓✓</span></span>
+        </div>
+
+        <div class="sd"><i class="fas fa-chevron-down"></i></div>
+    </div>
+
+    <div class="ibar">
+        <div class="wr">
+            <span class="ic"><i class="far fa-smile"></i></span>
+            <input type="text" placeholder="Message" disabled>
+            <div class="at"><i class="fas fa-paperclip"></i><i class="fas fa-camera"></i></div>
+        </div>
+        <button class="mc"><i class="fas fa-microphone"></i></button>
+    </div>
+    <div class="nav"><i class="fas fa-bars"></i><i class="far fa-circle"></i><i class="fas fa-caret-left" style="font-size:24px;"></i></div>
+</div>
+</body>
+</html>

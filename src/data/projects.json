@@ -939,5 +939,571 @@
     ],
     "demoLink": "#",
     "githubLink": "#"
+  },
+  {
+    "title": "Enterprise PPE Detection VMS | AI Video Management SaaS Platform",
+    "description": "A cloud-connected enterprise Video Management System for industrial health & safety compliance. It extends an on-premise YOLOv8 PPE-detection desktop app with a full B2B SaaS layer: a Next.js dashboard, hardware-locked licensing, live multi-camera WebRTC streaming, and automated incident management. Built for a petroleum services company to monitor PPE compliance across multiple sites.",
+    "longDescription": "This project transforms an on-premise computer-vision tool into a cloud-connected, multi-tenant SaaS product for industrial occupational health & safety (K3) compliance.\n\n**Architecture**\nThe system follows an edge-to-cloud design:\n- **Edge (on-premise):** A Python/PySide6 desktop app runs YOLOv8 inference on live RTSP camera feeds, detecting PPE violations (helmet, vest, gloves, glasses, shoes, mask). A hardware-lock module (Ed25519 cryptographic signature + MAC/CPU fingerprint) prevents unauthorized deployment.\n- **Cloud VPS:** A Go2RTC media server handles RTSP-to-WebRTC transcoding for the live grid player. Caddy provides automatic TLS, and systemd units make the infrastructure reproducible.\n- **Web Dashboard (Next.js 14):** A full admin panel covering live monitoring (1/4/9-camera grid), incident timeline, analytics (KPI cards, time-series charts, violation breakdown), camera management, and a licensing portal.\n- **Supabase:** Multi-tenant Postgres with Row Level Security, Auth with custom JWT claims, Realtime for push config updates to desktops, Storage for incident snapshots, and Deno Edge Functions for license activation.\n\n**Delivered across four milestones:**\n1. Foundation & Licensing Core — Supabase schema, auth, SN inventory API, Ed25519 license signing.\n2. Live Streaming & Remote Config — Go2RTC + WebRTC player, remote detection config via Supabase Realtime.\n3. Dashboard & Analytics — Incident upload pipeline, KPI dashboard, time-series charts.\n4. Incident Management & Deployment — Open→Reviewed→Resolved workflow, Excel export, UAT, and production VPS deployment.",
+    "tech": [
+      "Python",
+      "PySide6",
+      "YOLOv8",
+      "Next.js 14",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "PostgreSQL",
+      "Go2RTC",
+      "WebRTC",
+      "Caddy",
+      "Ed25519 (PyNaCl)",
+      "Recharts",
+      "Deno Edge Functions"
+    ],
+    "features": [
+      "Multi-camera live monitoring with 1/4/9-view WebRTC grid player streamed from on-premise RTSP cameras via Go2RTC",
+      "Cryptographic hardware-locked licensing (Ed25519 signature + CPU/MAC fingerprint) with online heartbeat and offline grace period",
+      "Automated PPE violation incident pipeline: snapshot upload, bounding-box metadata, and Open→Reviewed→Resolved workflow with Excel export",
+      "Multi-tenant Supabase backend with Row Level Security, custom JWT claims, and Realtime remote config push to desktop agents",
+      "Full Next.js 14 admin dashboard with KPI analytics, time-series charts, user/camera management, and subscription licensing portal"
+    ],
+    "type": "Computer Vision",
+    "category": "computer-vision",
+    "link": "/projects/ppe-detection-vms",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "Integrated Business Automation Suite | POS, Warehouse & AI WhatsApp Agents",
+    "description": "A multi-module automation ecosystem built for a growing franchise business. The suite combines a web-based Point-of-Sale system for up to 500 outlets, a real-time warehouse management dashboard, an admin profit-and-loss reporting panel, and two AI-powered WhatsApp chatbots for automated business intelligence and operational coordination.",
+    "longDescription": "This ongoing engagement spans multiple independent automation projects delivered under a single contract.\n\n**Project 1 — Integrated POS & AI Reporting System**\nA full-stack business management platform for a franchise network with up to 500 outlets:\n- **Web POS (mobile-first):** Transaction checkout (cash/QRIS/transfer), thermal/PDF receipt printing, automatic outlet stock deduction, and technician maintenance queue management.\n- **Warehouse Dashboard:** Master SKU, goods receipt/issue, inter-outlet transfer requests with approval flow, and safety stock thresholds.\n- **Admin Management Dashboard:** Manual cost input (salaries, rent), per-branch and consolidated Profit & Loss reporting, and CSV/PDF/Google Sheets export.\n- **AI WhatsApp Bots (n8n + WhatsApp Cloud API):** A management bot answering natural-language business queries (\"What is today's revenue?\") with automated daily P&L reports, and an operations bot for stock queries, expense input, and maintenance routing.\n\n**Project 2 — AI Invoice & Affiliate System**\nAn n8n workflow system for a telecommunications services provider: automated invoice delivery from Google Drive, multi-stage payment reminders, admin-triggered promotional broadcasts, complaint ticketing, plus a web affiliate system with referral links and commission tracking. SerpAPI integration auto-extracts prospect customer data.\n\n**Project 3 — AI News Automation Workflow**\nAn end-to-end AI content pipeline (n8n) that fetches news articles, AI-summarizes and paraphrases headlines for SEO, generates AI illustrations, and auto-publishes to Telegram and WordPress, with full tracking in Google Sheets.",
+    "tech": [
+      "Next.js",
+      "React.js",
+      "Node.js",
+      "PostgreSQL",
+      "Docker",
+      "n8n",
+      "WhatsApp Cloud API",
+      "Google Sheets API",
+      "Google Drive API",
+      "SerpAPI",
+      "Gemini AI",
+      "JWT",
+      "REST API"
+    ],
+    "features": [
+      "Web POS system supporting up to 500 franchise outlets with real-time stock synchronization and thermal/PDF receipt generation",
+      "Two AI-powered WhatsApp bots enabling natural language business intelligence queries and automated daily Profit & Loss reports via n8n",
+      "Warehouse management module with goods receipt/issue, inter-outlet transfer approval workflow, and automated low-stock alerts",
+      "Automated invoice reminder system with scheduled WhatsApp and email delivery, broadcast promotions, and payment proof handling",
+      "AI news automation pipeline that fetches, AI-summarizes, generates images, and auto-publishes to Telegram and WordPress"
+    ],
+    "type": "Automation",
+    "category": "mlops-automation",
+    "link": "/projects/business-automation-suite",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "Mokapos to WhatsApp Automation | Daily Sales Reporting & Customer Campaigns",
+    "description": "An n8n-based automation suite that integrates the Mokapos POS API with WhatsApp to eliminate manual daily reporting for a bakery franchise. Every night it fetches per-outlet revenue from the Mokapos API, formats a consolidated report, backs it up to Google Sheets, and delivers it to the owner via WhatsApp — fully unattended. Two extra workflows handle birthday greetings and promotional blasts.",
+    "longDescription": "This project solves a common small-business pain point: managers at a bakery chain with 8–10 outlets were manually compiling daily revenue reports from the Mokapos back-office each evening. The new system makes this fully automatic.\n\n**Workflow 1 — Automated Daily Revenue Report**\nn8n triggers at 23:00 WIB each night:\n1. Calls the Mokapos API to fetch all active outlet IDs.\n2. A Code node queries each outlet's daily revenue summary in parallel (OAuth2 access token with auto-refresh).\n3. Aggregates and formats the data into a clean, human-readable WhatsApp message.\n4. Writes a backup row to Google Sheets for historical record-keeping.\n5. Delivers the message to the owner's WhatsApp via a self-hosted gateway with a human-like delay.\n\n**Workflow 2 — Birthday Greeting Automation**\nPulls customers whose birthdays fall on the current date from Google Sheets, personalizes a greeting message, and sends it via WhatsApp with an optional promotional image.\n\n**Workflow 3 — Promotional Blast**\nLets the owner trigger mass promotional messages (text + image) to segmented customer lists directly from Google Sheets via a single WhatsApp command.\n\nThe Mokapos OAuth2 integration required careful scope management and token refresh logic, all documented in a setup guide delivered to the client.",
+    "tech": [
+      "n8n",
+      "Mokapos API",
+      "WhatsApp Gateway",
+      "Google Sheets API",
+      "OAuth2",
+      "JavaScript",
+      "REST API"
+    ],
+    "features": [
+      "Fully automated nightly revenue report aggregated across all Mokapos outlets and delivered to WhatsApp at 23:00 daily",
+      "Google Sheets backup of daily revenue data per outlet for historical tracking and analysis",
+      "Personalized birthday greeting messages automatically sent to customers on their birthday",
+      "Admin-triggered promotional blast (text + image) to segmented customer lists via a single WhatsApp command",
+      "Mokapos OAuth2 token auto-refresh mechanism ensuring continuous, unattended API access"
+    ],
+    "type": "Automation",
+    "category": "mlops-automation",
+    "link": "/projects/mokapos-whatsapp-automation",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "AI Patient Journey Automation | Medical Tourism Clinic Platform",
+    "description": "A large-scale n8n automation platform that orchestrates the entire patient acquisition and clinical pipeline for a cosmetic surgery clinic. It handles inbound WhatsApp leads from Meta Ads, drives patients through a multi-stage AI-managed funnel (qualification, consultation, medical intake, lab review, treatment proposal, payment, surgery scheduling, post-op recovery), and uses LangChain AI agents with a pgvector RAG knowledge base for bilingual communication.",
+    "longDescription": "This is a production-grade patient journey automation platform built for a cosmetic surgery clinic catering to international medical tourism. It replaces a manual WhatsApp-based sales and clinical coordination process with a fully automated, AI-driven system comprising 54 active n8n workflows across 7 functional layers.\n\n**Core Architecture**\nAll inbound WhatsApp messages route through the main Conversation Agent — a LangChain-powered AI agent with tools for RAG knowledge base search, lead qualification, Gmail sending, and Google Calendar management. Patient state is persisted in PostgreSQL, and each stage transition triggers a dedicated webhook-based sub-workflow.\n\n**Patient Funnel (Stages 10–17)**\n- **Medical Intake:** Sends a Google Form/Tally link; a nudge cron checks completion; submitted responses are parsed and saved.\n- **Lab Review:** Gemini Vision parses uploaded lab PDFs, compares values against reference ranges, and flags abnormalities for doctor approval.\n- **Treatment Proposal:** Auto-generates a bilingual PDF proposal via Google Docs template; sends via WhatsApp + Gmail; follow-up cron runs at D+2 and D+5.\n- **Deposit Payment:** Creates a Xendit invoice, sends the link, and runs a progressive reminder cron (24h/48h/72h).\n- **Surgery Scheduling:** Books a surgery slot in Google Calendar and sends a pre-op confirmation.\n- **Recovery:** Post-op check-in messages at D+1, D+3, D+7, D+15, D+30, and D+90, with a Red Flag Escalation sub-workflow for emergencies.\n\n**Cross-Cutting Infrastructure**\nRAG knowledge base (pgvector + OpenAI embeddings), OpenAI Vision photo analysis, Whisper voice-note transcription, an Emergency Classifier, a Dead-Letter Queue retry worker, and a Health Check Monitor.",
+    "tech": [
+      "n8n",
+      "LangChain",
+      "OpenAI GPT-4",
+      "OpenAI Whisper",
+      "Google Gemini Vision",
+      "pgvector",
+      "PostgreSQL",
+      "WhatsApp Gateway",
+      "Xendit",
+      "Google Calendar API",
+      "Gmail API",
+      "Google Docs API",
+      "Meta Ads Webhook"
+    ],
+    "features": [
+      "LangChain AI conversation agent handling full patient qualification and bilingual WhatsApp communication across 54 n8n workflows",
+      "RAG knowledge base (pgvector + OpenAI embeddings) enabling AI-grounded answers about clinic procedures, pricing, and FAQs",
+      "Xendit payment integration for automated deposit invoicing with idempotent callback handling and progressive reminder crons",
+      "Gemini Vision-powered lab report analysis that parses PDF results, compares against medical reference ranges, and flags abnormalities",
+      "Resilient architecture with Dead-Letter Queue retry worker, Health Check Monitor, and a stage-based funnel from lead capture to post-op follow-up"
+    ],
+    "type": "AI Automation",
+    "category": "nlp-genai",
+    "link": "/projects/patient-journey-automation",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "Car Subscription & Long-Term Rental Website | Australia",
+    "description": "A full-stack marketing and enquiry website for an Australian car subscription and long-term rental business. Built with Next.js 14, Supabase, and Tailwind CSS, it features a filterable vehicle catalogue, detailed car pages, a customer enquiry form with email notifications, and a complete admin panel for managing cars, enquiries, testimonials, FAQs, and SEO content.",
+    "longDescription": "This is a production-ready website targeting the Australian car subscription market. The business model bundles registration, comprehensive insurance, servicing, maintenance, and 24/7 roadside assistance into a single flexible weekly subscription with no lock-in contracts.\n\n**Public-Facing Website (8 pages)**\n- **Homepage:** Hero with dynamic CTA, benefits grid, How It Works section, featured vehicle carousel fetched live from Supabase, testimonials slider, and a floating WhatsApp widget.\n- **Car Catalogue:** Real-time client-side filtering by make, body type, transmission, fuel type, price range, and location — no page reload. Sortable paginated grid with weekly pricing and badge labels.\n- **Car Detail:** Full image gallery (swipeable on mobile), specification grid, what's-included checklist, and a pre-filled enquiry modal.\n- **Enquiry System:** Customer form with client- and server-side validation; submissions persisted to Supabase; admin notified via email through a Supabase Edge Function.\n- **Additional pages:** About, How It Works, FAQ, Terms & Conditions, Privacy Policy.\n\n**Admin Panel**\nProtected by Supabase Auth: car CRUD with multi-image drag-and-drop upload, enquiry status workflow (New → Contacted → Closed) with CSV export, testimonial and FAQ CRUD with reordering, a per-page SEO editor, and a site settings manager.\n\n**Technical Highlights**\nNext.js App Router with Server Components, ISR for car pages, full SEO (JSON-LD structured data, auto-generated sitemap, Open Graph tags), and TypeScript strict mode throughout.",
+    "tech": [
+      "Next.js 14",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "PostgreSQL",
+      "Supabase Auth",
+      "Supabase Storage",
+      "Supabase Edge Functions"
+    ],
+    "features": [
+      "Real-time filterable and sortable car catalogue — client-side filtering by make, body type, transmission, fuel type, price, and location with no page reload",
+      "Customer enquiry system with full validation, Supabase persistence, and automated admin email notifications via Edge Functions",
+      "Full admin panel with car CRUD (multi-image drag-and-drop upload), enquiry status management, and CSV export",
+      "Database-driven FAQ, testimonials, and per-page SEO content editor — all manageable without code changes",
+      "Production SEO setup: JSON-LD structured data, auto-generated sitemap.xml, Open Graph tags, and Next.js ISR for car pages"
+    ],
+    "type": "Web Application",
+    "category": "web-application",
+    "link": "/projects/car-subscription-website",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "Scaffolding Rental Management System | Web App Replacing Excel",
+    "description": "A cloud-based web application built for a scaffolding equipment rental company to replace an entirely manual, Excel-based workflow. The system automates stock tracking across a central warehouse and multiple active construction projects, calculates monthly and prorated daily invoices, and enforces a two-role approval workflow before any stock movement takes effect.",
+    "longDescription": "A scaffolding equipment rental company was managing all stock movements, project-level inventory, and client billing through offline Excel files — a process prone to error, hard to audit, and inaccessible from the field.\n\nThis web application replaces that workflow end-to-end:\n\n- **Master data management:** equipment catalog, client profiles, and rental contracts with locked per-item pricing per contract period.\n- **Approval workflow:** Admins submit delivery, return, transfer, or claim transactions; a Checker role must approve before any stock figures change. Rejected transactions are logged with reasons.\n- **Automated billing engine:** generates invoices using full-period monthly and prorated daily calculation rules, exactly replicating the company's Excel logic, with configurable invoice-number templates and optional 11% VAT per contract.\n- **Dashboard & reporting:** real-time warehouse stock, per-project stock recap, cumulative billing per project, and cross-project monthly billing summaries.\n- **Data migration:** Excel import templates for historical stock balances.\n- **PDF & print:** invoice export and direct browser printing.\n\nBuilt with Next.js 15 App Router, Supabase (PostgreSQL + Auth + Row-Level Security + Storage), Tailwind CSS, shadcn/ui, and @react-pdf/renderer, deployed to a VPS behind Nginx.",
+    "tech": [
+      "Next.js 15",
+      "React 19",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "@react-pdf/renderer",
+      "Nginx",
+      "PM2"
+    ],
+    "features": [
+      "Four transaction types (delivery, return, inter-project transfer, claim) with an approval workflow — stock only updates after Checker approval",
+      "Automated invoice billing engine with monthly and prorated-daily rules, per-contract locked pricing, and configurable invoice numbering",
+      "Real-time warehouse and per-project stock dashboards with stock-override warnings and a full audit log",
+      "PDF invoice generation and direct browser printing with an optional 11% VAT toggle per contract",
+      "Excel-based data migration import for historical stock balances and master data"
+    ],
+    "type": "Web Application",
+    "category": "web-application",
+    "link": "/projects/scaffolding-rental-system",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "Kindergarten WhatsApp Chatbot | Admissions & Info Bot",
+    "description": "An n8n-based static chatbot deployed on WhatsApp to automate inbound enquiries for a private kindergarten. It presents a structured menu that guides parents through school profiles, new-student enrollment procedures, curriculum details, fee breakdowns, seat availability, and contact information — eliminating repetitive manual responses from staff.",
+    "longDescription": "Staff at a private kindergarten were spending significant time manually answering the same questions about enrollment dates, fees, curriculum, and facilities over WhatsApp.\n\nThis project delivers a rule-based WhatsApp chatbot built as an n8n workflow:\n\n- **Menu-driven navigation:** parents receive a numbered menu on first contact and can navigate six categories — School Profile, Enrollment Info, Curriculum & Activities, Fee Breakdown, Seat Availability, and Contact & Location.\n- **Static knowledge base:** all answers are embedded directly in the workflow, with no external database dependency, making it zero-maintenance after deployment.\n- **Session awareness:** returning users skip the welcome message; new users receive an onboarding greeting.\n- **Rich content:** the bot sends images (facilities, extracurricular, achievements) alongside text responses.\n\nThe workflow was delivered as an importable n8n JSON file, complete with a conversation draft document the client reviewed and approved before deployment.",
+    "tech": [
+      "n8n",
+      "WhatsApp",
+      "JSON Workflow"
+    ],
+    "features": [
+      "Six-category menu covering school profile, enrollment, curriculum, fees, seat availability, and contact details",
+      "Session-aware welcome flow — onboarding greeting only for first-time contacts",
+      "Image delivery for facilities, extracurricular, and achievement galleries",
+      "Fully static knowledge base requiring zero database infrastructure",
+      "Delivered as a ready-to-import n8n workflow JSON"
+    ],
+    "type": "AI Chatbot",
+    "category": "mlops-automation",
+    "link": "/projects/kindergarten-whatsapp-chatbot",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "Car Parts Catalog & Workshop Booking Website | Australia",
+    "description": "A full-stack Next.js website for an Australian auto parts and workshop business, providing a public-facing parts catalog with car-compatibility filtering, a workshop service booking form, and a self-service admin panel so the client can manage products, bookings, and inquiries without developer assistance.",
+    "longDescription": "An Australian auto parts and workshop business needed an online presence that could showcase their car parts inventory filtered by vehicle make, model, and year, while accepting workshop service bookings and product inquiries — all without ongoing developer involvement for day-to-day content changes.\n\nThe solution is a Next.js 16 App Router application backed by Supabase:\n\n**Public storefront:**\n- Parts catalog with a Make → Model → Year compatibility filter\n- Per-product \"Buy on eBay\" call-to-action for direct purchase\n- WhatsApp floating widget and per-product inquiry button\n- Workshop services listing with pricing\n- Service booking form with email notification (Resend)\n- Customer testimonials, FAQ accordion, dynamic SEO meta tags, sitemap, and robots.txt\n\n**Self-service admin panel:**\n- Product CRUD with images, category tree, compatibility mapping, and featured toggle\n- Service management, testimonials, and FAQ editing\n- Inline booking and inquiry status tracking (new → contacted → confirmed → completed)\n- Business settings editor (hours, contact, social links, Google Maps embed)\n\nBuilt with Next.js 16, TypeScript, Tailwind CSS 4, Supabase (PostgreSQL + Auth + RLS), React Hook Form, and Zod.",
+    "tech": [
+      "Next.js 16",
+      "TypeScript",
+      "Tailwind CSS 4",
+      "Supabase",
+      "PostgreSQL",
+      "React Hook Form",
+      "Zod",
+      "Resend"
+    ],
+    "features": [
+      "Car-compatibility filter (Make → Model → Year) on the parts catalog page",
+      "eBay integration — per-product 'Buy on eBay' call-to-action alongside a WhatsApp inquiry widget",
+      "Workshop service booking form with email notifications via Resend",
+      "Full self-service admin panel: product CRUD, bookings, inquiries, testimonials, FAQs, and site settings",
+      "SEO-ready with dynamic meta tags, an auto-generated sitemap, and robots.txt"
+    ],
+    "type": "Web Application",
+    "category": "web-application",
+    "link": "/projects/car-parts-workshop-website",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "Cooperative Automation Platform | WhatsApp AI Agent + Member Wallet",
+    "description": "A large-scale automation system for a savings cooperative and travel program, combining an AI-powered WhatsApp chatbot for lead nurturing and member self-service with a Xendit-integrated wallet for deposits, withdrawals, and recurring savings plans. Conversations are routed between two specialized AI agents depending on whether the user is a prospective or an active member.",
+    "longDescription": "A savings cooperative running a managed travel program needed to scale member acquisition and servicing without proportionally growing its admin team. Prospects were handled manually over WhatsApp, and active members had no self-service channel for savings transactions.\n\nThis project delivers a multi-component automation platform:\n\n**WhatsApp AI Agent (n8n + Claude)**\n- Two specialized AI agents routed by member status:\n  - *Lead Nurturing agent:* greets prospects, explains program tiers (Platinum, Gold, and other packages), sends image brochures, financing scheme tables, and testimonial videos, scores leads (COLD/WARM/HOT), and hands hot leads to a human admin.\n  - *Member Transactions agent:* serves active members with PIN-verified balance checks, savings deposits (generating Xendit payment invoices), withdrawals with auto-approve or admin-review rules, inter-member transfers, and next-of-kin data retrieval.\n- Prompt caching on both agents' system messages for roughly 80% token cost reduction.\n- Conversation memory persists across agent switches so context is never lost.\n\n**Google Sheets as operational database:** Lead data, member records, audit trail, and broadcast logs in structured sheets, read/written by n8n via OAuth2.\n\n**Xendit payment integration:** Automated invoice generation for savings deposits and recurring savings plans (daily/weekly/monthly).\n\n**Landing page:** A static registration page with program details, pricing tabs, a FAQ accordion, and a WhatsApp pre-fill CTA. A separate technical brief was prepared for a next-phase WhatsApp-native wallet MVP (double-entry ledger, KYC, QRIS/VA top-up).",
+    "tech": [
+      "n8n",
+      "Claude (Anthropic API)",
+      "WhatsApp Gateway",
+      "Google Sheets",
+      "Xendit",
+      "Prompt Caching",
+      "Node.js",
+      "PM2",
+      "Nginx"
+    ],
+    "features": [
+      "Dual AI agent routing — a Lead Nurturing agent for prospects and a Member Transactions agent for active members, switching automatically by membership status",
+      "Xendit-integrated savings deposit flow: the AI triggers invoice generation, a webhook confirms payment, and the ledger updates automatically",
+      "Lead scoring and CRM: the AI tags leads COLD/WARM/HOT, stores profile data, and escalates hot leads to a human admin",
+      "Rich media delivery: automated sending of program brochures, financing tables, and testimonial videos directly in WhatsApp",
+      "Prompt caching on both agents' system messages for roughly 80% token cost reduction and faster responses"
+    ],
+    "type": "AI Automation",
+    "category": "nlp-genai",
+    "link": "/projects/cooperative-automation-platform",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "Multi-Channel CS Automation | WhatsApp & TikTok AI for a Window Furnishings Retailer",
+    "description": "A multi-channel AI customer service automation for a window blinds retailer. It handles inbound WhatsApp inquiries through an n8n workflow powered by a Claude-based AI agent, and covers the TikTok Shop Message Center with keyword replies, AI chat prompts, and suggested questions. The system qualifies leads, calculates price estimates, generates PDF quotations and DP invoices, and escalates to human agents when needed.",
+    "longDescription": "A window furnishings retailer selling roller blinds, solar screens, and blackout blinds was handling all inbound WhatsApp and TikTok DMs manually, leading to slow responses and inconsistent pricing.\n\nThis project delivers a full customer service automation across two channels:\n\n**WhatsApp AI Agent (n8n + Claude)**\n- An AI persona responds to WhatsApp messages in a natural, human tone.\n- Intent handling covers 20+ customer scenarios: price inquiries, size-based cost estimation (including multi-window batch calculation with volume discounts), product material questions, installation scheduling, survey booking, and order closing.\n- **Google Sheets CRM:** leads are logged and updated (product interest, address, installation date, status); the AI reads and writes via n8n tools.\n- **Sub-workflows:** PDF quotation generation and delivery, DP invoice generation, product catalog image sending, installation photo sharing, and admin escalation notification.\n- **Auto follow-up:** a scheduled workflow re-engages leads that have not responded after a set interval.\n\n**TikTok Message Center configuration**\n- A TikTok AI Message Assistant with a custom knowledge base.\n- 10 keyword reply sets covering price, catalog, survey, payment, materials, installation, location, ordering, and warranty queries.\n- 5 suggested-question buttons and 4 chat prompt shortcuts pre-configured for the TikTok DM interface, plus a first-contact welcome message.",
+    "tech": [
+      "n8n",
+      "Claude (Anthropic API)",
+      "WhatsApp",
+      "TikTok Message Center",
+      "Google Sheets",
+      "OpenRouter",
+      "PDF Generation"
+    ],
+    "features": [
+      "An AI persona handles 20+ customer intents on WhatsApp — price enquiries, multi-window cost estimation with volume discounts, product FAQ, and order closing",
+      "Automated PDF quotation and DP invoice generation and delivery directly in the WhatsApp conversation",
+      "Google Sheets CRM integration: lead profiles, product interest, installation dates, and message history tracked per contact",
+      "TikTok Message Center setup: AI Message Assistant with custom knowledge base, 10 keyword reply sets, 5 suggested questions, and welcome message",
+      "Auto follow-up workflow re-engages unresponsive leads, and an admin escalation sub-workflow alerts human agents for hot or complex cases"
+    ],
+    "type": "AI Chatbot",
+    "category": "nlp-genai",
+    "link": "/projects/multichannel-cs-automation",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "Odoo × Shopee Integration | Automated E-Commerce Sync",
+    "description": "A full bidirectional integration between Odoo 17 (ERP) and the Shopee Open Platform for a fashion retail business. The system automates product and stock synchronization, order ingestion, and variant management so the merchant never manages two systems manually. Built entirely on n8n workflows deployed alongside Odoo via Docker.",
+    "longDescription": "Managing inventory across an offline ERP and an online marketplace is a constant source of human error — overselling, stale listings, and missed orders. This project eliminates that friction by making Odoo 17 the single source of truth and letting n8n act as the middleware that keeps Shopee in sync.\n\n**Architecture overview:**\n- Odoo 17 (self-hosted on VPS, Docker) serves as the master data store for products, stock levels, and sales orders.\n- n8n (deployed in the same Docker network) handles all API orchestration.\n- The Shopee Open Platform V2 API is authenticated via HMAC-SHA256 signed OAuth2 tokens, with a dedicated auto-refresh workflow on a cron schedule so the integration never goes stale.\n\n**Five core workflow modules:**\n1. **Token Auto-Refresher** — keeps the Shopee access token alive automatically.\n2. **Product Push** — publishes new products (name, price, description, images, variants) from Odoo to Shopee listings.\n3. **Variant & Stock Sync** — bidirectional stock updates: Odoo-to-Shopee on any manual adjustment, and Shopee-to-Odoo whenever an online order is placed.\n4. **Order Webhook** — listens for Shopee order push events and automatically creates a Sales Order in Odoo with full customer and product mapping.\n5. **Fulfillment** — propagates shipping tracking numbers back to Shopee after the warehouse team updates the delivery in Odoo.\n\nThe project also includes an error-alert mechanism, category-to-attribute mapping guides, and full handover documentation.",
+    "tech": [
+      "n8n",
+      "Odoo 17",
+      "Shopee Open Platform API",
+      "Docker",
+      "Nginx",
+      "PostgreSQL",
+      "HMAC-SHA256",
+      "Node.js",
+      "XML-RPC"
+    ],
+    "features": [
+      "Automatic product push from Odoo to Shopee (name, price, description, images, product variants)",
+      "Bidirectional real-time stock synchronization between Odoo and Shopee",
+      "Auto-creation of Odoo Sales Orders from incoming Shopee order webhooks",
+      "Cron-based Shopee OAuth2 token auto-refresh to prevent integration downtime",
+      "Fulfillment and shipping tracking number sync back to Shopee from Odoo"
+    ],
+    "type": "System Integration",
+    "category": "mlops-automation",
+    "link": "/projects/odoo-shopee-integration",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "Spray Injector Nozzle AI Inspector | Computer Vision Quality Control",
+    "description": "A Computer Vision system built for a quality-control team to automatically measure four geometric spray attributes and classify the condition of fuel injector nozzles (Normal / Repair / Replace) in real time. It replaces subjective manual inspection with a consistent, AI-driven pipeline running on a Raspberry Pi 5, eliminating operator variability on the test bench.",
+    "longDescription": "Manual inspection of injector nozzle spray patterns is inherently subjective — two operators examining the same test image can reach different conclusions, creating inconsistent QC records. This project provides an objective, fully automated alternative.\n\n**How it works:**\nA camera captures frames from the spray test rig. The OpenCV-based CV pipeline segments the spray region, detects contours, and computes four geometric attributes on every frame:\n1. **Spray Length** — distance from nozzle tip to the farthest spray endpoint.\n2. **Spray Width** — maximum lateral spread of the spray pattern.\n3. **Spray Angle** — opening angle of each stream from the nozzle center.\n4. **Symmetry Index** — balance score between left and right spray arms.\n\nA TensorFlow/Keras classifier (trained on 520 labeled images) takes those geometric features plus the cropped spray image and outputs one of three condition labels with a confidence score.\n\n**Desktop application (PyQt5):**\nA full-featured GUI provides a live camera feed with overlay annotations, ROI configuration, one-click pixel-to-mm calibration, and an export function that writes per-inspection results (geometry values + AI label + capture photo) to a timestamped CSV report.\n\nThe system runs entirely offline on a Raspberry Pi 5, with no cloud dependency.",
+    "tech": [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "OpenCV",
+      "PyQt5",
+      "NumPy",
+      "Raspberry Pi 5",
+      "scikit-learn"
+    ],
+    "features": [
+      "Real-time automated measurement of 4 spray geometry attributes (length, width, angle, symmetry) per frame",
+      "AI classification of nozzle condition into 3 labels — Normal, Repair, Replace — with a confidence score",
+      "Interactive ROI and pixel-to-mm calibration tool for one-time physical setup",
+      "PyQt5 desktop GUI with a live annotated video feed and per-inspection capture",
+      "CSV and photo export of every inspection result for QC record-keeping and audit trails"
+    ],
+    "type": "Computer Vision",
+    "category": "computer-vision",
+    "link": "/projects/spray-nozzle-ai-inspector",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "AI Camera Activity Recognition System | Multi-Object & Human Activity Detection",
+    "description": "A real-time AI camera system that detects multiple object categories (humans, animals, heavy equipment, everyday items) and recognizes a wide spectrum of human activities and facial expressions using YOLO-based pose estimation and a temporal action classifier. The desktop application targets use cases such as homecare monitoring and restaurant staff supervision, running fully offline with a SQLite activity log.",
+    "longDescription": "Generic CCTV footage requires a human watcher — this project turns any camera feed into an autonomous monitor that understands *what is happening*, not just that something is there.\n\n**Detection capabilities:**\n- **Object categories:** humans, animals (cat, dog, cow, sheep), heavy machinery (excavator, truck), and common objects with counting.\n- **Human activities:** standing, sitting, falling, cooking, carrying items, eating/drinking, talking, cashier posture, running, carrying a baby, violence detection, and sleeping.\n- **Facial expressions:** smiling, laughing, frowning, sadness (via MediaPipe FaceLandmarker).\n- **Animal activities:** sleeping, eating, walking.\n\n**Technical architecture:**\nA unified YOLO pose model outputs both bounding boxes and skeletal keypoints in a single forward pass. A secondary temporal model (LSTM / ST-GCN) analyses a rolling 30-frame keypoint buffer per tracked identity to classify complex sequential actions. ByteTrack provides stable per-ID tracking across frames, enabling a **Lock Target** feature that keeps focus on a specific individual through occlusion.\n\n**Application modes:**\n- *All Mode* — full detection.\n- *Homecare Mode* — focuses on violence, fall, and baby-carrying detection.\n- *Restaurant Mode* — focuses on cooking, serving, and cashier posture.\n\nAll detected events are logged to a local SQLite database with timestamps, enabling daily activity reports without any internet connection.",
+    "tech": [
+      "Python",
+      "YOLOv8",
+      "YOLO-Pose",
+      "OpenCV",
+      "PyTorch",
+      "MediaPipe",
+      "ByteTrack",
+      "SQLite",
+      "PyQt6",
+      "ONNX"
+    ],
+    "features": [
+      "Real-time detection of humans, animals, heavy machinery, and common objects across multiple camera feeds",
+      "Human activity recognition for 13+ activity classes using temporal pose-keypoint analysis (LSTM/ST-GCN)",
+      "Facial expression recognition (smile, laugh, frown, sadness) via MediaPipe FaceLandmarker",
+      "Lock Target feature for stable single-individual tracking through occlusion using ByteTrack",
+      "Per-camera configurable detection modes (All / Homecare / Restaurant) with SQLite activity logging"
+    ],
+    "type": "Computer Vision",
+    "category": "computer-vision",
+    "link": "/projects/ai-camera-activity-recognition",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "AI Sales Automation Agent | Smart Follow-Up, Lead Scoring & CRM",
+    "description": "An intelligent sales automation system built on n8n for a vehicle paint-protection film (PPF) and vinyl-wrap installer. The system extends an existing Instagram DM AI chatbot with a context-aware follow-up engine, automated lead classification (HOT / WARM / COLD), a Google Sheets CRM that captures customer data and financials, and automatic invoice dispatch — all without manual intervention from the sales team.",
+    "longDescription": "The client already had an AI chatbot responding to Instagram DM inquiries automatically, but the follow-up layer was unintelligent — it had no memory of how many times it had messaged a lead and could not distinguish a serious buyer from a ghost. This project added the intelligence layer on top.\n\n**Three workflow modules:**\n\n1. **Smart Follow-Up + Auto Labeling** — A cron-based n8n workflow checks every lead's last response time and fires follow-up messages at configurable intervals (default: 8h → 16h → 23h). Claude generates each message with full conversation context so each follow-up feels natural and escalates in urgency. After 3 unanswered follow-ups the lead is automatically marked as junk. Active leads are scored HOT or WARM based on AI sentiment analysis of their replies.\n\n2. **Google Sheets CRM + Auto Invoice** — Every new lead and interaction is upserted (no duplicates) into a structured Google Sheets database (customer name, WhatsApp number, location, referral source, product interest, follow-up count, lead label, financial data). Invoice PDFs are generated and dispatched automatically to the customer's WhatsApp or email upon closing.\n\n3. **WhatsApp Integration (Phase 2)** — The same follow-up and CRM workflows are replicated for the WhatsApp Business API channel, giving the client a unified pipeline across both Instagram DM and WhatsApp.",
+    "tech": [
+      "n8n",
+      "Anthropic Claude",
+      "Meta WhatsApp Business API",
+      "Meta Instagram Graph API",
+      "Google Sheets API",
+      "JavaScript",
+      "Google OAuth2"
+    ],
+    "features": [
+      "Context-aware auto follow-up engine with 3-stage escalation (8h, 16h, 23h) and automatic lead disqualification after no response",
+      "AI-powered lead scoring that classifies every lead as HOT, WARM, or COLD based on Claude sentiment analysis of conversation history",
+      "Automated Google Sheets CRM upsert — every new lead and status change is recorded without duplicates",
+      "Automatic invoice generation and dispatch to customer WhatsApp or email upon order confirmation",
+      "Dual-channel coverage: identical workflows running in parallel for both Instagram DM and WhatsApp Business"
+    ],
+    "type": "AI Agent",
+    "category": "nlp-genai",
+    "link": "/projects/ai-sales-automation-agent",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "WhatsApp AI Sales Chatbot + Odoo ERP | End-to-End Order Automation",
+    "description": "A full-stack sales automation solution combining a WhatsApp AI chatbot (built on n8n) with a freshly implemented Odoo ERP backend for a medical equipment and supplies distributor. The AI agent handles customer identification, product catalog browsing, order creation, proforma invoice dispatch, and admin escalation — turning WhatsApp into a low-effort sales channel backed by a real ERP.",
+    "longDescription": "The client wanted to handle sales inquiries, catalog requests, and order placement entirely through WhatsApp, with all transactions recorded automatically in a proper ERP system. This project delivered both layers as an integrated solution.\n\n**Odoo ERP implementation:**\nOdoo was installed from scratch and configured with Sales, Inventory, Invoicing, and CRM modules. Custom fields were added to products and customers specifically to support chatbot integration — allowing the bot to look up stock, pricing, and customer history via Odoo's API.\n\n**WhatsApp AI Agent (n8n):**\nSeven n8n workflows power the chatbot:\n1. **Main Agent** — receives incoming WhatsApp messages via webhook, runs the AI conversation loop, and dispatches replies.\n2. **Send Catalog** — sends a product catalog to the customer in text or image format on demand.\n3. **Create Order** — creates a confirmed Sales Order in Odoo with full line-item detail after the customer explicitly confirms.\n4. **Send Invoice** — dispatches a proforma invoice after order creation, and a final invoice after payment confirmation.\n5. **Admin Escalation** — hands off the conversation to a human admin for closing, complaints, or out-of-scope questions, with a full order summary.\n6. **24-Hour Payment Reminder** — sends an automatic reminder if a proforma invoice goes unpaid.\n7. **12-Hour Lead Follow-up** — re-engages leads that browsed the catalog but never placed an order.\n\nThe system prompt enforces a strict flow: greet → identify customer → help select products → confirm order → create order + invoice → escalate to admin for payment verification.",
+    "tech": [
+      "n8n",
+      "Odoo ERP",
+      "WhatsApp Business API",
+      "Claude API",
+      "OpenAI API",
+      "Node.js",
+      "Docker",
+      "PostgreSQL"
+    ],
+    "features": [
+      "WhatsApp AI agent that handles the full sales cycle: customer identification, catalog browsing, order confirmation, and invoice dispatch",
+      "Automatic Sales Order creation in Odoo via API immediately after the customer confirms their basket",
+      "Dual-invoice flow: proforma sent automatically at order creation, final invoice sent after payment confirmation",
+      "Scheduled follow-up workflows: 24-hour payment reminder and 12-hour lead re-engagement for cart abandoners",
+      "Smart admin escalation with a full order summary for closing, complaints, and COD confirmation"
+    ],
+    "type": "AI Chatbot",
+    "category": "nlp-genai",
+    "link": "/projects/whatsapp-chatbot-odoo-erp",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "JerseyGen | AI-Powered Football Jersey Design Studio",
+    "description": "A Next.js web application that lets users design custom football and futsal jerseys with a real-time 3D preview, then uses an AI image-generation API to produce a photorealistic render of a person wearing the customized jersey. Users can design patterns, colors, text, and logos, optionally upload their own face photo, and download or print the final design sheet.",
+    "longDescription": "JerseyGen is a full-featured jersey customization web app built for a sports apparel business. The core experience is a real-time 3D jersey viewer — users can rotate the model 360°, choose from preset or uploaded patterns, configure primary/secondary/accent colors, add sponsor text, player names, and numbers, and upload custom logos.\n\nOnce satisfied with the design, users can optionally upload a photo of their own face. The app then calls an AI image-editing API which composites the custom jersey design onto an AI-generated person, preserving facial likeness.\n\n**Key capabilities:**\n- Real-time 3D jersey preview built with Three.js / react-three-fiber\n- Pattern presets (stripes, chevron, two-tone, diagonal) plus user-uploaded patterns with recoloring\n- Text layer: player name, number, sponsor, and free-form text on front and back\n- Logo upload with placement controls\n- Face-swap mode: upload your own photo → AI generates you wearing the jersey\n- Save up to 20 designs locally (localStorage) and reload them by name\n- Export: download a PNG design sheet (front + back views) or print directly\n\nThe AI backend is provider-agnostic — it supports multiple image-edit models and a mock mode for UI testing.",
+    "tech": [
+      "Next.js 14",
+      "TypeScript",
+      "Three.js",
+      "react-three-fiber",
+      "Tailwind CSS",
+      "Zustand",
+      "Freepik API",
+      "KieAI API"
+    ],
+    "features": [
+      "Interactive 3D jersey viewer with 360° rotation and zoom",
+      "Full design editor: patterns, colors, text (name/number/sponsor), and logo upload",
+      "AI face-swap: upload your face photo and see yourself wearing the custom jersey",
+      "Save and reload up to 20 named designs via browser localStorage",
+      "One-click PNG export and print layout for front and back views"
+    ],
+    "type": "Web Application",
+    "category": "web-application",
+    "link": "/projects/jerseygen-design-studio",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "MDCNN News Text Classifier | Multi-Teacher Knowledge Distillation",
+    "description": "A research replication project implementing the MDCNN (Multi-Teacher Distillation-Based CNN) architecture from a 2025 IEEE Access paper. The model combines BERT and BiGRU as teacher models to train a lightweight TextCNN student via knowledge distillation, achieving near-BERT accuracy on the AG News classification benchmark at a fraction of the model size.",
+    "longDescription": "This project was built for a graduate thesis student who needed a clean, reproducible implementation of the MDCNN paper (IEEE Access, 2025) to support their academic research.\n\nThe pipeline implements three models in a unified Jupyter Notebook:\n\n1. **Teacher 1 — BERT:** Fine-tuned `bert-base-uncased` for 4-class news categorization (World, Sports, Business, Sci/Tech) on the AG News dataset.\n2. **Teacher 2 — BiGRU:** A bidirectional GRU trained on the same data using a learned vocabulary.\n3. **Student — TextCNN (MDCNN):** A lightweight convolutional text classifier trained with a dual-teacher knowledge distillation loss.\n\nThe distillation loss uses loss-guided adaptive weighting to dynamically balance teacher contributions, with a final KL-divergence distillation term using the optimal parameters from the paper (α=0.3, τ=5).\n\nThe deliverable is a single self-contained, Colab-ready notebook with markdown explanations, reproducible 8:1:1 splits, and a final comparison table (TextCNN baseline vs MDCNN) reproducing the paper's reported metrics (~91.7% accuracy / F1 on AG News).",
+    "tech": [
+      "Python",
+      "PyTorch",
+      "Hugging Face Transformers",
+      "BERT",
+      "BiGRU",
+      "TextCNN",
+      "Knowledge Distillation",
+      "Google Colab"
+    ],
+    "features": [
+      "Full MDCNN pipeline: BERT teacher, BiGRU teacher, and TextCNN student in one notebook",
+      "Loss-guided adaptive weighting for dynamic teacher contribution balancing",
+      "Knowledge distillation with KL-divergence loss (α=0.3, τ=5 per paper)",
+      "AG News dataset with an 8:1:1 train/val/test split matching the paper's methodology",
+      "Comparison table — TextCNN baseline vs MDCNN — showing the distillation improvement"
+    ],
+    "type": "ML Research",
+    "category": "data-science",
+    "link": "/projects/mdcnn-text-classifier",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "Ad Performance Monitor & AI Advisor | Multi-Channel ROAS Automation",
+    "description": "A self-hosted automation system that pulls daily advertising data from Meta Ads, Shopee, and TikTok Shop, calculates ROAS and key metrics, and delivers AI-generated optimization recommendations to a Telegram group. It combines n8n for workflow orchestration with an AI agent for conversational advisory and long-term memory.",
+    "longDescription": "This project addresses a common pain point for e-commerce advertisers: manually checking ROAS across multiple ad platforms every day and making data-driven decisions without expert guidance. The system automates the entire monitoring loop.\n\n**Architecture (self-hosted on VPS):**\n- **n8n** handles all technical execution: cron scheduling, parallel API calls to the Meta Marketing API, Shopee Open Platform, and TikTok Shop Partner API, metric calculation, and Telegram message delivery.\n- An **AI agent** handles the intelligence layer: LLM-based analysis, optimization recommendations, conversational reply handling when team members respond in the Telegram group, and persistent memory of past recommendations.\n\n**Daily flow:**\n1. An n8n cron triggers at 08:00 WIB and reads ROAS thresholds from a Google Sheets config.\n2. Data is fetched from all three ad platforms in parallel.\n3. Six key metrics are calculated (ROAS, Spend, Revenue, CPA, CTR, Conversion Rate).\n4. If ROAS falls below threshold, the AI agent is invoked to generate contextual recommendations across bidding strategy, budget reallocation, and creative.\n5. A formatted message (metrics + AI advice) is sent to the advertiser team's Telegram group.\n6. Team members can reply directly in Telegram; the agent maintains conversation context across sessions.\n\nThe design keeps LLM costs low by routing routine work through n8n (zero token cost) and only calling the AI model when ROAS is below threshold or when a team member starts a conversation.",
+    "tech": [
+      "n8n",
+      "Meta Marketing API",
+      "Shopee Open Platform API",
+      "TikTok Shop Partner API",
+      "Telegram Bot API",
+      "Google Sheets API",
+      "OpenAI / Claude / DeepSeek",
+      "Node.js"
+    ],
+    "features": [
+      "Automated daily ROAS and metric collection from Meta Ads, Shopee, and TikTok Shop",
+      "AI-generated optimization recommendations triggered when ROAS drops below a configurable threshold",
+      "Telegram group notifications with formatted metrics and actionable AI advice",
+      "Two-way conversational AI in Telegram with persistent long-term memory",
+      "Google Sheets-based threshold configuration for non-technical team management"
+    ],
+    "type": "Automation",
+    "category": "mlops-automation",
+    "link": "/projects/ad-performance-ai-advisor",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
+  },
+  {
+    "title": "Fuel Supply Chain AI | Demand Forecasting & Distribution Optimizer",
+    "description": "A Streamlit-based AI dashboard built for a fuel distribution terminal, covering demand forecasting for 135 retail stations over a 1–10 year horizon and a multi-agent AI architecture prototype. The system uses XGBoost and Prophet models with population and vehicle-growth factors, displays an interactive map, and includes a conversational LangChain AI assistant for supply chain queries.",
+    "longDescription": "This project tackles real operational challenges in fuel distribution: preventing shortages, optimizing truck dispatch, and planning terminal infrastructure capacity. Built under a formal contract (Phase 1), it processes shipment history from a terminal covering 135 retail fuel stations and 56 tanker trucks.\n\n**Dashboard tabs:**\n- **Terminal Overview** — an interactive Folium map of all 135 stations with delivery statistics, daily trend lines, and product composition charts.\n- **Demand Forecasting** — XGBoost and Prophet models project demand 1–10 years out. Users can toggle between trip-count and volume views and switch between daily, monthly, and yearly granularity, incorporating external growth factors (population, registered vehicles). Results export to a 4-sheet Excel file.\n- **AI Assistant** — a LangChain-powered chat interface answering natural-language queries about supply chain data (e.g., \"How many loading bays will be needed if demand rises 15% next year?\").\n\n**Multi-Agent Architecture (roadmap):**\nAn Orchestrator Agent coordinates five specialist agents — Demand, Terminal, Distribution, Station, and Risk — each owning a different operational domain. Phase 1 delivered the Demand Agent prototype and the full data preprocessing pipeline.\n\n**Data pipeline:** Raw shipment and station data → coordinate geocoding → daily aggregation per station per product → clean CSVs ready for modeling.",
+    "tech": [
+      "Python",
+      "Streamlit",
+      "XGBoost",
+      "Prophet",
+      "LangChain",
+      "Folium",
+      "Pandas",
+      "OpenAI API",
+      "scikit-learn"
+    ],
+    "features": [
+      "Interactive map of 135 fuel stations with delivery statistics and trip/volume metrics",
+      "XGBoost + Prophet demand forecasting up to 10 years with population and vehicle growth factors",
+      "Toggle between trip-count and volume views with daily/monthly/yearly granularity",
+      "Conversational LangChain AI assistant for natural-language supply chain queries",
+      "4-sheet Excel export: historical data, forecasts, per-station recap, and per-product recap"
+    ],
+    "type": "Data Science",
+    "category": "data-science",
+    "link": "/projects/fuel-supply-chain-ai",
+    "thumbnail": "",
+    "gallery": [],
+    "demoLink": "",
+    "githubLink": ""
   }
 ]

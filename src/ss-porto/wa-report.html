@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Report Mockup</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #111;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .phone {
+            width: 390px;
+            height: 844px;
+            background-color: #0B141A;
+            border-radius: 40px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #333;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            background: #1F2C34;
+            color: #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .status-bar .right {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #1F2C34;
+            color: #E9EDEF;
+            display: flex;
+            align-items: center;
+            padding: 8px 10px 12px;
+            gap: 10px;
+        }
+        .top-bar .back-arrow { font-size: 18px; color: #aaa; }
+        .top-bar .profile-pic {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #2A3942;
+        }
+        .top-bar .contact-name {
+            font-size: 16px;
+            font-weight: 600;
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .top-bar .actions {
+            display: flex;
+            gap: 18px;
+            font-size: 18px;
+            color: #aaa;
+        }
+
+        /* Chat Area */
+        .chat-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            background: #0B141A;
+        }
+        .chat-area::-webkit-scrollbar { display: none; }
+
+        /* Message bubble */
+        .bubble {
+            background: #1F2C34;
+            max-width: 85%;
+            padding: 8px 12px 6px;
+            border-radius: 10px;
+            border-top-left-radius: 0;
+            align-self: flex-start;
+            color: #E9EDEF;
+            font-size: 14.5px;
+            line-height: 1.55;
+            position: relative;
+        }
+
+        .report-header {
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+        .report-date {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+        .divider {
+            border: none;
+            border-top: 2px solid #2A3942;
+            margin: 8px 0;
+        }
+
+        .branch-section {
+            margin-bottom: 10px;
+        }
+        .branch-name {
+            font-weight: 700;
+            font-size: 14.5px;
+            margin-bottom: 2px;
+        }
+        .branch-detail {
+            font-size: 14px;
+            margin-left: 2px;
+        }
+
+        /* Scroll down button */
+        .scroll-down {
+            position: absolute;
+            bottom: 80px;
+            right: 20px;
+            width: 34px;
+            height: 34px;
+            background: #1F2C34;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8696A0;
+            font-size: 14px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        }
+
+        /* Input Bar */
+        .input-bar {
+            background: #0B141A;
+            padding: 8px 10px 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .input-bar .msg-input-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: #1F2C34;
+            border-radius: 24px;
+            padding: 10px 14px;
+            gap: 12px;
+        }
+        .input-bar .msg-input-wrapper .emoji { font-size: 22px; color: #8696A0; }
+        .input-bar .msg-input-wrapper input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 15px;
+            outline: none;
+            color: #E9EDEF;
+        }
+        .input-bar .msg-input-wrapper input::placeholder { color: #8696A0; }
+        .input-bar .msg-input-wrapper .attach-icons {
+            display: flex;
+            gap: 14px;
+            color: #8696A0;
+            font-size: 19px;
+        }
+        .input-bar .mic-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #00A884;
+            border: none;
+            color: white;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        /* Nav Bar */
+        .nav-bar {
+            background: #0B141A;
+            border-top: 1px solid #1F2C34;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0 8px;
+        }
+        .nav-bar i { font-size: 20px; color: #8696A0; }
+    </style>
+</head>
+<body>
+
+<div class="phone">
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div style="display:flex;align-items:center;gap:4px;">
+            <span>7:18 AM</span>
+            <span>⬇</span>
+        </div>
+        <div class="right">
+            <i class="fas fa-signal" style="font-size:11px;"></i>
+            <i class="fas fa-wifi" style="font-size:11px;"></i>
+            <span>4G</span>
+            <i class="fas fa-battery-three-quarters" style="font-size:13px;"></i>
+            <span>96</span>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <i class="fas fa-arrow-left back-arrow"></i>
+        <img src="icon.png" alt="Profile" class="profile-pic">
+        <span class="contact-name">Cempaka Utama</span>
+        <div class="actions">
+            <i class="fas fa-video"></i>
+            <i class="fas fa-phone"></i>
+            <i class="fas fa-ellipsis-vertical"></i>
+        </div>
+    </div>
+
+    <!-- Chat Area -->
+    <div class="chat-area" style="position:relative;">
+
+        <div class="bubble">
+            <!-- Header -->
+            <div class="report-header">📊 LAPORAN OMSET HARIAN</div>
+            <div class="report-date">📅 Jumat, 27 Februari 2026</div>
+            <hr class="divider">
+
+            <!-- Branch 1 -->
+            <div class="branch-section">
+                <div class="branch-name">🏪 Cempaka Jawa Barat</div>
+                <div class="branch-detail">💰 Net Sales: Rp 523.900</div>
+                <div class="branch-detail">📝 Transaksi: 10</div>
+                <div class="branch-detail">🏷️ Diskon: Rp 22.500</div>
+            </div>
+
+            <!-- Branch 2 -->
+            <div class="branch-section">
+                <div class="branch-name">🏪 Cempaka Jawa Tengah</div>
+                <div class="branch-detail">💰 Net Sales: Rp 483.000</div>
+                <div class="branch-detail">📝 Transaksi: 5</div>
+            </div>
+
+            <!-- Branch 3 -->
+            <div class="branch-section">
+                <div class="branch-name">🏪 Cempaka Jawa Timur</div>
+                <div class="branch-detail">💰 Net Sales: Rp 484.000</div>
+                <div class="branch-detail">📝 Transaksi: 5</div>
+            </div>
+
+            <!-- Branch 4 -->
+            <div class="branch-section">
+                <div class="branch-name">🏪 Cempaka Bali</div>
+                <div class="branch-detail">💰 Net Sales: Rp 49.000</div>
+                <div class="branch-detail">📝 Transaksi: 1</div>
+            </div>
+
+            <!-- Branch 5 -->
+            <div class="branch-section">
+                <div class="branch-name">🏪 Cempaka Lampung</div>
+                <div class="branch-detail">💰 Net Sales: Rp 0</div>
+                <div class="branch-detail">📝 Transaksi: 0</div>
+            </div>
+        </div>
+
+        <!-- Scroll down indicator -->
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+
+    </div>
+
+    <!-- Input Bar -->
+    <div class="input-bar">
+        <div class="msg-input-wrapper">
+            <span class="emoji"><i class="far fa-smile"></i></span>
+            <input type="text" placeholder="Message" disabled>
+            <div class="attach-icons">
+                <i class="fas fa-paperclip"></i>
+                <i class="fas fa-camera"></i>
+            </div>
+        </div>
+        <button class="mic-btn"><i class="fas fa-microphone"></i></button>
+    </div>
+
+    <!-- Nav Bar -->
+    <div class="nav-bar">
+        <i class="fas fa-bars"></i>
+        <i class="far fa-circle"></i>
+        <i class="fas fa-caret-left" style="font-size:24px;"></i>
+    </div>
+
+</div>
+
+</body>
+</html>

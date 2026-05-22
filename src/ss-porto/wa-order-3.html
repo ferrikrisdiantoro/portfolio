@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WA Order Mockup 3</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #111;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex; justify-content: center; align-items: center; height: 100vh;
+        }
+        .phone {
+            width: 390px; height: 844px; background: #0B141A;
+            border-radius: 40px; overflow: hidden; display: flex;
+            flex-direction: column; border: 1px solid #333;
+        }
+        .status-bar {
+            background: #1F2C34; color: #ccc; display: flex;
+            justify-content: space-between; align-items: center;
+            padding: 10px 20px 4px; font-size: 12px;
+        }
+        .status-bar .right { display: flex; align-items: center; gap: 5px; font-size: 11px; }
+        .top-bar {
+            background: #1F2C34; color: #E9EDEF; display: flex;
+            align-items: center; padding: 8px 10px 12px; gap: 10px;
+        }
+        .top-bar .back { font-size: 18px; color: #aaa; }
+        .top-bar .pic {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: #2A3942; overflow: hidden;
+        }
+        .top-bar .pic img { width: 100%; height: 100%; object-fit: cover; }
+        .top-bar .info { flex: 1; }
+        .top-bar .info .name { font-size: 16px; font-weight: 600; }
+        .top-bar .info .status { font-size: 12px; color: #8696A0; }
+        .top-bar .actions { display: flex; gap: 18px; font-size: 18px; color: #aaa; }
+        .chat {
+            flex: 1; overflow-y: auto; padding: 12px 14px;
+            display: flex; flex-direction: column; gap: 6px; background: #0B141A;
+        }
+        .chat::-webkit-scrollbar { display: none; }
+        .bubble {
+            max-width: 82%; padding: 6px 10px 4px; border-radius: 8px;
+            font-size: 14.5px; line-height: 1.5; word-wrap: break-word;
+        }
+        .bubble .time { font-size: 11px; color: #8696A0; float: right; margin-left: 8px; margin-top: 4px; }
+        .bubble .check { color: #53BDEB; font-size: 11px; }
+        .sent { background: #005C4B; color: #E9EDEF; align-self: flex-end; border-top-right-radius: 0; }
+        .received { background: #1F2C34; color: #E9EDEF; align-self: flex-start; border-top-left-radius: 0; }
+        .quote {
+            background: #25313A; border-left: 4px solid #00A884;
+            border-radius: 4px; padding: 4px 8px; margin-bottom: 4px; font-size: 13px;
+        }
+        .quote .q-name { color: #00A884; font-weight: 600; font-size: 12px; }
+        .quote .q-text { color: #8696A0; }
+        .scroll-down {
+            position: sticky; bottom: 4px; align-self: flex-end;
+            width: 30px; height: 30px; background: #1F2C34;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; color: #8696A0; font-size: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        }
+        .input-bar {
+            background: #0B141A; padding: 8px 10px 24px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .input-bar .wrap {
+            flex: 1; display: flex; align-items: center;
+            background: #1F2C34; border-radius: 24px; padding: 10px 14px; gap: 12px;
+        }
+        .input-bar .wrap .ic { font-size: 22px; color: #8696A0; }
+        .input-bar .wrap input {
+            flex: 1; border: none; background: transparent;
+            font-size: 15px; outline: none; color: #E9EDEF;
+        }
+        .input-bar .wrap input::placeholder { color: #8696A0; }
+        .input-bar .wrap .att { display: flex; gap: 14px; color: #8696A0; font-size: 19px; }
+        .input-bar .mic {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: #00A884; border: none; color: white;
+            font-size: 18px; display: flex; align-items: center; justify-content: center;
+        }
+        .nav {
+            background: #0B141A; border-top: 1px solid #1F2C34;
+            display: flex; justify-content: space-around; align-items: center; padding: 10px 0 8px;
+        }
+        .nav i { font-size: 20px; color: #8696A0; }
+    </style>
+</head>
+<body>
+<div class="phone">
+    <div class="status-bar">
+        <span>7:20 AM ⬇</span>
+        <div class="right">
+            <i class="fas fa-signal" style="font-size:11px;"></i>
+            <i class="fas fa-wifi" style="font-size:11px;"></i>
+            <span>4G</span>
+            <i class="fas fa-battery-three-quarters" style="font-size:13px;"></i>
+            <span>96</span>
+        </div>
+    </div>
+    <div class="top-bar">
+        <i class="fas fa-arrow-left back"></i>
+        <div class="pic"><img src="icon.png" alt="P"></div>
+        <div class="info">
+            <div class="name">Cempaka Resident</div>
+            <div class="status">last seen yesterday at 7:32 PM</div>
+        </div>
+        <div class="actions">
+            <i class="fas fa-phone"></i>
+            <i class="fas fa-ellipsis-vertical"></i>
+        </div>
+    </div>
+    <div class="chat">
+
+        <!-- Bot asking -->
+        <div class="bubble received">
+            Apakah ada lagi yang ingin Kakak lihat atau ingin langsung melakukan pemesanan?
+            <span class="time">3:30 PM</span>
+        </div>
+
+        <!-- User order -->
+        <div class="bubble sent">
+            Brownies satu sama cookies satu deh
+            <span class="time">3:30 PM <span class="check">✓✓</span></span>
+        </div>
+
+        <!-- Bot confirm -->
+        <div class="bubble received">
+            <div class="quote">
+                <div class="q-name">You</div>
+                <div class="q-text">Brownies satu sama cookies satu deh</div>
+            </div>
+            Oke Kak, jadi pesanan Kakak:<br>
+            <div style="padding-left:4px;margin:4px 0;">
+                • 1 Brownies Original (Large, 20 slices/box)<br>
+                • 1 Choco Cookies (30 pcs/box)
+            </div>
+            <br>
+            Untuk melanjutkan pesanan, boleh kami tahu detail berikut ya Kak:<br>
+            <div style="padding-left:4px;margin:4px 0;">
+                • Nama Penerima:<br>
+                • No. HP Penerima (pastikan nomor WhatsApp aktif):<br>
+                • Alamat Lengkap Penerima (termasuk kelurahan, kecamatan, kota, dan kode pos):<br>
+                • Tanggal pengiriman yang diinginkan:<br>
+                • Pilihan pengiriman: Instant / Grab Same Day / Pick Up / JNE YES (luar kota)?
+            </div>
+            <br>
+            Kami tunggu infonya ya Kak!
+            <span class="time">3:31 PM</span>
+        </div>
+
+        <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>
+    </div>
+
+    <div class="input-bar">
+        <div class="wrap">
+            <span class="ic"><i class="far fa-smile"></i></span>
+            <input type="text" placeholder="Message" disabled>
+            <div class="att">
+                <i class="fas fa-paperclip"></i>
+                <i class="fas fa-camera"></i>
+            </div>
+        </div>
+        <button class="mic"><i class="fas fa-microphone"></i></button>
+    </div>
+    <div class="nav">
+        <i class="fas fa-bars"></i>
+        <i class="far fa-circle"></i>
+        <i class="fas fa-caret-left" style="font-size:24px;"></i>
+    </div>
+</div>
+</body>
+</html>
