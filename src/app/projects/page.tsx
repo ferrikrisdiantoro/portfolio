@@ -21,6 +21,9 @@ const categoryLabels: Record<string, string> = {
 export default function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  // 12 proyek terkuat tampil dulu; sisanya (termasuk proyek kuliah lama) di balik tombol
+  const [showAll, setShowAll] = useState(false);
+  const INITIAL = 12;
 
   const categories = [
     "All",
@@ -44,8 +47,8 @@ export default function ProjectsPage() {
             All Projects<span className="text-primary">.</span>
           </h1>
           <p className="text-text-muted text-base md:text-lg max-w-2xl leading-relaxed mb-10">
-            A collection of my work spanning AI, automation, full-stack
-            development, and more.
+            Client work, my own products, and earlier research. Client names are
+            kept confidential; some images are UI illustrations with sample data.
           </p>
 
           {/* ── Filter Tabs ── */}
@@ -53,7 +56,7 @@ export default function ProjectsPage() {
             {categories.map((cat) => (
               <button
                 key={cat}
-                onClick={() => setSelectedCategory(cat)}
+                onClick={() => { setSelectedCategory(cat); setShowAll(false); }}
                 className={`px-5 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200 font-jakarta ${selectedCategory === cat
                     ? "bg-primary text-white shadow-md shadow-primary/25"
                     : "bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
@@ -87,10 +90,19 @@ export default function ProjectsPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project, index) => (
+            {(showAll ? filteredProjects : filteredProjects.slice(0, INITIAL)).map((project, index) => (
               <ProjectTile key={project.title} project={project} priority={index < 3} onOpen={() => setSelectedProject(project)} />
             ))}
           </div>
+
+          {!showAll && filteredProjects.length > INITIAL && (
+            <div className="text-center mt-10">
+              <button type="button" onClick={() => setShowAll(true)} className="btn-primary text-sm">
+                Show all {filteredProjects.length} projects
+              </button>
+              <p className="text-xs text-text-muted mt-3">Includes earlier research and academic projects.</p>
+            </div>
+          )}
 
           {filteredProjects.length === 0 && (
             <div className="text-center py-20">

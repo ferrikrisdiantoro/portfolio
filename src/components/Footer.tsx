@@ -11,7 +11,7 @@ export default function Footer() {
               Ferri<span className="text-primary">.</span>
             </Link>
             <p className="text-sm text-text-muted mt-2 leading-relaxed max-w-xs">
-              AI & Automation Engineer turning complex problems into intelligent systems.
+              WhatsApp AI agents, business automation, and web apps. Based in Indonesia, working with clients anywhere.
             </p>
           </div>
 

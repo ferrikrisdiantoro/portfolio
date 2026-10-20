@@ -6,7 +6,6 @@ import { projects } from "@/lib/projects";
 import {
   Location04Icon,
   ArrowRight01Icon,
-  UserIcon,
   Briefcase01Icon,
   Calendar03Icon,
   SentIcon,
@@ -98,9 +97,9 @@ export default function About() {
             About Me<span className="text-primary">.</span>
           </h1>
           <p className="text-text-muted text-base md:text-lg max-w-2xl leading-relaxed">
-            I&apos;m Ferri Krisdiantoro — an AI &amp; Automation Engineer based
-            in Indramayu, West Java. I specialize in building intelligent systems
-            that save time and drive results.
+            I&apos;m Ferri Krisdiantoro, an AI and automation engineer in
+            Indramayu, West Java. I build WhatsApp AI agents, business
+            automations, and web apps, mostly for small and mid-size businesses.
           </p>
         </div>
       </section>
@@ -123,8 +122,9 @@ export default function About() {
                 <div className="px-6 pb-6 -mt-10 relative">
                   {/* Avatar */}
                   <div className="w-20 h-20 rounded-2xl bg-white border-4 border-white shadow-lg flex items-center justify-center mx-auto">
-                    <div className="w-full h-full rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
-                      <UserIcon size={32} className="text-primary" />
+                    {/* Monogram sampai ada foto: taruh foto di public/ferri.jpg lalu ganti blok ini dengan <Image> */}
+                    <div className="w-full h-full rounded-xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center">
+                      <span className="text-2xl font-extrabold font-jakarta text-white">FK</span>
                     </div>
                   </div>
 
@@ -174,58 +174,39 @@ export default function About() {
             {/* Bio Content */}
             <div className="lg:col-span-2 flex flex-col justify-center">
               <h3 className="text-2xl md:text-3xl font-bold font-jakarta mb-6 text-gray-900 leading-snug">
-                Building the bridge between
-                <span className="text-primary"> AI</span> and real-world
-                <span className="text-primary"> impact</span>
+                From ML research to systems businesses run on every day
               </h3>
               <div className="space-y-4 text-gray-600 leading-relaxed text-[15px]">
                 <p>
-                  I&apos;m passionate about leveraging AI, machine learning, and
-                  automation to solve real-world challenges. My journey spans
-                  from developing computer vision models and NLP pipelines to
-                  architecting full-stack automation systems with tools like n8n
-                  and Power Platform.
+                  I started in machine learning: computer vision and NLP projects
+                  during university and the DBS Indonesia x Dicoding cohort. Since
+                  2024 I have worked with clients through Fastwork and directly,
+                  and the work has shifted toward systems people use every day.
                 </p>
                 <p>
-                  I believe in writing clean, maintainable code and creating
-                  solutions that not only work perfectly but are elegant and
-                  scalable. Every project I take on is an opportunity to push the
-                  boundaries of what technology can achieve.
-                </p>
-                <p>
-                  Lately most of my work is WhatsApp AI agents and back-office
-                  automation for small and mid-size businesses: the kind of
-                  system that replaces copy-pasting between chat, spreadsheets,
-                  and invoices.
+                  Most projects now are WhatsApp AI agents and back-office
+                  automation: the kind of system that replaces copy-pasting between
+                  chat, spreadsheets, and invoices. I also build the web apps and
+                  dashboards around them, and on-site computer vision when a camera
+                  is the right sensor.
                 </p>
               </div>
 
-              {/* Highlight boxes */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-                <div className="bg-white rounded-2xl p-5 border border-gray-200">
-                  <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
-                    <AiBrain01Icon size={18} className="text-primary" />
+                {[
+                  { icon: AiBrain01Icon, tint: "bg-primary/10 text-primary", title: "How I work",
+                    body: "Short written scope first, then a working demo early so you can correct course before it is finished." },
+                  { icon: FlashIcon, tint: "bg-amber-50 text-amber-600", title: "What you get",
+                    body: "The working system, a user guide your team can follow, and access to the source code at hand-over." },
+                ].map((b) => (
+                  <div key={b.title} className="bg-white rounded-2xl p-5 border border-gray-200">
+                    <div className={`w-9 h-9 rounded-xl ${b.tint} flex items-center justify-center mb-3`}>
+                      <b.icon size={18} />
+                    </div>
+                    <h4 className="text-sm font-bold font-jakarta text-gray-900 mb-1">{b.title}</h4>
+                    <p className="text-xs text-text-muted leading-relaxed">{b.body}</p>
                   </div>
-                  <h4 className="text-sm font-bold font-jakarta text-gray-900 mb-1">
-                    AI-First Approach
-                  </h4>
-                  <p className="text-xs text-text-muted leading-relaxed">
-                    Every solution I build starts with understanding how AI can
-                    amplify the result.
-                  </p>
-                </div>
-                <div className="bg-white rounded-2xl p-5 border border-gray-200">
-                  <div className="w-9 h-9 rounded-xl bg-amber-50 flex items-center justify-center mb-3">
-                    <FlashIcon size={18} className="text-amber-600" />
-                  </div>
-                  <h4 className="text-sm font-bold font-jakarta text-gray-900 mb-1">
-                    Automation Expert
-                  </h4>
-                  <p className="text-xs text-text-muted leading-relaxed">
-                    Replacing repetitive manual work with reliable, monitored
-                    workflow automation.
-                  </p>
-                </div>
+                ))}
               </div>
             </div>
           </div>

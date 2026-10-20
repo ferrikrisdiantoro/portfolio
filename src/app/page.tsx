@@ -19,31 +19,31 @@ import {
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const roles = ["AI Engineer", "Automation Architect", "Full-Stack Dev", "Power Platform Expert"];
-
-  const techRow1 = [
-    { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
-    { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
-    { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
-    { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
-    { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
-    { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
-    { name: "FastAPI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" },
-    { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
-    { name: "Supabase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" },
-  ];
-
-  const techRow2 = [
-    { name: "TensorFlow", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" },
-    { name: "PyTorch", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" },
-    { name: "Scikit-learn", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" },
-    { name: "Pandas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" },
-    { name: "Matplotlib", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" },
-    { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
-    { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
-    { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
-    { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" },
-    { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" },
+  const services = [
+    {
+      title: "WhatsApp AI agents",
+      body: "An assistant on your WhatsApp number that answers customers, qualifies leads, sends quotes and payment links, and hands over to a human when needed.",
+      stack: ["WhatsApp Cloud API", "LLM + RAG", "n8n", "Xendit"],
+      examples: "cooperative member platform, window-blinds retailer, medical-supply distributor",
+    },
+    {
+      title: "Business automation & integrations",
+      body: "Connect the systems you already use so reports, stock, and orders move on their own instead of being copied by hand.",
+      stack: ["n8n", "Odoo", "Shopee API", "Google Sheets"],
+      examples: "Odoo × Shopee sync, nightly POS sales report to WhatsApp, ad ROAS monitor",
+    },
+    {
+      title: "Web apps & dashboards",
+      body: "Admin panels, booking and catalog sites, and internal tools that replace spreadsheets, with roles, approvals, and PDF invoices.",
+      stack: ["Next.js", "Supabase", "PostgreSQL", "Tailwind"],
+      examples: "scaffolding rental system, Australian car subscription site, franchise POS",
+    },
+    {
+      title: "Computer vision",
+      body: "Camera-based detection and measurement that runs on-site, from safety compliance to quality control on the production line.",
+      stack: ["YOLO", "OpenCV", "PyTorch", "Raspberry Pi"],
+      examples: "PPE compliance VMS, spray-nozzle inspector, activity recognition",
+    },
   ];
 
   return (
@@ -68,7 +68,7 @@ export default function Home() {
                   Krisdiantoro<span className="text-white/50">.</span>
                 </h1>
                 <p className="text-white/75 text-base md:text-lg leading-relaxed max-w-sm">
-                  I turn complex problems into <span className="text-white font-medium">intelligent automations</span> and <span className="text-white font-medium">AI-powered systems</span>.
+                  I build <span className="text-white font-medium">WhatsApp AI agents</span>, <span className="text-white font-medium">business automations</span>, and <span className="text-white font-medium">web apps</span> for small and mid-size businesses.
                 </p>
               </div>
               <div className="relative z-10 flex gap-3 mt-6">
@@ -110,36 +110,28 @@ export default function Home() {
               <div className="text-xs font-semibold text-text-muted uppercase tracking-wider mt-1.5 font-jakarta">West Java, ID</div>
             </div>
 
-            {/* ── Roles Marquee ── */}
-            <div className="col-span-2 bg-warm-bg rounded-3xl overflow-hidden border border-warm-border flex items-center relative">
-              {/* Fade edges */}
-              <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-warm-bg to-transparent z-10 pointer-events-none"></div>
-              <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-warm-bg to-transparent z-10 pointer-events-none"></div>
-              <div className="flex gap-8 animate-marquee whitespace-nowrap py-5 px-6">
-                {[...roles, ...roles, ...roles].map((role, i) => (
-                  <span key={i} className="text-sm font-bold font-jakarta text-gray-500 flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
-                    {role}
-                  </span>
-                ))}
-              </div>
+            {/* ── Fokus layanan (statis, bukan marquee) ── */}
+            <div className="col-span-2 bg-warm-bg rounded-3xl border border-warm-border flex flex-wrap items-center gap-2 p-4 md:px-6">
+              {["WhatsApp AI agents", "n8n & ERP automation", "Web apps", "Computer vision"].map((r) => (
+                <span key={r} className="text-xs md:text-sm font-bold font-jakarta text-gray-600 bg-white border border-warm-border rounded-full px-3 py-1.5">{r}</span>
+              ))}
             </div>
 
             {/* ── Quick Links ── */}
             <div className="col-span-2 bg-white rounded-3xl p-4 md:p-5 border border-gray-200 flex flex-wrap items-center justify-center gap-2 md:gap-3 hover:border-primary/40 transition-all">
-              <a href="https://github.com/ferrikrisdiantoro" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all text-lg">
+              <a aria-label="GitHub" href="https://github.com/ferrikrisdiantoro" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all text-lg">
                 <i className="fa-brands fa-github"></i>
               </a>
-              <a href="https://linkedin.com/in/ferrikrisdiantoro" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all text-lg">
+              <a aria-label="LinkedIn" href="https://linkedin.com/in/ferrikrisdiantoro" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all text-lg">
                 <i className="fa-brands fa-linkedin-in"></i>
               </a>
-              <a href="https://fastwork.id/user/ferrikrisdiantoro" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all text-sm font-bold font-jakarta">
+              <a aria-label="Fastwork" href="https://fastwork.id/user/ferrikrisdiantoro" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all text-sm font-bold font-jakarta">
                 FW
               </a>
-              <a href="https://wa.me/6285351168279" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all text-lg">
+              <a aria-label="WhatsApp" href="https://wa.me/6285351168279" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all text-lg">
                 <i className="fa-brands fa-whatsapp"></i>
               </a>
-              <a href="mailto:ferryk935@gmail.com" className="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all text-lg">
+              <a aria-label="Email" href="mailto:ferryk935@gmail.com" className="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all text-lg">
                 <i className="fa-solid fa-envelope"></i>
               </a>
             </div>
@@ -171,44 +163,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── Tech Stack Marquee ─── */}
+      {/* ─── What I build ─── */}
       <section className="py-20 md:py-28">
         <div className="container-main">
-          <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2 font-jakarta">Expertise</p>
-            <h2 className="text-3xl md:text-4xl font-bold font-jakarta">Tech Stack</h2>
-            <p className="text-text-muted mt-2 max-w-md mx-auto text-sm">Technologies and tools I use to bring ideas to life.</p>
+          <div className="mb-12">
+            <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2 font-jakarta">Services</p>
+            <h2 className="text-3xl md:text-4xl font-bold font-jakarta">What I build</h2>
+            <p className="text-text-muted mt-2 max-w-xl text-sm">The four kinds of work clients hire me for most, with real examples from the projects above.</p>
           </div>
-
-          {/* Marquee rows */}
-          <div className="space-y-4 relative">
-            {/* Row 1 — scrolls left */}
-            <div className="overflow-hidden relative">
-              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
-              <div className="flex gap-4 animate-marquee-slow whitespace-nowrap py-2">
-                {[...techRow1, ...techRow1, ...techRow1].map((tech, i) => (
-                  <div key={i} className="flex items-center gap-3 bg-gray-50 hover:bg-primary/5 border border-gray-200 hover:border-primary/30 rounded-2xl px-5 py-3.5 transition-all duration-300 flex-shrink-0 group cursor-default">
-                    <img src={tech.icon} alt={tech.name} className="w-6 h-6 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" />
-                    <span className="text-sm font-semibold text-gray-600 group-hover:text-gray-900 font-jakarta transition-colors">{tech.name}</span>
-                  </div>
-                ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {services.map((sv) => (
+              <div key={sv.title} className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-primary/40 transition-colors">
+                <h3 className="text-lg font-bold font-jakarta text-gray-900 mb-2">{sv.title}</h3>
+                <p className="text-sm text-text-muted leading-relaxed mb-4">{sv.body}</p>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {sv.stack.map((t) => <span key={t} className="tag">{t}</span>)}
+                </div>
+                <p className="text-xs text-gray-500"><span className="font-semibold text-gray-700">Examples:</span> {sv.examples}</p>
               </div>
-            </div>
-
-            {/* Row 2 — scrolls right */}
-            <div className="overflow-hidden relative">
-              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
-              <div className="flex gap-4 animate-marquee-slow-reverse whitespace-nowrap py-2">
-                {[...techRow2, ...techRow2, ...techRow2].map((tech, i) => (
-                  <div key={i} className="flex items-center gap-3 bg-gray-50 hover:bg-primary/5 border border-gray-200 hover:border-primary/30 rounded-2xl px-5 py-3.5 transition-all duration-300 flex-shrink-0 group cursor-default">
-                    <img src={tech.icon} alt={tech.name} className="w-6 h-6 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" />
-                    <span className="text-sm font-semibold text-gray-600 group-hover:text-gray-900 font-jakarta transition-colors">{tech.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -219,7 +192,10 @@ export default function Home() {
           <div className="text-center mb-14">
             <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2 font-jakarta">Testimonials</p>
             <h2 className="text-3xl md:text-4xl font-bold font-jakarta">What Clients Say</h2>
-            <p className="text-text-muted mt-2 max-w-md mx-auto text-sm">Real feedback from verified clients on Fastwork.</p>
+            <p className="text-text-muted mt-2 max-w-md mx-auto text-sm">
+              Reviews left by buyers on Fastwork.{" "}
+              <a href="https://fastwork.id/user/ferrikrisdiantoro" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">See all reviews</a>
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -236,8 +212,8 @@ export default function Home() {
                 {/* Author */}
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                   <div>
-                    <p className="text-sm font-bold font-jakarta text-gray-900">{t.name}</p>
-                    <p className="text-xs text-text-muted">{t.role}</p>
+                    <p className="text-sm font-bold font-jakarta text-gray-900">{t.name.includes(" ") ? t.name : "Fastwork buyer"}</p>
+                    <p className="text-xs text-text-muted">Verified purchase</p>
                   </div>
                   <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-1 rounded-full font-jakarta">{t.platform}</span>
                 </div>
@@ -255,11 +231,11 @@ export default function Home() {
             </div>
             <div className="relative z-10">
               <h2 className="text-3xl md:text-5xl font-bold font-jakarta mb-4 text-white">
-                Let&apos;s Build Something Great
+                Got a process that eats your team&apos;s time?
               </h2>
               <p className="text-lg text-white/80 max-w-lg mx-auto mb-8">
-                Have a project in mind? Looking for an AI &amp; Automation partner?
-                I&apos;d love to hear from you.
+                Send me a short description of how it works today. I&apos;ll reply
+                with how I&apos;d automate it and a rough estimate.
               </p>
               <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-primary font-bold font-jakarta px-8 py-4 rounded-xl hover:bg-orange-50 transition-colors text-base">
                 <SentIcon size={18} />

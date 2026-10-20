@@ -17,13 +17,18 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Situs statis tanpa backend: pesan dikirim lewat WhatsApp (terisi otomatis), bukan "terkirim" palsu
+  const composed = () => {
+    const lines = [`Hi Ferri, I'm ${formData.name}${formData.email ? ` (${formData.email})` : ""}.`];
+    if (formData.subject) lines.push(`Subject: ${formData.subject}`);
+    lines.push("", formData.message);
+    return lines.join("\n");
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    window.open(`https://wa.me/6285351168279?text=${encodeURIComponent(composed())}`, "_blank", "noopener");
     setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 3000);
   };
 
   const contactCards = [
@@ -41,7 +46,7 @@ export default function ContactPage() {
       label: "WhatsApp",
       value: "+62 853 5116 8279",
       href: "https://wa.me/6285351168279",
-      desc: "Quick response, usually within 1 hour",
+      desc: "Fastest way to reach me, usually same day",
       color: "text-green-600",
       bg: "bg-green-50",
     },
@@ -106,8 +111,8 @@ export default function ContactPage() {
               Get in Touch<span className="text-primary">.</span>
             </h1>
             <p className="text-text-muted text-base md:text-lg leading-relaxed">
-              Have a project in mind, need AI consultation, or just want to say hello?
-              I&apos;d love to hear from you. Let&apos;s build something great together.
+              Tell me what you want to automate or build. A short description is
+              enough; I&apos;ll reply with questions or a rough estimate.
             </p>
           </div>
         </div>
@@ -158,15 +163,15 @@ export default function ContactPage() {
             <div className="lg:col-span-2 order-2 lg:order-1">
               <div className="lg:sticky lg:top-28">
                 <h3 className="text-xl font-bold font-jakarta text-gray-900 mb-6">
-                  Why work with me?
+                  What to expect
                 </h3>
                 <div className="space-y-4 mb-10">
                   {[
-                    "Quick response time — usually within hours",
-                    "Experience with 15+ production projects",
-                    "End-to-end: from concept to deployment",
-                    "Flexible rates & transparent pricing",
-                    "Open to remote work worldwide",
+                    "55+ projects delivered since 2024, for clients in Indonesia and Australia",
+                    "One person from scoping to deployment, so nothing gets lost in hand-offs",
+                    "Every hand-over includes a user guide and access to the source code",
+                    "Fixed-scope packages on Fastwork, or a written proposal for custom work",
+                    "Replies in English or Bahasa Indonesia, usually the same day",
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3 group">
                       <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors">
@@ -223,7 +228,7 @@ export default function ContactPage() {
                     Send a Message
                   </h2>
                   <p className="text-sm text-text-muted">
-                    Fill out the form below and I&apos;ll get back to you as soon as possible.
+                    Fill this in and it opens WhatsApp with your message ready to send.
                   </p>
                 </div>
 
@@ -232,8 +237,12 @@ export default function ContactPage() {
                     <div className="w-16 h-16 rounded-2xl bg-green-50 flex items-center justify-center mx-auto mb-4">
                       <CheckmarkCircle02Icon size={32} className="text-green-600" />
                     </div>
-                    <h3 className="text-lg font-bold font-jakarta text-gray-900 mb-2">Message Sent!</h3>
-                    <p className="text-sm text-text-muted">Thank you for reaching out. I&apos;ll respond within 24 hours.</p>
+                    <h3 className="text-lg font-bold font-jakarta text-gray-900 mb-2">Almost there</h3>
+                    <p className="text-sm text-text-muted mb-5">WhatsApp opened with your message filled in. Press send there and I&apos;ll reply the same day.</p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                      <a href={`https://wa.me/6285351168279?text=${encodeURIComponent(composed())}`} target="_blank" rel="noopener noreferrer" className="btn-primary text-sm">Open WhatsApp again</a>
+                      <a href={`mailto:ferryk935@gmail.com?subject=${encodeURIComponent(formData.subject || "Project inquiry")}&body=${encodeURIComponent(composed())}`} className="text-sm font-semibold text-gray-600 hover:text-primary px-4 py-2.5 rounded-xl bg-gray-50">Send by email instead</a>
+                    </div>
                   </div>
                 ) : (
                   <form className="space-y-5" onSubmit={handleSubmit}>
@@ -253,7 +262,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2 font-jakarta">
-                          Email <span className="text-primary">*</span>
+                          Email <span className="text-text-light font-normal">(optional)</span>
                         </label>
                         <input
                           type="email"
@@ -261,7 +270,7 @@ export default function ContactPage() {
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           className="w-full bg-gray-50 border border-gray-200 text-gray-900 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all placeholder:text-gray-400 font-jakarta"
                           placeholder="you@example.com"
-                          required
+                          
                         />
                       </div>
                     </div>
@@ -293,10 +302,10 @@ export default function ContactPage() {
                       className="btn-primary w-full py-4 text-sm inline-flex items-center justify-center gap-2 text-base"
                     >
                       <SentIcon size={18} />
-                      Send Message
+                      Send via WhatsApp
                     </button>
                     <p className="text-xs text-text-muted text-center">
-                      I typically respond within 24 hours.
+                      Prefer email? Write to ferryk935@gmail.com.
                     </p>
                   </form>
                 )}
