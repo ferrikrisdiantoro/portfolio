@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import { projects } from "@/lib/projects";
 import {
   Location04Icon,
   ArrowRight01Icon,
   UserIcon,
   Briefcase01Icon,
   Calendar03Icon,
-  Download04Icon,
   SentIcon,
   SourceCodeSquareIcon,
   FlashIcon,
@@ -19,30 +19,31 @@ import {
 } from "hugeicons-react";
 
 export default function About() {
+  // Pengalaman nyata saja. Tahun mulai freelance dan kontrak SaaS: VERIFIKASI oleh Ferri.
   const experiences = [
+    {
+      company: "B2B SaaS startup (under NDA)",
+      role: "AI Engineer",
+      period: "2026 - Present",
+      description:
+        "Moved production n8n workflows into a typed Node.js service with a PostgreSQL job queue, an LLM agent with tool calling and retrieval, and a WhatsApp gateway. Product details are confidential.",
+      tags: ["Node.js", "PostgreSQL", "LLM Agents"],
+    },
+    {
+      company: "Freelance · Fastwork & direct clients",
+      role: "AI & Automation Engineer",
+      period: "2024 - Present",
+      description:
+        "Delivered 55+ projects for businesses in Indonesia and Australia: WhatsApp AI agents, n8n and ERP integrations (Odoo, Shopee, Mokapos), computer vision systems, and full-stack web apps.",
+      tags: ["n8n", "Next.js", "Computer Vision"],
+    },
     {
       company: "DBS Indonesia x Dicoding",
       role: "Cohort Machine Learning Engineer",
       period: "Feb 2025 - July 2025",
       description:
-        "Led development of computer vision models for autonomous systems, achieving 95% accuracy in object detection. Collaborated with a team of 5 to integrate models into edge devices.",
-      tags: ["Computer Vision", "TensorFlow", "Edge AI"],
-    },
-    {
-      company: "DataTech Solutions",
-      role: "ML Engineer",
-      period: "2022 - 2023",
-      description:
-        "Built NLP pipelines for sentiment analysis and recommendation systems serving 1M+ users daily. Optimized inference latency by 40%.",
-      tags: ["NLP", "Python", "Docker"],
-    },
-    {
-      company: "StartupXYZ",
-      role: "Junior Data Scientist",
-      period: "2021 - 2022",
-      description:
-        "Developed predictive analytics models that increased customer retention by 30%. Created automated dashboards for executive reporting.",
-      tags: ["Scikit-learn", "SQL", "Tableau"],
+        "Intensive machine learning engineering cohort covering computer vision, NLP, and model deployment, finished with a team capstone project.",
+      tags: ["Machine Learning", "TensorFlow", "Deployment"],
     },
   ];
 
@@ -77,11 +78,12 @@ export default function About() {
     },
   ];
 
+  // Sama dengan Beranda: hanya angka yang bisa dipertanggungjawabkan
   const stats = [
-    { value: "15+", label: "Projects Completed" },
-    { value: "10+", label: "Happy Clients" },
-    { value: "3+", label: "Years Experience" },
-    { value: "95%", label: "Client Satisfaction" },
+    { value: "55+", label: "Projects Delivered" },
+    { value: "2+", label: "Years With Clients" },
+    { value: String(projects.length), label: "Case Studies" },
+    { value: String(new Set(projects.map((p) => p.category)).size), label: "Tech Domains" },
   ];
 
   return (
@@ -157,16 +159,9 @@ export default function About() {
                   </div>
 
                   <div className="mt-5 flex flex-col gap-2">
-                    <a
-                      href="/resume.pdf"
-                      className="btn-primary text-sm py-2.5 px-4 inline-flex items-center justify-center gap-2"
-                    >
-                      <Download04Icon size={16} />
-                      Download CV
-                    </a>
                     <Link
                       href="/contact"
-                      className="text-sm font-semibold text-gray-600 hover:text-primary transition-colors font-jakarta inline-flex items-center justify-center gap-1.5 py-2.5 bg-gray-50 rounded-xl hover:bg-primary/5"
+                      className="btn-primary text-sm py-2.5 px-4 inline-flex items-center justify-center gap-2"
                     >
                       <SentIcon size={14} />
                       Get in Touch
@@ -198,10 +193,10 @@ export default function About() {
                   boundaries of what technology can achieve.
                 </p>
                 <p>
-                  When I&apos;m not coding, I&apos;m exploring new AI research
-                  papers, contributing to open-source projects, and helping
-                  businesses automate their workflows to save hundreds of hours
-                  monthly.
+                  Lately most of my work is WhatsApp AI agents and back-office
+                  automation for small and mid-size businesses: the kind of
+                  system that replaces copy-pasting between chat, spreadsheets,
+                  and invoices.
                 </p>
               </div>
 
@@ -227,7 +222,7 @@ export default function About() {
                     Automation Expert
                   </h4>
                   <p className="text-xs text-text-muted leading-relaxed">
-                    Saving businesses 100+ hours monthly with intelligent
+                    Replacing repetitive manual work with reliable, monitored
                     workflow automation.
                   </p>
                 </div>

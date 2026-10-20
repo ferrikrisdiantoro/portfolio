@@ -1,22 +1,23 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Footer from "@/components/Footer";
-import projects from "@/data/projects.json";
+import ProjectModal from "@/components/ProjectModal";
+import ProjectTile from "@/components/ProjectTile";
+import { featuredProjects, projects, type Project } from "@/lib/projects";
 import testimonials from "@/data/testimonials.json";
 import {
   Location04Icon,
   ArrowRight01Icon,
   SentIcon,
-  SourceCodeIcon,
   Rocket01Icon,
   Clock01Icon,
   StarIcon,
 } from "hugeicons-react";
 
 export default function Home() {
-  const featuredProjects = projects.slice(0, 3);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const roles = ["AI Engineer", "Automation Architect", "Full-Stack Dev", "Power Platform Expert"];
 
@@ -82,30 +83,30 @@ export default function Home() {
             </div>
 
             {/* ── Stat: Projects ── */}
-            <div className="col-span-1 bg-white rounded-3xl p-6 border border-gray-200 flex flex-col justify-center hover:border-primary/40 hover:shadow-md transition-all group">
+            <div className="col-span-1 bg-white rounded-3xl p-4 md:p-6 border border-gray-200 flex flex-col justify-center min-w-0 hover:border-primary/40 hover:shadow-md transition-all group">
               <Rocket01Icon size={24} className="text-primary mb-2" />
-              <div className="text-4xl md:text-5xl font-bold font-jakarta text-gray-900 group-hover:text-primary transition-colors">40+</div>
-              <div className="text-xs font-semibold text-text-muted uppercase tracking-wider mt-1.5 font-jakarta">Projects shipped</div>
+              <div className="text-3xl md:text-5xl font-bold font-jakarta text-gray-900 group-hover:text-primary transition-colors">55+</div>
+              <div className="text-[11px] md:text-xs font-semibold text-text-muted uppercase tracking-wider mt-1.5 font-jakarta">Projects delivered</div>
             </div>
 
             {/* ── Stat: Hours Saved ── */}
-            <div className="col-span-1 bg-white rounded-3xl p-6 border border-gray-200 flex flex-col justify-center hover:border-primary/40 hover:shadow-md transition-all group">
+            <div className="col-span-1 bg-white rounded-3xl p-4 md:p-6 border border-gray-200 flex flex-col justify-center min-w-0 hover:border-primary/40 hover:shadow-md transition-all group">
               <Clock01Icon size={24} className="text-primary mb-2" />
-              <div className="text-4xl md:text-5xl font-bold font-jakarta text-gray-900 group-hover:text-primary transition-colors">100+</div>
-              <div className="text-xs font-semibold text-text-muted uppercase tracking-wider mt-1.5 font-jakarta">Hrs saved / month</div>
+              <div className="text-3xl md:text-5xl font-bold font-jakarta text-gray-900 group-hover:text-primary transition-colors">{projects.length}</div>
+              <div className="text-[11px] md:text-xs font-semibold text-text-muted uppercase tracking-wider mt-1.5 font-jakarta">Case studies below</div>
             </div>
 
             {/* ── Stat: Experience ── */}
-            <div className="col-span-1 bg-white rounded-3xl p-6 border border-gray-200 flex flex-col justify-center hover:border-primary/40 hover:shadow-md transition-all group">
+            <div className="col-span-1 bg-white rounded-3xl p-4 md:p-6 border border-gray-200 flex flex-col justify-center min-w-0 hover:border-primary/40 hover:shadow-md transition-all group">
               <StarIcon size={24} className="text-primary mb-2" />
-              <div className="text-4xl md:text-5xl font-bold font-jakarta text-gray-900 group-hover:text-primary transition-colors">5+</div>
-              <div className="text-xs font-semibold text-text-muted uppercase tracking-wider mt-1 font-jakarta">Years experience</div>
+              <div className="text-3xl md:text-5xl font-bold font-jakarta text-gray-900 group-hover:text-primary transition-colors">2+</div>
+              <div className="text-[11px] md:text-xs font-semibold text-text-muted uppercase tracking-wider mt-1 font-jakarta">Years with clients</div>
             </div>
 
             {/* ── Location Card ── */}
-            <div className="col-span-1 bg-white rounded-3xl p-6 border border-gray-200 flex flex-col justify-center hover:border-primary/40 hover:shadow-md transition-all group">
+            <div className="col-span-1 bg-white rounded-3xl p-4 md:p-6 border border-gray-200 flex flex-col justify-center min-w-0 hover:border-primary/40 hover:shadow-md transition-all group">
               <Location04Icon size={24} className="text-primary mb-2" />
-              <div className="text-2xl md:text-3xl font-bold font-jakarta text-gray-900 group-hover:text-primary transition-colors leading-tight">Indramayu</div>
+              <div className="text-xl md:text-3xl font-bold font-jakarta text-gray-900 group-hover:text-primary transition-colors leading-tight break-words">Indramayu</div>
               <div className="text-xs font-semibold text-text-muted uppercase tracking-wider mt-1.5 font-jakarta">West Java, ID</div>
             </div>
 
@@ -125,7 +126,7 @@ export default function Home() {
             </div>
 
             {/* ── Quick Links ── */}
-            <div className="col-span-2 bg-white rounded-3xl p-5 border border-gray-200 flex items-center justify-center gap-3 hover:border-primary/40 transition-all">
+            <div className="col-span-2 bg-white rounded-3xl p-4 md:p-5 border border-gray-200 flex flex-wrap items-center justify-center gap-2 md:gap-3 hover:border-primary/40 transition-all">
               <a href="https://github.com/ferrikrisdiantoro" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all text-lg">
                 <i className="fa-brands fa-github"></i>
               </a>
@@ -154,7 +155,7 @@ export default function Home() {
             <div>
               <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2 font-jakarta">Portfolio</p>
               <h2 className="text-3xl md:text-4xl font-bold font-jakarta">Featured Projects</h2>
-              <p className="text-text-muted mt-2 max-w-md text-sm">Some of my recent work spanning AI, automation, and full-stack development.</p>
+              <p className="text-text-muted mt-2 max-w-md text-sm">Recent client and product work across AI agents, automation, and full-stack apps. Client names are kept confidential.</p>
             </div>
             <Link href="/projects" className="mt-6 md:mt-0 btn-primary text-sm">
               View all projects
@@ -164,44 +165,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredProjects.map((project, idx) => (
-              <div key={idx} className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 group cursor-pointer">
-                {/* Image */}
-                <div className="relative w-full h-56 overflow-hidden">
-                  {project.thumbnail ? (
-                    <Image
-                      src={project.thumbnail}
-                      alt={project.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-                      <SourceCodeIcon size={40} className="text-gray-300" />
-                    </div>
-                  )}
-                  {/* Type badge on image */}
-                  <div className="absolute top-3 left-3">
-                    <span className="bg-white/90 backdrop-blur-sm text-gray-700 text-xs font-bold px-3 py-1 rounded-full font-jakarta shadow-sm">
-                      {project.type}
-                    </span>
-                  </div>
-                </div>
-                {/* Content */}
-                <div className="p-5">
-                  <h3 className="text-base font-bold font-jakarta mb-2 text-gray-900 group-hover:text-primary transition-colors line-clamp-2 leading-snug">{project.title}</h3>
-                  <p className="text-sm text-text-muted mb-4 line-clamp-2 leading-relaxed">{project.description}</p>
-                  <div className="flex items-center justify-between">
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.tech.slice(0, 3).map((t, i) => (
-                        <span key={i} className="tag">{t}</span>
-                      ))}
-                    </div>
-                    <div className="w-8 h-8 rounded-full bg-gray-100 group-hover:bg-primary group-hover:text-white flex items-center justify-center text-gray-400 transition-all flex-shrink-0 ml-3">
-                      <ArrowRight01Icon size={14} />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ProjectTile key={project.title} project={project} priority={idx < 3} onOpen={() => setSelectedProject(project)} />
             ))}
           </div>
         </div>
@@ -306,6 +270,7 @@ export default function Home() {
         </div>
       </section>
 
+      {selectedProject && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
       <Footer />
     </>
   );
