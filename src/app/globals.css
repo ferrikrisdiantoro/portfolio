@@ -288,3 +288,22 @@ h6 {
 .animate-marquee-slow-reverse:hover {
   animation-play-state: paused;
 }
+/* ─── Animasi masuk (gaya video gig: spring + blur menajam) ─── */
+.reveal-out { opacity: 0; }
+.reveal-in { animation: pop-in 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.word-out { opacity: 0; }
+.word-in { animation: word-in 0.6s cubic-bezier(0.34, 1.4, 0.64, 1) both; }
+@keyframes pop-in {
+  0% { opacity: 0; transform: translateY(28px) scale(0.94); filter: blur(6px); }
+  35% { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: none; filter: none; }
+}
+@keyframes word-in {
+  0% { opacity: 0; transform: translateY(0.45em); filter: blur(8px); }
+  40% { opacity: 1; }
+  100% { opacity: 1; transform: none; filter: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-out, .word-out { opacity: 1; }
+  .reveal-in, .word-in { animation: none; }
+}

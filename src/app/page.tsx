@@ -5,7 +5,9 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import ProjectModal from "@/components/ProjectModal";
 import ProjectTile from "@/components/ProjectTile";
-import { featuredProjects, type Project } from "@/lib/projects";
+import ProjectShowcase from "@/components/ProjectShowcase";
+import { CountUp, Reveal, WordsIn } from "@/components/motion/Reveal";
+import { featuredProjects, projects, type Project } from "@/lib/projects";
 import testimonials from "@/data/testimonials.json";
 import {
   Location04Icon,
@@ -85,14 +87,14 @@ export default function Home() {
             {/* ── Stat: Projects ── */}
             <div className="col-span-1 bg-white rounded-3xl p-4 md:p-6 border border-gray-200 flex flex-col justify-center min-w-0 hover:border-primary/40 hover:shadow-md transition-all group">
               <Rocket01Icon size={24} className="text-primary mb-2" />
-              <div className="text-3xl md:text-5xl font-bold font-jakarta text-gray-900 group-hover:text-primary transition-colors">100+</div>
+              <div className="text-3xl md:text-5xl font-bold font-jakarta text-gray-900 group-hover:text-primary transition-colors"><CountUp to={100} suffix="+" /></div>
               <div className="text-[11px] md:text-xs font-semibold text-text-muted uppercase tracking-wider mt-1.5 font-jakarta">Deliverables shipped</div>
             </div>
 
             {/* ── Stat: Hours Saved ── */}
             <div className="col-span-1 bg-white rounded-3xl p-4 md:p-6 border border-gray-200 flex flex-col justify-center min-w-0 hover:border-primary/40 hover:shadow-md transition-all group">
               <Clock01Icon size={24} className="text-primary mb-2" />
-              <div className="text-3xl md:text-5xl font-bold font-jakarta text-gray-900 group-hover:text-primary transition-colors">70+</div>
+              <div className="text-3xl md:text-5xl font-bold font-jakarta text-gray-900 group-hover:text-primary transition-colors"><CountUp to={70} suffix="+" /></div>
               <div className="text-[11px] md:text-xs font-semibold text-text-muted uppercase tracking-wider mt-1.5 font-jakarta">Client projects</div>
             </div>
 
@@ -140,13 +142,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ─── Animasi proyek ─── */}
+      <section className="pb-20 md:pb-28">
+        <div className="container-main">
+          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2 font-jakarta">Live preview</p>
+          <WordsIn text="See it working." accent="working" className="text-3xl md:text-4xl font-bold font-jakarta mb-2" />
+          <p className="text-text-muted text-sm mb-8 max-w-xl">Short animated walk-throughs of four real projects. Data is sample data; the flows are how the systems actually behave.</p>
+          <ProjectShowcase onOpen={(prefix) => setSelectedProject(projects.find((x) => x.title.startsWith(prefix)) ?? null)} />
+        </div>
+      </section>
+
       {/* ─── Featured Projects ─── */}
       <section className="section-warm py-20 md:py-28 border-y border-warm-border">
         <div className="container-main">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-14">
             <div>
               <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2 font-jakarta">Portfolio</p>
-              <h2 className="text-3xl md:text-4xl font-bold font-jakarta">Featured Projects</h2>
+              <WordsIn text="Featured Projects" accent="Projects" className="text-3xl md:text-4xl font-bold font-jakarta" />
               <p className="text-text-muted mt-2 max-w-md text-sm">Recent client and product work across AI agents, automation, and full-stack apps. Client names are kept confidential.</p>
             </div>
             <Link href="/projects" className="mt-6 md:mt-0 btn-primary text-sm">
@@ -157,7 +169,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredProjects.map((project, idx) => (
-              <ProjectTile key={project.title} project={project} priority={idx < 3} onOpen={() => setSelectedProject(project)} />
+              <Reveal key={project.title} index={idx % 3} className="h-full">
+                <ProjectTile project={project} priority={idx < 3} onOpen={() => setSelectedProject(project)} />
+              </Reveal>
             ))}
           </div>
         </div>
@@ -168,12 +182,12 @@ export default function Home() {
         <div className="container-main">
           <div className="mb-12">
             <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2 font-jakarta">Services</p>
-            <h2 className="text-3xl md:text-4xl font-bold font-jakarta">What I build</h2>
+            <WordsIn text="What I build" accent="build" className="text-3xl md:text-4xl font-bold font-jakarta" />
             <p className="text-text-muted mt-2 max-w-xl text-sm">The four kinds of work clients hire me for most, with real examples from the projects above.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {services.map((sv) => (
-              <div key={sv.title} className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-primary/40 transition-colors">
+            {services.map((sv, i) => (
+              <Reveal key={sv.title} index={i % 2} className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-primary/40 transition-colors">
                 <h3 className="text-lg font-bold font-jakarta text-gray-900 mb-2">{sv.title}</h3>
                 <p className="text-sm text-text-muted leading-relaxed mb-4">{sv.body}</p>
                 <div className="flex flex-wrap gap-1.5 mb-4">
@@ -186,7 +200,7 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="text-xs text-gray-500"><span className="font-semibold text-gray-700">Examples:</span> {sv.examples}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -197,7 +211,7 @@ export default function Home() {
         <div className="container-main">
           <div className="text-center mb-14">
             <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2 font-jakarta">Testimonials</p>
-            <h2 className="text-3xl md:text-4xl font-bold font-jakarta">What Clients Say</h2>
+            <WordsIn text="What Clients Say" accent="Say" className="text-3xl md:text-4xl font-bold font-jakarta" />
             <p className="text-text-muted mt-2 max-w-md mx-auto text-sm">
               Reviews left by buyers on Fastwork.{" "}
               <a href="https://fastwork.id/user/ferrikrisdiantoro" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">See all reviews</a>
