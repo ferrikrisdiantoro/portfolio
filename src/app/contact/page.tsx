@@ -167,7 +167,7 @@ export default function ContactPage() {
                 </h3>
                 <div className="space-y-4 mb-10">
                   {[
-                    "55+ projects delivered since 2024, for clients in Indonesia and Australia",
+                    "70+ client projects and 100+ deliverables since 2024, for clients in Indonesia and Australia",
                     "One person from scoping to deployment, so nothing gets lost in hand-offs",
                     "Every hand-over includes a user guide and access to the source code",
                     "Fixed-scope packages on Fastwork, or a written proposal for custom work",

@@ -5,7 +5,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import ProjectModal from "@/components/ProjectModal";
 import ProjectTile from "@/components/ProjectTile";
-import { featuredProjects, projects, type Project } from "@/lib/projects";
+import { featuredProjects, type Project } from "@/lib/projects";
 import testimonials from "@/data/testimonials.json";
 import {
   Location04Icon,
@@ -23,25 +23,25 @@ export default function Home() {
     {
       title: "WhatsApp AI agents",
       body: "An assistant on your WhatsApp number that answers customers, qualifies leads, sends quotes and payment links, and hands over to a human when needed.",
-      stack: ["WhatsApp Cloud API", "LLM + RAG", "n8n", "Xendit"],
+      stack: [["WhatsApp", "whatsapp.svg"], ["n8n", "n8n.svg"], ["LangChain", "langchain.svg"], ["Xendit", "xendit.svg"]],
       examples: "cooperative member platform, window-blinds retailer, medical-supply distributor",
     },
     {
       title: "Business automation & integrations",
       body: "Connect the systems you already use so reports, stock, and orders move on their own instead of being copied by hand.",
-      stack: ["n8n", "Odoo", "Shopee API", "Google Sheets"],
+      stack: [["n8n", "n8n.svg"], ["Odoo", "odoo.svg"], ["Mokapos", "mokapos.svg"], ["Telegram", "telegram.svg"]],
       examples: "Odoo × Shopee sync, nightly POS sales report to WhatsApp, ad ROAS monitor",
     },
     {
       title: "Web apps & dashboards",
       body: "Admin panels, booking and catalog sites, and internal tools that replace spreadsheets, with roles, approvals, and PDF invoices.",
-      stack: ["Next.js", "Supabase", "PostgreSQL", "Tailwind"],
+      stack: [["Next.js", "next.svg"], ["Supabase", "supabase.svg"], ["PostgreSQL", "postgre.svg"], ["Tailwind", "tailwind-css.svg"]],
       examples: "scaffolding rental system, Australian car subscription site, franchise POS",
     },
     {
       title: "Computer vision",
       body: "Camera-based detection and measurement that runs on-site, from safety compliance to quality control on the production line.",
-      stack: ["YOLO", "OpenCV", "PyTorch", "Raspberry Pi"],
+      stack: [["YOLO", "ultralytics.svg"], ["PyTorch", "pytorch.svg"], ["Roboflow", "robflow.svg"], ["Python", "python.svg"]],
       examples: "PPE compliance VMS, spray-nozzle inspector, activity recognition",
     },
   ];
@@ -85,15 +85,15 @@ export default function Home() {
             {/* ── Stat: Projects ── */}
             <div className="col-span-1 bg-white rounded-3xl p-4 md:p-6 border border-gray-200 flex flex-col justify-center min-w-0 hover:border-primary/40 hover:shadow-md transition-all group">
               <Rocket01Icon size={24} className="text-primary mb-2" />
-              <div className="text-3xl md:text-5xl font-bold font-jakarta text-gray-900 group-hover:text-primary transition-colors">55+</div>
-              <div className="text-[11px] md:text-xs font-semibold text-text-muted uppercase tracking-wider mt-1.5 font-jakarta">Projects delivered</div>
+              <div className="text-3xl md:text-5xl font-bold font-jakarta text-gray-900 group-hover:text-primary transition-colors">100+</div>
+              <div className="text-[11px] md:text-xs font-semibold text-text-muted uppercase tracking-wider mt-1.5 font-jakarta">Deliverables shipped</div>
             </div>
 
             {/* ── Stat: Hours Saved ── */}
             <div className="col-span-1 bg-white rounded-3xl p-4 md:p-6 border border-gray-200 flex flex-col justify-center min-w-0 hover:border-primary/40 hover:shadow-md transition-all group">
               <Clock01Icon size={24} className="text-primary mb-2" />
-              <div className="text-3xl md:text-5xl font-bold font-jakarta text-gray-900 group-hover:text-primary transition-colors">{projects.length}</div>
-              <div className="text-[11px] md:text-xs font-semibold text-text-muted uppercase tracking-wider mt-1.5 font-jakarta">Case studies below</div>
+              <div className="text-3xl md:text-5xl font-bold font-jakarta text-gray-900 group-hover:text-primary transition-colors">70+</div>
+              <div className="text-[11px] md:text-xs font-semibold text-text-muted uppercase tracking-wider mt-1.5 font-jakarta">Client projects</div>
             </div>
 
             {/* ── Stat: Experience ── */}
@@ -177,7 +177,13 @@ export default function Home() {
                 <h3 className="text-lg font-bold font-jakarta text-gray-900 mb-2">{sv.title}</h3>
                 <p className="text-sm text-text-muted leading-relaxed mb-4">{sv.body}</p>
                 <div className="flex flex-wrap gap-1.5 mb-4">
-                  {sv.stack.map((t) => <span key={t} className="tag">{t}</span>)}
+                  {sv.stack.map(([name, icon]) => (
+                    <span key={name} className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-600 bg-gray-50 border border-gray-200 rounded-lg px-2.5 py-1.5 font-jakarta">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={`/svg/${icon}`} alt="" width={16} height={16} className="w-4 h-4 object-contain" />
+                      {name}
+                    </span>
+                  ))}
                 </div>
                 <p className="text-xs text-gray-500"><span className="font-semibold text-gray-700">Examples:</span> {sv.examples}</p>
               </div>

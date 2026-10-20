@@ -9,7 +9,7 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakart
 
 export const metadata: Metadata = {
   title: "Ferri Krisdiantoro | AI & Automation Engineer",
-  description: "AI and automation engineer in Indonesia: WhatsApp AI agents, n8n and ERP automation, web apps, and computer vision. 55+ projects delivered.",
+  description: "AI and automation engineer in Indonesia: WhatsApp AI agents, n8n and ERP automation, web apps, and computer vision. 70+ client projects, 100+ deliverables.",
 };
 
 export default function RootLayout({

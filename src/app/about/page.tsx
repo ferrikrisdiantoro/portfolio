@@ -33,7 +33,7 @@ export default function About() {
       role: "AI & Automation Engineer",
       period: "2024 - Present",
       description:
-        "Delivered 55+ projects for businesses in Indonesia and Australia: WhatsApp AI agents, n8n and ERP integrations (Odoo, Shopee, Mokapos), computer vision systems, and full-stack web apps.",
+        "Delivered 70+ client projects (100+ deliverables) for businesses in Indonesia and Australia: WhatsApp AI agents, n8n and ERP integrations (Odoo, Shopee, Mokapos), computer vision systems, and full-stack web apps.",
       tags: ["n8n", "Next.js", "Computer Vision"],
     },
     {
@@ -79,9 +79,9 @@ export default function About() {
 
   // Sama dengan Beranda: hanya angka yang bisa dipertanggungjawabkan
   const stats = [
-    { value: "55+", label: "Projects Delivered" },
+    { value: "100+", label: "Deliverables Shipped" },
+    { value: "70+", label: "Client Projects" },
     { value: "2+", label: "Years With Clients" },
-    { value: String(projects.length), label: "Case Studies" },
     { value: String(new Set(projects.map((p) => p.category)).size), label: "Tech Domains" },
   ];
 
