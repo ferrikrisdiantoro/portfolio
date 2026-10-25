@@ -34,7 +34,7 @@ export default function About() {
       period: "2024 - Present",
       description:
         "Delivered 70+ client projects (100+ deliverables) for businesses in Indonesia and Australia: WhatsApp AI agents, n8n and ERP integrations (Odoo, Shopee, Mokapos), computer vision systems, and full-stack web apps.",
-      tags: ["n8n", "Next.js", "Computer Vision"],
+      tags: ["n8n", "Next.js", "Machine Learning"],
     },
     {
       company: "DBS Indonesia x Dicoding",

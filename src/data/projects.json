@@ -127,7 +127,7 @@
       "Multi-tenant Supabase backend with Row Level Security, custom JWT claims, and Realtime remote config push to desktop agents",
       "Full Next.js 14 admin dashboard with KPI analytics, time-series charts, user/camera management, and subscription licensing portal"
     ],
-    "type": "Computer Vision",
+    "type": "Machine Learning: Vision",
     "category": "computer-vision",
     "link": "/projects/ppe-detection-vms",
     "thumbnail": "/projects/ppe-detection-vms/cover.png",
@@ -413,7 +413,7 @@
       "PyQt5 desktop GUI with a live annotated video feed and per-inspection capture",
       "CSV and photo export of every inspection result for QC record-keeping and audit trails"
     ],
-    "type": "Computer Vision",
+    "type": "Machine Learning: Vision",
     "category": "computer-vision",
     "link": "/projects/spray-nozzle-ai-inspector",
     "thumbnail": "/projects/spray-nozzle-ai-inspector/cover.png",
@@ -446,7 +446,7 @@
       "Lock Target feature for stable single-individual tracking through occlusion using ByteTrack",
       "Per-camera configurable detection modes (All / Homecare / Restaurant) with SQLite activity logging"
     ],
-    "type": "Computer Vision",
+    "type": "Machine Learning: Vision",
     "category": "computer-vision",
     "link": "/projects/ai-camera-activity-recognition",
     "thumbnail": "/projects/ai-camera-activity-recognition/cover.png",
@@ -901,7 +901,7 @@
       "Computer Vision",
       "Transfer Learning"
     ],
-    "type": "Computer Vision",
+    "type": "Machine Learning: Vision",
     "category": "computer-vision",
     "link": "/projects/si-pendekar-road-ai",
     "thumbnail": "/projects/si-pendekar-road-ai/sipendekar-home.png",
@@ -924,7 +924,7 @@
       "React",
       "MySQL"
     ],
-    "type": "Computer Vision",
+    "type": "Machine Learning: Vision",
     "category": "computer-vision",
     "link": "/projects/fruit-vegetable-classifier",
     "thumbnail": "/projects/fruit-vegetable-classifier/fruitsvegtables-home.png",
@@ -993,7 +993,7 @@
       "Docker Containerization for Easy Deployment",
       "Modular, Production-Ready Codebase"
     ],
-    "type": "Computer Vision",
+    "type": "Machine Learning: Vision",
     "category": "computer-vision",
     "link": "/projects/vehicle-speed-estimation",
     "thumbnail": "/projects/vehicle-speed-estimation/1.png",
@@ -1051,7 +1051,7 @@
       "Docker Containerization",
       "FFmpeg Video Processing Integration"
     ],
-    "type": "Computer Vision",
+    "type": "Machine Learning: Vision",
     "category": "computer-vision",
     "link": "/projects/water-scale-monitor",
     "thumbnail": "/projects/water-scale-monitor/1.png",
@@ -1216,7 +1216,7 @@
       "Responsive Modern UI with Dark Mode Support",
       "Docker Containerization for Easy Deployment"
     ],
-    "type": "Computer Vision",
+    "type": "Machine Learning: Vision",
     "category": "computer-vision",
     "link": "/projects/face-recognition-attendance",
     "thumbnail": "/projects/face-recognition-attendance/1.png",
@@ -1328,7 +1328,7 @@
       "Redis Caching for Performance Optimization",
       "Comprehensive Logging & Error Tracking"
     ],
-    "type": "Computer Vision",
+    "type": "Machine Learning: Vision",
     "category": "computer-vision",
     "link": "/projects/virtual-tryon-nail",
     "thumbnail": "/projects/virtual-tryon-nail/1.png",
@@ -1351,7 +1351,7 @@
       "Streamlit",
       "Image Classification"
     ],
-    "type": "Computer Vision",
+    "type": "Machine Learning: Vision",
     "category": "computer-vision",
     "link": "/projects/waste-classification",
     "thumbnail": "/projects/waste-classification/waste.png",
@@ -1462,7 +1462,7 @@
       "High-Performance CPU Inference with ONNX",
       "JSON-Based Storage (Scalable to PostgreSQL)"
     ],
-    "type": "Computer Vision",
+    "type": "Machine Learning: Vision",
     "category": "computer-vision",
     "link": "/projects/concrete-defect-detection",
     "thumbnail": "/projects/concrete-defect-detection/1.png",

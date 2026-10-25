@@ -41,8 +41,8 @@ export default function Home() {
       examples: "scaffolding rental system, Australian car subscription site, franchise POS",
     },
     {
-      title: "Computer vision",
-      body: "Camera-based detection and measurement that runs on-site, from safety compliance to quality control on the production line.",
+      title: "Machine learning & AI",
+      body: "Custom AI models trained on your own data: cameras that detect and measure on-site, predictions from your numbers, and text that gets read and classified automatically.",
       stack: [["YOLO", "ultralytics.svg"], ["PyTorch", "pytorch.svg"], ["Roboflow", "robflow.svg"], ["Python", "python.svg"]],
       examples: "PPE compliance VMS, spray-nozzle inspector, activity recognition",
     },
@@ -70,7 +70,7 @@ export default function Home() {
                   Krisdiantoro<span className="text-white/50">.</span>
                 </h1>
                 <p className="text-white/75 text-base md:text-lg leading-relaxed max-w-sm">
-                  I build <span className="text-white font-medium">WhatsApp AI agents</span>, <span className="text-white font-medium">business automations</span>, and <span className="text-white font-medium">web apps</span> for small and mid-size businesses.
+                  I build <span className="text-white font-medium">WhatsApp AI agents</span>, <span className="text-white font-medium">machine learning models</span>, <span className="text-white font-medium">business automations</span>, and <span className="text-white font-medium">web apps</span> for small and mid-size businesses.
                 </p>
               </div>
               <div className="relative z-10 flex gap-3 mt-6">
@@ -114,7 +114,7 @@ export default function Home() {
 
             {/* ── Fokus layanan (statis, bukan marquee) ── */}
             <div className="col-span-2 bg-warm-bg rounded-3xl border border-warm-border flex flex-wrap items-center gap-2 p-4 md:px-6">
-              {["WhatsApp AI agents", "n8n & ERP automation", "Web apps", "Computer vision"].map((r) => (
+              {["WhatsApp AI agents", "n8n & ERP automation", "Web apps", "Machine learning & AI"].map((r) => (
                 <span key={r} className="text-xs md:text-sm font-bold font-jakarta text-gray-600 bg-white border border-warm-border rounded-full px-3 py-1.5">{r}</span>
               ))}
             </div>
@@ -138,6 +138,25 @@ export default function Home() {
               </a>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Video portfolio 60 detik ─── */}
+      <section className="pb-16 md:pb-20">
+        <div className="container-main">
+          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2 font-jakarta">Intro video</p>
+          <WordsIn text="Watch the 60-second intro." accent="60-second" className="text-3xl md:text-4xl font-bold font-jakarta mb-6" />
+          <div className="relative w-full overflow-hidden rounded-3xl border border-gray-200 bg-black shadow-sm" style={{ aspectRatio: "16 / 9" }}>
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src="https://www.youtube-nocookie.com/embed/HLpZ0WS-zcY?rel=0"
+              title="Ferri Krisdiantoro, AI Engineer: 60-second portfolio"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
           </div>
         </div>
       </section>

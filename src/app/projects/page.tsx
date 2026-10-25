@@ -10,7 +10,7 @@ import { FilterIcon } from "hugeicons-react";
 /* prettier category labels */
 const categoryLabels: Record<string, string> = {
   All: "All",
-  "computer-vision": "Computer Vision",
+  "computer-vision": "Machine Learning: Vision",
   "data-science": "Data Science",
   "mlops-automation": "MLOps & Automation",
   "nlp-genai": "NLP & GenAI",

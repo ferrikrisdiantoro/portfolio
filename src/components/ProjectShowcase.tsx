@@ -234,7 +234,7 @@ function finance(t: number) {
 export const SCENES: ShowcaseScene[] = [
   { key: "coop", label: "WhatsApp AI agent", project: "Cooperative Automation Platform", caption: "Member signs up and pays inside the chat; the ledger updates itself.", render: cooperative },
   { key: "flow", label: "Automation", project: "Mokapos to WhatsApp Automation", caption: "Nightly POS sales pulled by API, summed per outlet, sent to the owner.", render: automation },
-  { key: "vision", label: "Computer vision", project: "Enterprise PPE Detection VMS", caption: "Cameras flag missing helmets and vests and log each incident.", render: vision },
+  { key: "vision", label: "Machine learning", project: "Enterprise PPE Detection VMS", caption: "Cameras flag missing helmets and vests and log each incident.", render: vision },
   { key: "fin", label: "Mobile app", project: "Dompet", caption: "Log an expense in two steps, or just chat it to the WhatsApp bot.", render: finance },
 ];
 
